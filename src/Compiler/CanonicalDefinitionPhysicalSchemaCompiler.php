@@ -1127,7 +1127,9 @@ final readonly class CanonicalDefinitionPhysicalSchemaCompiler
             $target === null || $target->siteIdentifier !== $site || $target->definitionVersion < 1
             || ($version !== null && $target->definitionVersion !== $version)
         ) {
-            throw new InvalidBusinessSchema('A physical relationship target is unavailable or has a mismatched generation: ' . $handle);
+            throw new InvalidBusinessSchema(
+                'A physical relationship target is unavailable or has a mismatched generation: ' . $handle,
+            );
         }
         return $target;
     }

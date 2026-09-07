@@ -1,9 +1,20 @@
 {
   "schema": "kumwe-service-map/v1",
   "package": "kumwe/business-schema",
-  "provider": null,
-  "factories": [],
+  "provider": "Kumwe\\BusinessSchema\\ConfigProvider",
+  "factories": [
+    "Kumwe\\BusinessSchema\\Container\\PhysicalSchemaCompilerFactory",
+    "Kumwe\\BusinessSchema\\Container\\SchemaChangePlannerFactory"
+  ],
   "aliases": [],
-  "lifetimes": [],
-  "provider_absence_reason": "Values, contracts and stateless deterministic operations are constructed directly. Host ports are explicit inputs; no global context is captured."
+  "lifetimes": {
+    "Kumwe\\BusinessSchema\\Compiler\\CanonicalDefinitionPhysicalSchemaCompiler": "shared",
+    "Kumwe\\BusinessSchema\\Planner\\SchemaChangePlanner": "shared"
+  },
+  "provider_absence_reason": null,
+  "required_host_bindings": [
+    "Kumwe\\BusinessSchema\\Contract\\DefinitionSchemaLookup",
+    "Kumwe\\BusinessDefinition\\Application\\FieldTypeDefinitionResolver",
+    "Kumwe\\BusinessSchema\\Domain\\PhysicalNameCompiler"
+  ]
 }

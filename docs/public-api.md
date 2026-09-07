@@ -1,6 +1,17 @@
 # Public API
 
-All values enforce the documented constructor invariants. Domain methods perform no I/O, own no transaction and make no authorization decisions. Immutable values are safe to share; host inputs and lookup ports must remain generation-stable for the duration of an operation. Exceptions and parameter detail appear below verbatim from the source contract.
+Constructor invariants, serialization, exceptions and method contracts follow. Values perform no I/O; host inputs must remain stable through each operation.
+
+## Kumwe\BusinessSchema\ConfigProvider
+
+/** Deterministic service declarations; trusted lookup and naming configuration are explicit host inputs. */
+
+### __invoke
+
+/**
+     * @return array{dependencies: array{factories: array<class-string, class-string>, shared: array<class-string,
+     * bool>}}
+     */
 
 ## Kumwe\BusinessSchema\Compiler\CanonicalDefinitionPhysicalSchemaCompiler
 
@@ -2297,6 +2308,22 @@ Generated enum/runtime member.
      *
      * @since   2.0.0
      */
+
+## Kumwe\BusinessSchema\Container\PhysicalSchemaCompilerFactory
+
+/** Constructs the compiler only with explicit trusted host inputs. No registry or prefix is invented. */
+
+### __invoke
+
+/** @throws UnexpectedValueException When an advertised host binding has the wrong runtime type. */
+
+## Kumwe\BusinessSchema\Container\SchemaChangePlannerFactory
+
+/** Constructs the stateless planner; immutable input snapshots are supplied to each operation. */
+
+### __invoke
+
+/** @return SchemaChangePlanner Fresh stateless planner; no transaction or host context is captured. */
 
 ## Kumwe\BusinessSchema\Contract\DefinitionSchemaLookup
 

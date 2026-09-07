@@ -4,3 +4,8 @@
 /phpunit.xml export-ignore
 /phpstan.neon export-ignore
 /composer.lock export-ignore
+/phpcs.xml export-ignore
+/composer.local.json export-ignore
+/composer.local.lock export-ignore
+/composer.candidate.json export-ignore
+/composer.candidate.lock export-ignore

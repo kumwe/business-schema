@@ -1,3 +1,3 @@
 # Test ownership
 
-Package tests cover every exported behavior, validation refusal, bound and serialization contract. App retains composed authorization, database, recovery, audit, concurrency and delivery tests. SDK behavior tests for moved contracts are removed in its coordinated successor; App tests exercising host responsibility remain.
+The exact discovered test methods are recorded in `resources/test-ownership/v1.json`. App retains authorization, SQL/database, cryptography, transactions, generation fences, delivery and recovery tests. The coordinated SDK/App successor removes the listed implementation tests only after immutable release verification. Candidate source tests do not claim composed App acceptance.
