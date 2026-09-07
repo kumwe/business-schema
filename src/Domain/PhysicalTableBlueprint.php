@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Kumwe\BusinessSchema\Domain;
 
+use Kumwe\BusinessSchema\Internal\ValueSnapshot;
 use Kumwe\BusinessDefinition\Domain\CanonicalDefinitionJson;
 
 /**
@@ -111,7 +112,7 @@ final readonly class PhysicalTableBlueprint
             static fn (PhysicalColumnBlueprint $left, PhysicalColumnBlueprint $right): int =>
                 [$left->logicalName, $left->physicalName] <=> [$right->logicalName, $right->physicalName],
         );
-        $this->columns = $columns;
+        $this->columns = ValueSnapshot::copy($columns);
         $physicalColumns = array_map(
             static fn (PhysicalColumnBlueprint $column): string => $column->physicalName,
             $this->columns,
@@ -123,7 +124,7 @@ final readonly class PhysicalTableBlueprint
         ) {
             throw new InvalidBusinessSchema('A physical primary key must reference unique table columns.');
         }
-        $this->primaryKey = array_values($primaryKey);
+        $this->primaryKey = ValueSnapshot::copy(array_values($primaryKey));
         $indexes = self::unique(
             $indexes,
             static fn (PhysicalIndexBlueprint $index): array => [$index->logicalName, $index->physicalName],
@@ -134,7 +135,7 @@ final readonly class PhysicalTableBlueprint
             static fn (PhysicalIndexBlueprint $left, PhysicalIndexBlueprint $right): int =>
                 [$left->logicalName, $left->physicalName] <=> [$right->logicalName, $right->physicalName],
         );
-        $this->indexes = $indexes;
+        $this->indexes = ValueSnapshot::copy($indexes);
         foreach ($this->indexes as $index) {
             if (array_diff($index->columns, $physicalColumns) !== []) {
                 throw new InvalidBusinessSchema('A physical index references a column outside its table.');
@@ -150,7 +151,7 @@ final readonly class PhysicalTableBlueprint
             static fn (PhysicalForeignKeyBlueprint $left, PhysicalForeignKeyBlueprint $right): int =>
                 [$left->logicalName, $left->physicalName] <=> [$right->logicalName, $right->physicalName],
         );
-        $this->foreignKeys = $foreignKeys;
+        $this->foreignKeys = ValueSnapshot::copy($foreignKeys);
         foreach ($this->foreignKeys as $foreignKey) {
             if (array_diff($foreignKey->localColumns, $physicalColumns) !== []) {
                 throw new InvalidBusinessSchema('A physical foreign key references a local column outside its table.');
@@ -168,7 +169,7 @@ final readonly class PhysicalTableBlueprint
         SchemaDocument::assertObjectValue($options, 'Physical table options');
         CanonicalDefinitionJson::encode($options);
         ksort($options, SORT_STRING);
-        $this->options = $options;
+        $this->options = ValueSnapshot::copy($options);
     }
 
     /**

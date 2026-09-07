@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Kumwe\BusinessSchema\Domain;
 
+use Kumwe\BusinessSchema\Internal\ValueSnapshot;
 use Kumwe\BusinessDefinition\Domain\CanonicalDefinitionJson;
 
 /**
@@ -69,7 +70,7 @@ final readonly class PhysicalSchemaBlueprint
             static fn (PhysicalTableBlueprint $left, PhysicalTableBlueprint $right): int =>
                 [$left->logicalName, $left->physicalName] <=> [$right->logicalName, $right->physicalName],
         );
-        $this->tables = $tables;
+        $this->tables = ValueSnapshot::copy($tables);
     }
 
     /**

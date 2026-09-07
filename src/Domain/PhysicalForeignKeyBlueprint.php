@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Kumwe\BusinessSchema\Domain;
 
+use Kumwe\BusinessSchema\Internal\ValueSnapshot;
+
 /**
  * Canonical description of one referential constraint leaving a physical table.
  *
@@ -86,8 +88,8 @@ final readonly class PhysicalForeignKeyBlueprint
         if (!in_array($onDelete, self::ACTIONS, true) || !in_array($onUpdate, self::ACTIONS, true)) {
             throw new InvalidBusinessSchema('A foreign key uses an unsupported referential action.');
         }
-        $this->localColumns = $localColumns;
-        $this->foreignColumns = $foreignColumns;
+        $this->localColumns = ValueSnapshot::copy($localColumns);
+        $this->foreignColumns = ValueSnapshot::copy($foreignColumns);
     }
 
     /**

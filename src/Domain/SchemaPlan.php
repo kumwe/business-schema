@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Kumwe\BusinessSchema\Domain;
 
+use Kumwe\BusinessSchema\Internal\ValueSnapshot;
 use DateTimeImmutable;
 use Kumwe\BusinessDefinition\Domain\CanonicalDefinitionJson;
 
@@ -166,8 +167,8 @@ final readonly class SchemaPlan
         if ($approval !== null && !hash_equals($approval->approvedChecksum, $this->checksumFor($operations))) {
             throw new InvalidBusinessSchema('A schema-plan approval is bound to a different canonical plan.');
         }
-        $this->operations = $operations;
-        $this->outcome = $outcome;
+        $this->operations = ValueSnapshot::copy($operations);
+        $this->outcome = ValueSnapshot::copy($outcome);
         $this->updatedAt = $updatedAt ?? $createdAt;
         if ($this->updatedAt < $createdAt) {
             throw new InvalidBusinessSchema('A schema plan cannot be updated before it is created.');

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Kumwe\BusinessSchema\Domain;
 
+use Kumwe\BusinessSchema\Internal\ValueSnapshot;
 use Kumwe\BusinessDefinition\Domain\CanonicalDefinitionJson;
 
 /**
@@ -158,7 +159,7 @@ final readonly class PhysicalColumnBlueprint
         }
         CanonicalDefinitionJson::encode($options);
         ksort($options, SORT_STRING);
-        $this->options = $options;
+        $this->options = ValueSnapshot::copy($options);
     }
 
     /**

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Kumwe\BusinessSchema\Domain;
 
+use Kumwe\BusinessSchema\Internal\ValueSnapshot;
 use DateTimeImmutable;
 use Kumwe\BusinessDefinition\Domain\CanonicalDefinitionJson;
 
@@ -92,7 +93,7 @@ final readonly class SchemaRecoveryEvidence
         SchemaDocument::assertObjectValue($details, 'Recovery evidence details');
         CanonicalDefinitionJson::encode($details);
         ksort($details, SORT_STRING);
-        $this->details = $details;
+        $this->details = ValueSnapshot::copy($details);
     }
 
     /**
