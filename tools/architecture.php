@@ -48,7 +48,15 @@ foreach ($files as $file) {
     ];
 }
 usort($actual, static fn (array $left, array $right): int => strcmp($left['path'], $right['path']));
-if ($actual === [] || $actual !== $expected['tests']) {
+$declared = [];
+foreach ($expected['tests'] as $test) {
+    $declared[] = [
+        'path' => $test['path'],
+        'methods' => $test['methods'],
+        'implementation_owner' => $test['implementation_owner'],
+    ];
+}
+if ($actual === [] || $actual !== $declared) {
     throw new RuntimeException('Test ownership drift: review the exact discovered methods and ownership manifest.');
 }
 echo count($actual) . " package test files and runtime ownership verified.\n";
