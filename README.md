@@ -4,7 +4,7 @@ Portable physical schema blueprints, deterministic change plans and recovery val
 
 Canonical namespace: `Kumwe\BusinessSchema`. Requires PHP 8.5, 64-bit. This is a development extraction candidate; do not publish or adopt until the migration handoff and exact upstream release attestations are reviewed.
 
-Pure values and stateless normalization are constructed directly. No empty container provider is registered. Services with real collaborators receive explicit factories when introduced.
+Values are constructed directly. Register Kumwe\BusinessSchema\ConfigProvider explicitly with your ConfigAggregator. Its factories provide shared compiler and planner services. The host binds DefinitionSchemaLookup, FieldTypeDefinitionResolver and PhysicalNameCompiler; there are no implicit authority or naming defaults. See resources/service-map/v1.json and the runnable examples/consumer.php. The example consumer declares Laminas ServiceManager as its host container dependency.
 
 See [public API](docs/public-api.md), [architecture](docs/architecture.md), [integration](docs/integration.md) and [test ownership](docs/test-ownership.md).
 

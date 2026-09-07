@@ -27,7 +27,8 @@ foreach (range(0, $zip->numFiles - 1) as $index) {
         throw new RuntimeException('Development file leaked into package archive: ' . $name);
     }
 }
-foreach (['composer.json', 'resources/public-api/v1.json', 'MIGRATION-HANDOFF.md'] as $required) {
+$requiredFiles = ['composer.json', 'resources/public-api/v1.json', 'MIGRATION-HANDOFF.md', 'examples/consumer.php'];
+foreach ($requiredFiles as $required) {
     if ($zip->locateName($required) === false) {
         throw new RuntimeException('Missing archive contract: ' . $required);
     }
@@ -38,14 +39,9 @@ unset($package['require-dev'], $package['autoload-dev'], $package['scripts'], $p
 $package['version'] = 'dev-extraction';
 $package['dist'] = ['type' => 'zip', 'url' => 'file://' . $temporary . '/package.zip'];
 $repositories = array_merge([['type' => 'package', 'package' => $package]], $composer['repositories'] ?? []);
-$overlay = getenv('KUMWE_CANDIDATE_REPOSITORIES');
-if (is_string($overlay) && $overlay !== '') {
-    $configuration = json_decode(file_get_contents($overlay), true, 512, JSON_THROW_ON_ERROR);
-    $repositories = array_merge([$repositories[0]], $configuration['repositories']);
-}
 $consumer = [
     'name' => 'kumwe-verification/consumer',
-    'require' => array_merge($configuration['require'] ?? [], [$composer['name'] => 'dev-extraction']),
+    'require' => [$composer['name'] => 'dev-extraction', 'laminas/laminas-servicemanager' => '^4.0'],
     'repositories' => $repositories,
     'minimum-stability' => 'dev',
     'prefer-stable' => true,
@@ -56,8 +52,8 @@ file_put_contents(
     json_encode($consumer, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR) . "\n",
 );
 $run(['composer', 'update', '--no-dev', '--classmap-authoritative', '--no-interaction', '--prefer-dist'], $temporary);
-$run([PHP_BINARY, $root . '/examples/consumer.php', $temporary . '/vendor/autoload.php'], $temporary);
 $installed = $temporary . '/vendor/' . $composer['name'];
+$run([PHP_BINARY, $installed . '/examples/consumer.php', $temporary . '/vendor/autoload.php'], $temporary);
 $manifest = json_decode(
     file_get_contents($installed . '/resources/public-api/v1.json'),
     true,
@@ -87,5 +83,4 @@ file_put_contents($temporary . '/verify.php', $check);
 $run([PHP_BINARY, $temporary . '/verify.php', $temporary . '/vendor/autoload.php',
     $installed . '/resources/public-api/v1.json'], $temporary);
 echo 'Archive SHA-256: ' . hash_file('sha256', $temporary . '/package.zip') . "\n";
-echo $overlay ? "Candidate dependency consumer passed; no release verification claimed.\n"
-    : "Registry dependency consumer passed; immutable release attestation remains separate.\n";
+echo "Archive dependency consumer passed; immutable release attestation remains separate.\n";

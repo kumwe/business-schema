@@ -34,15 +34,29 @@ jobs:
           composer audit --abandoned=fail
       - name: Package implementation and ownership gates
         run: composer check
-      - name: Archive and no-dev classmap-authoritative consumer
-        run: composer clean-consumer
+  release-tests:
+    name: Release automation tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Verify release transitions, prerequisites and repository setup
+        run: |
+          bash tools/test-release-record.sh
+          bash tools/test-release-integrity.sh
+          bash tools/test-release-on-record.sh
+          bash tools/test-configure-release-repositories.sh
+          bash tools/test-release-dependencies.sh
   gate:
     name: Package gate
     runs-on: ubuntu-latest
-    needs: source
+    needs: [source, release-tests]
     if: always()
     steps:
       - name: Require complete source and consumer checks
         env:
+          RELEASE_RESULT: ${{ needs.release-tests.result }}
           SOURCE_RESULT: ${{ needs.source.result }}
-        run: test "$SOURCE_RESULT" = success
+        run: test "$SOURCE_RESULT" = success && test "$RELEASE_RESULT" = success

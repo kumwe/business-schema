@@ -43,13 +43,23 @@
       "@test",
       "@analyse",
       "@cs",
-      "@manifests"
+      "@manifests",
+      "@security:audit",
+      "@release:check",
+      "@clean-consumer"
     ],
     "cs": "phpcs -q",
     "cs:fix": "phpcbf",
     "clean-consumer": "php tools/verify-clean-consumer.php",
     "security:audit": "composer audit --abandoned=fail",
-    "architecture": "php tools/architecture.php"
+    "architecture": "php tools/architecture.php",
+    "release:check": [
+      "bash tools/test-release-record.sh",
+      "bash tools/test-release-integrity.sh",
+      "bash tools/test-release-on-record.sh",
+      "bash tools/test-configure-release-repositories.sh",
+      "bash tools/test-release-dependencies.sh"
+    ]
   },
   "config": {
     "sort-packages": true

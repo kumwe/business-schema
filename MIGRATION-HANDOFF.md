@@ -34,7 +34,8 @@ This candidate contains runtime implementation and package-owned tests. Publicat
         "src/BusinessSchema/Domain/SchemaPlanStep.php",
         "src/BusinessSchema/Domain/SchemaRecoveryEvidence.php",
         "src/BusinessSchema/Domain/SchemaRisk.php",
-        "src/BusinessSchema/Domain/SchemaStepStatus.php"
+        "src/BusinessSchema/Domain/SchemaStepStatus.php",
+        "src/BusinessSchema/Infrastructure/Schema/CanonicalDefinitionPhysicalSchemaCompiler.php"
       ],
       "old_namespace_roots": [
         "Kumwe\\App\\BusinessRecord",
@@ -48,7 +49,7 @@ This candidate contains runtime implementation and package-owned tests. Publicat
         "owner": "kumwe/extension-sdk",
         "version_or_commit": "e8ec23f155c5836c6bd083f154a8efb6e50aec66",
         "manifest_or_corpus": "resources/extraction/v1.json",
-        "sha256": "e84e5825329d3f1a75a82f10db2f56c68af64a1006a9bd0e07b9f21f031680d7"
+        "sha256": "3767932a89b33f6d856b734bb150c4622726aa01df2d0fa8c23b4ef8507bd146"
       }
     ],
     "examined_dependencies": [
@@ -117,7 +118,7 @@ This candidate contains runtime implementation and package-owned tests. Publicat
       },
       {
         "path": "resources/test-ownership/v1.json",
-        "sha256": "8f9c4b5d09cd3c87fbdcc37b0d43703f5b0229da6afc76187655c3d1bc82d779"
+        "sha256": "6c0b0d082223e579929e01531c358265972324bb47810ec87390aa22876f7296"
       }
     ],
     "intentionally_excluded": [
@@ -135,107 +136,160 @@ This candidate contains runtime implementation and package-owned tests. Publicat
       {
         "old_owner": "app",
         "source_path": "src/BusinessSchema/Domain/InvalidBusinessSchema.php",
-        "target_path": "src/Domain/InvalidBusinessSchema.php"
+        "target_path": "src/Domain/InvalidBusinessSchema.php",
+        "extraction_kind": "whole_file"
       },
       {
         "old_owner": "app",
         "source_path": "src/BusinessSchema/Domain/PhysicalColumnBlueprint.php",
-        "target_path": "src/Domain/PhysicalColumnBlueprint.php"
+        "target_path": "src/Domain/PhysicalColumnBlueprint.php",
+        "extraction_kind": "whole_file"
       },
       {
         "old_owner": "app",
         "source_path": "src/BusinessSchema/Domain/PhysicalForeignKeyBlueprint.php",
-        "target_path": "src/Domain/PhysicalForeignKeyBlueprint.php"
+        "target_path": "src/Domain/PhysicalForeignKeyBlueprint.php",
+        "extraction_kind": "whole_file"
       },
       {
         "old_owner": "app",
         "source_path": "src/BusinessSchema/Domain/PhysicalIndexBlueprint.php",
-        "target_path": "src/Domain/PhysicalIndexBlueprint.php"
+        "target_path": "src/Domain/PhysicalIndexBlueprint.php",
+        "extraction_kind": "whole_file"
       },
       {
         "old_owner": "app",
         "source_path": "src/BusinessSchema/Domain/PhysicalNameCompiler.php",
-        "target_path": "src/Domain/PhysicalNameCompiler.php"
+        "target_path": "src/Domain/PhysicalNameCompiler.php",
+        "extraction_kind": "whole_file"
       },
       {
         "old_owner": "app",
         "source_path": "src/BusinessSchema/Domain/PhysicalSchemaBlueprint.php",
-        "target_path": "src/Domain/PhysicalSchemaBlueprint.php"
+        "target_path": "src/Domain/PhysicalSchemaBlueprint.php",
+        "extraction_kind": "whole_file"
       },
       {
         "old_owner": "app",
         "source_path": "src/BusinessSchema/Domain/PhysicalTableBlueprint.php",
-        "target_path": "src/Domain/PhysicalTableBlueprint.php"
+        "target_path": "src/Domain/PhysicalTableBlueprint.php",
+        "extraction_kind": "whole_file"
       },
       {
         "old_owner": "app",
         "source_path": "src/BusinessSchema/Domain/PhysicalTableKind.php",
-        "target_path": "src/Domain/PhysicalTableKind.php"
+        "target_path": "src/Domain/PhysicalTableKind.php",
+        "extraction_kind": "whole_file"
       },
       {
         "old_owner": "app",
         "source_path": "src/BusinessSchema/Domain/SchemaDocument.php",
-        "target_path": "src/Domain/SchemaDocument.php"
+        "target_path": "src/Domain/SchemaDocument.php",
+        "extraction_kind": "whole_file"
       },
       {
         "old_owner": "app",
         "source_path": "src/BusinessSchema/Domain/SchemaEvolutionHints.php",
-        "target_path": "src/Domain/SchemaEvolutionHints.php"
+        "target_path": "src/Domain/SchemaEvolutionHints.php",
+        "extraction_kind": "whole_file"
       },
       {
         "old_owner": "app",
         "source_path": "src/BusinessSchema/Domain/SchemaInstallation.php",
-        "target_path": "src/Domain/SchemaInstallation.php"
+        "target_path": "src/Domain/SchemaInstallation.php",
+        "extraction_kind": "whole_file"
       },
       {
         "old_owner": "app",
         "source_path": "src/BusinessSchema/Domain/SchemaInstallationStatus.php",
-        "target_path": "src/Domain/SchemaInstallationStatus.php"
+        "target_path": "src/Domain/SchemaInstallationStatus.php",
+        "extraction_kind": "whole_file"
       },
       {
         "old_owner": "app",
         "source_path": "src/BusinessSchema/Domain/SchemaOperation.php",
-        "target_path": "src/Domain/SchemaOperation.php"
+        "target_path": "src/Domain/SchemaOperation.php",
+        "extraction_kind": "whole_file"
       },
       {
         "old_owner": "app",
         "source_path": "src/BusinessSchema/Domain/SchemaOperationKind.php",
-        "target_path": "src/Domain/SchemaOperationKind.php"
+        "target_path": "src/Domain/SchemaOperationKind.php",
+        "extraction_kind": "whole_file"
       },
       {
         "old_owner": "app",
         "source_path": "src/BusinessSchema/Domain/SchemaPlan.php",
-        "target_path": "src/Domain/SchemaPlan.php"
+        "target_path": "src/Domain/SchemaPlan.php",
+        "extraction_kind": "whole_file"
       },
       {
         "old_owner": "app",
         "source_path": "src/BusinessSchema/Domain/SchemaPlanApproval.php",
-        "target_path": "src/Domain/SchemaPlanApproval.php"
+        "target_path": "src/Domain/SchemaPlanApproval.php",
+        "extraction_kind": "whole_file"
       },
       {
         "old_owner": "app",
         "source_path": "src/BusinessSchema/Domain/SchemaPlanStatus.php",
-        "target_path": "src/Domain/SchemaPlanStatus.php"
+        "target_path": "src/Domain/SchemaPlanStatus.php",
+        "extraction_kind": "whole_file"
       },
       {
         "old_owner": "app",
         "source_path": "src/BusinessSchema/Domain/SchemaPlanStep.php",
-        "target_path": "src/Domain/SchemaPlanStep.php"
+        "target_path": "src/Domain/SchemaPlanStep.php",
+        "extraction_kind": "whole_file"
       },
       {
         "old_owner": "app",
         "source_path": "src/BusinessSchema/Domain/SchemaRecoveryEvidence.php",
-        "target_path": "src/Domain/SchemaRecoveryEvidence.php"
+        "target_path": "src/Domain/SchemaRecoveryEvidence.php",
+        "extraction_kind": "whole_file"
       },
       {
         "old_owner": "app",
         "source_path": "src/BusinessSchema/Domain/SchemaRisk.php",
-        "target_path": "src/Domain/SchemaRisk.php"
+        "target_path": "src/Domain/SchemaRisk.php",
+        "extraction_kind": "whole_file"
       },
       {
         "old_owner": "app",
         "source_path": "src/BusinessSchema/Domain/SchemaStepStatus.php",
-        "target_path": "src/Domain/SchemaStepStatus.php"
+        "target_path": "src/Domain/SchemaStepStatus.php",
+        "extraction_kind": "whole_file"
+      },
+      {
+        "old_owner": "app",
+        "source_path": "src/BusinessSchema/Infrastructure/Schema/CanonicalDefinitionPhysicalSchemaCompiler.php",
+        "target_path": "src/Compiler/CanonicalDefinitionPhysicalSchemaCompiler.php",
+        "extraction_kind": "whole_file"
+      },
+      {
+        "old_owner": "app",
+        "source_path": "src/BusinessSchema/Application/BusinessSchemaPlanner.php",
+        "target_path": "src/Planner/SchemaChangePlanner.php",
+        "extraction_kind": "partial_methods",
+        "methods": [
+          "operations",
+          "tableOperations",
+          "number",
+          "withoutForeignKeys",
+          "containsPinnedRowBreakingChange",
+          "hasRecordRepin",
+          "additiveColumnRelaxation",
+          "dependencyHandles",
+          "spec",
+          "tablesByLogical",
+          "columnsByLogical",
+          "indexesByLogical",
+          "foreignKeysByLogical",
+          "backfillValue",
+          "backfillValueOrDefault",
+          "backfillState",
+          "transformShadowColumn",
+          "validateEvolutionHints"
+        ]
       }
     ],
     "consumers": {
@@ -260,7 +314,8 @@ This candidate contains runtime implementation and package-owned tests. Publicat
         "src/BusinessSchema/Domain/SchemaPlanStep.php",
         "src/BusinessSchema/Domain/SchemaRecoveryEvidence.php",
         "src/BusinessSchema/Domain/SchemaRisk.php",
-        "src/BusinessSchema/Domain/SchemaStepStatus.php"
+        "src/BusinessSchema/Domain/SchemaStepStatus.php",
+        "src/BusinessSchema/Infrastructure/Schema/CanonicalDefinitionPhysicalSchemaCompiler.php"
       ],
       "configuration_and_di": [],
       "reflection_and_string_references": [
@@ -301,7 +356,9 @@ This candidate contains runtime implementation and package-owned tests. Publicat
           "testRealContainerResolvesSharedCompilerWithExplicitHostPorts",
           "testMissingHostAuthorityBindingDoesNotReceiveAnImplicitDefault"
         ],
-        "implementation_owner": "kumwe/business-schema"
+        "implementation_owner": "kumwe/business-schema",
+        "source_ownership": "new_package_tests",
+        "source_tests": []
       },
       {
         "path": "tests/PhysicalNameCompilerTest.php",
@@ -310,7 +367,22 @@ This candidate contains runtime implementation and package-owned tests. Publicat
           "testRejectsNonCanonicalPrefixesThatCouldCollapseOrProduceInvalidNames",
           "testDistinctCanonicalPrefixesCannotCompileTheSamePhysicalName"
         ],
-        "implementation_owner": "kumwe/business-schema"
+        "implementation_owner": "kumwe/business-schema",
+        "source_ownership": "moved_or_adapted",
+        "source_tests": [
+          {
+            "owner": "app",
+            "baseline_commit": "24ecf956423c18933e824b43cea1bfb9127a79a9",
+            "path": "tests/Unit/BusinessSchema/Domain/PhysicalNameCompilerTest.php",
+            "methods": [
+              "testNamesAreDeterministicBoundedAndDefinitionScoped",
+              "testRejectsNonCanonicalPrefixesThatCouldCollapseOrProduceInvalidNames",
+              "testDistinctCanonicalPrefixesCannotCompileTheSamePhysicalName"
+            ],
+            "retained_methods": [],
+            "remove_whole_file": true
+          }
+        ]
       },
       {
         "path": "tests/PhysicalSchemaCompilerTest.php",
@@ -323,7 +395,29 @@ This candidate contains runtime implementation and package-owned tests. Publicat
           "testForeignKeySupportIndexIsAlwaysExplicitInThePortableBlueprint",
           "testAReversalCompilesToARestrictedSelfTargetColumn"
         ],
-        "implementation_owner": "kumwe/business-schema"
+        "implementation_owner": "kumwe/business-schema",
+        "source_ownership": "moved_or_adapted",
+        "source_tests": [
+          {
+            "owner": "app",
+            "baseline_commit": "24ecf956423c18933e824b43cea1bfb9127a79a9",
+            "path": "tests/Unit/BusinessSchema/Infrastructure/CanonicalDefinitionPhysicalSchemaCompilerTest.php",
+            "methods": [
+              "testReferenceIdentityUsesGuidPrimaryKeyAndScopedAlternateUniqueIndex",
+              "testConstraintNamesCannotCollideAcrossDefinitions",
+              "testVirtualFormulaIsOmittedAndStoredFormulaUsesItsExactResultType",
+              "testStructuredRuntimeDefaultIsNotEmittedAsANonPortableJsonDatabaseDefault",
+              "testPortableTextLengthBoundaryIsPreservedWithoutSilentCapping",
+              "testForeignKeySupportIndexIsAlwaysExplicitInThePortableBlueprint",
+              "testAReversalCompilesToARestrictedSelfTargetColumn"
+            ],
+            "retained_methods": [],
+            "remove_whole_file": false,
+            "retained_assertions": [
+              "BusinessDefinitionValidator assertion belongs to the definition owner and was not extracted."
+            ]
+          }
+        ]
       },
       {
         "path": "tests/SchemaEvolutionHintsTest.php",
@@ -331,14 +425,41 @@ This candidate contains runtime implementation and package-owned tests. Publicat
           "testLiteralAndExpressionBackfillsRoundTripCanonically",
           "testAmbiguousRenameAndEvolutionKeyTyposFailClosed"
         ],
-        "implementation_owner": "kumwe/business-schema"
+        "implementation_owner": "kumwe/business-schema",
+        "source_ownership": "moved_or_adapted",
+        "source_tests": [
+          {
+            "owner": "app",
+            "baseline_commit": "24ecf956423c18933e824b43cea1bfb9127a79a9",
+            "path": "tests/Unit/BusinessSchema/Domain/SchemaEvolutionHintsTest.php",
+            "methods": [
+              "testLiteralAndExpressionBackfillsRoundTripCanonically",
+              "testAmbiguousRenameAndEvolutionKeyTyposFailClosed"
+            ],
+            "retained_methods": [],
+            "remove_whole_file": true
+          }
+        ]
       },
       {
         "path": "tests/SchemaInstallationTest.php",
         "methods": [
           "testExtensionPackageOwnerIdentityIsPreserved"
         ],
-        "implementation_owner": "kumwe/business-schema"
+        "implementation_owner": "kumwe/business-schema",
+        "source_ownership": "moved_or_adapted",
+        "source_tests": [
+          {
+            "owner": "app",
+            "baseline_commit": "24ecf956423c18933e824b43cea1bfb9127a79a9",
+            "path": "tests/Unit/BusinessSchema/Domain/SchemaInstallationTest.php",
+            "methods": [
+              "testExtensionPackageOwnerIdentityIsPreserved"
+            ],
+            "retained_methods": [],
+            "remove_whole_file": true
+          }
+        ]
       },
       {
         "path": "tests/SchemaPlanTest.php",
@@ -346,7 +467,21 @@ This candidate contains runtime implementation and package-owned tests. Publicat
           "testApprovalIsChecksumBoundAndExecutionIsFenceBound",
           "testHighImpactPlanRequiresExactConfirmationAndRecoveryEvidence"
         ],
-        "implementation_owner": "kumwe/business-schema"
+        "implementation_owner": "kumwe/business-schema",
+        "source_ownership": "moved_or_adapted",
+        "source_tests": [
+          {
+            "owner": "app",
+            "baseline_commit": "24ecf956423c18933e824b43cea1bfb9127a79a9",
+            "path": "tests/Unit/BusinessSchema/Domain/SchemaPlanTest.php",
+            "methods": [
+              "testApprovalIsChecksumBoundAndExecutionIsFenceBound",
+              "testHighImpactPlanRequiresExactConfirmationAndRecoveryEvidence"
+            ],
+            "retained_methods": [],
+            "remove_whole_file": true
+          }
+        ]
       },
       {
         "path": "tests/SchemaRecoveryContractTest.php",
@@ -357,7 +492,24 @@ This candidate contains runtime implementation and package-owned tests. Publicat
           "testRecoveryEvidenceQualifiesOnlyForTheExactFreshEnvironmentAndSource",
           "testInterruptedStepAdvancesAttemptAndFenceBeforeCompletion"
         ],
-        "implementation_owner": "kumwe/business-schema"
+        "implementation_owner": "kumwe/business-schema",
+        "source_ownership": "moved_or_adapted",
+        "source_tests": [
+          {
+            "owner": "app",
+            "baseline_commit": "24ecf956423c18933e824b43cea1bfb9127a79a9",
+            "path": "tests/Unit/BusinessSchema/Domain/SchemaRecoveryContractTest.php",
+            "methods": [
+              "testCanonicalPlanOrderAndChecksumSurviveEveryRecoveryTransition",
+              "testPersistedPlanRejectsCanonicalAndApprovalChecksumDrift",
+              "testLockingApprovalRequiresConfirmationAndSourceBoundEvidence",
+              "testRecoveryEvidenceQualifiesOnlyForTheExactFreshEnvironmentAndSource",
+              "testInterruptedStepAdvancesAttemptAndFenceBeforeCompletion"
+            ],
+            "retained_methods": [],
+            "remove_whole_file": true
+          }
+        ]
       }
     ],
     "remain_in_app_or_consumer": [
@@ -413,107 +565,160 @@ This candidate contains runtime implementation and package-owned tests. Publicat
       {
         "old_owner": "app",
         "source_path": "src/BusinessSchema/Domain/InvalidBusinessSchema.php",
-        "target_path": "src/Domain/InvalidBusinessSchema.php"
+        "target_path": "src/Domain/InvalidBusinessSchema.php",
+        "extraction_kind": "whole_file"
       },
       {
         "old_owner": "app",
         "source_path": "src/BusinessSchema/Domain/PhysicalColumnBlueprint.php",
-        "target_path": "src/Domain/PhysicalColumnBlueprint.php"
+        "target_path": "src/Domain/PhysicalColumnBlueprint.php",
+        "extraction_kind": "whole_file"
       },
       {
         "old_owner": "app",
         "source_path": "src/BusinessSchema/Domain/PhysicalForeignKeyBlueprint.php",
-        "target_path": "src/Domain/PhysicalForeignKeyBlueprint.php"
+        "target_path": "src/Domain/PhysicalForeignKeyBlueprint.php",
+        "extraction_kind": "whole_file"
       },
       {
         "old_owner": "app",
         "source_path": "src/BusinessSchema/Domain/PhysicalIndexBlueprint.php",
-        "target_path": "src/Domain/PhysicalIndexBlueprint.php"
+        "target_path": "src/Domain/PhysicalIndexBlueprint.php",
+        "extraction_kind": "whole_file"
       },
       {
         "old_owner": "app",
         "source_path": "src/BusinessSchema/Domain/PhysicalNameCompiler.php",
-        "target_path": "src/Domain/PhysicalNameCompiler.php"
+        "target_path": "src/Domain/PhysicalNameCompiler.php",
+        "extraction_kind": "whole_file"
       },
       {
         "old_owner": "app",
         "source_path": "src/BusinessSchema/Domain/PhysicalSchemaBlueprint.php",
-        "target_path": "src/Domain/PhysicalSchemaBlueprint.php"
+        "target_path": "src/Domain/PhysicalSchemaBlueprint.php",
+        "extraction_kind": "whole_file"
       },
       {
         "old_owner": "app",
         "source_path": "src/BusinessSchema/Domain/PhysicalTableBlueprint.php",
-        "target_path": "src/Domain/PhysicalTableBlueprint.php"
+        "target_path": "src/Domain/PhysicalTableBlueprint.php",
+        "extraction_kind": "whole_file"
       },
       {
         "old_owner": "app",
         "source_path": "src/BusinessSchema/Domain/PhysicalTableKind.php",
-        "target_path": "src/Domain/PhysicalTableKind.php"
+        "target_path": "src/Domain/PhysicalTableKind.php",
+        "extraction_kind": "whole_file"
       },
       {
         "old_owner": "app",
         "source_path": "src/BusinessSchema/Domain/SchemaDocument.php",
-        "target_path": "src/Domain/SchemaDocument.php"
+        "target_path": "src/Domain/SchemaDocument.php",
+        "extraction_kind": "whole_file"
       },
       {
         "old_owner": "app",
         "source_path": "src/BusinessSchema/Domain/SchemaEvolutionHints.php",
-        "target_path": "src/Domain/SchemaEvolutionHints.php"
+        "target_path": "src/Domain/SchemaEvolutionHints.php",
+        "extraction_kind": "whole_file"
       },
       {
         "old_owner": "app",
         "source_path": "src/BusinessSchema/Domain/SchemaInstallation.php",
-        "target_path": "src/Domain/SchemaInstallation.php"
+        "target_path": "src/Domain/SchemaInstallation.php",
+        "extraction_kind": "whole_file"
       },
       {
         "old_owner": "app",
         "source_path": "src/BusinessSchema/Domain/SchemaInstallationStatus.php",
-        "target_path": "src/Domain/SchemaInstallationStatus.php"
+        "target_path": "src/Domain/SchemaInstallationStatus.php",
+        "extraction_kind": "whole_file"
       },
       {
         "old_owner": "app",
         "source_path": "src/BusinessSchema/Domain/SchemaOperation.php",
-        "target_path": "src/Domain/SchemaOperation.php"
+        "target_path": "src/Domain/SchemaOperation.php",
+        "extraction_kind": "whole_file"
       },
       {
         "old_owner": "app",
         "source_path": "src/BusinessSchema/Domain/SchemaOperationKind.php",
-        "target_path": "src/Domain/SchemaOperationKind.php"
+        "target_path": "src/Domain/SchemaOperationKind.php",
+        "extraction_kind": "whole_file"
       },
       {
         "old_owner": "app",
         "source_path": "src/BusinessSchema/Domain/SchemaPlan.php",
-        "target_path": "src/Domain/SchemaPlan.php"
+        "target_path": "src/Domain/SchemaPlan.php",
+        "extraction_kind": "whole_file"
       },
       {
         "old_owner": "app",
         "source_path": "src/BusinessSchema/Domain/SchemaPlanApproval.php",
-        "target_path": "src/Domain/SchemaPlanApproval.php"
+        "target_path": "src/Domain/SchemaPlanApproval.php",
+        "extraction_kind": "whole_file"
       },
       {
         "old_owner": "app",
         "source_path": "src/BusinessSchema/Domain/SchemaPlanStatus.php",
-        "target_path": "src/Domain/SchemaPlanStatus.php"
+        "target_path": "src/Domain/SchemaPlanStatus.php",
+        "extraction_kind": "whole_file"
       },
       {
         "old_owner": "app",
         "source_path": "src/BusinessSchema/Domain/SchemaPlanStep.php",
-        "target_path": "src/Domain/SchemaPlanStep.php"
+        "target_path": "src/Domain/SchemaPlanStep.php",
+        "extraction_kind": "whole_file"
       },
       {
         "old_owner": "app",
         "source_path": "src/BusinessSchema/Domain/SchemaRecoveryEvidence.php",
-        "target_path": "src/Domain/SchemaRecoveryEvidence.php"
+        "target_path": "src/Domain/SchemaRecoveryEvidence.php",
+        "extraction_kind": "whole_file"
       },
       {
         "old_owner": "app",
         "source_path": "src/BusinessSchema/Domain/SchemaRisk.php",
-        "target_path": "src/Domain/SchemaRisk.php"
+        "target_path": "src/Domain/SchemaRisk.php",
+        "extraction_kind": "whole_file"
       },
       {
         "old_owner": "app",
         "source_path": "src/BusinessSchema/Domain/SchemaStepStatus.php",
-        "target_path": "src/Domain/SchemaStepStatus.php"
+        "target_path": "src/Domain/SchemaStepStatus.php",
+        "extraction_kind": "whole_file"
+      },
+      {
+        "old_owner": "app",
+        "source_path": "src/BusinessSchema/Infrastructure/Schema/CanonicalDefinitionPhysicalSchemaCompiler.php",
+        "target_path": "src/Compiler/CanonicalDefinitionPhysicalSchemaCompiler.php",
+        "extraction_kind": "whole_file"
+      },
+      {
+        "old_owner": "app",
+        "source_path": "src/BusinessSchema/Application/BusinessSchemaPlanner.php",
+        "target_path": "src/Planner/SchemaChangePlanner.php",
+        "extraction_kind": "partial_methods",
+        "methods": [
+          "operations",
+          "tableOperations",
+          "number",
+          "withoutForeignKeys",
+          "containsPinnedRowBreakingChange",
+          "hasRecordRepin",
+          "additiveColumnRelaxation",
+          "dependencyHandles",
+          "spec",
+          "tablesByLogical",
+          "columnsByLogical",
+          "indexesByLogical",
+          "foreignKeysByLogical",
+          "backfillValue",
+          "backfillValueOrDefault",
+          "backfillState",
+          "transformShadowColumn",
+          "validateEvolutionHints"
+        ]
       }
     ],
     "files_to_update": [
@@ -545,16 +750,87 @@ This candidate contains runtime implementation and package-owned tests. Publicat
       "src/BusinessSchema/Domain/SchemaPlanStep.php",
       "src/BusinessSchema/Domain/SchemaRecoveryEvidence.php",
       "src/BusinessSchema/Domain/SchemaRisk.php",
-      "src/BusinessSchema/Domain/SchemaStepStatus.php"
+      "src/BusinessSchema/Domain/SchemaStepStatus.php",
+      "src/BusinessSchema/Infrastructure/Schema/CanonicalDefinitionPhysicalSchemaCompiler.php"
     ],
     "tests_to_remove": [
-      "tests/ContainerTest.php",
-      "tests/PhysicalNameCompilerTest.php",
-      "tests/PhysicalSchemaCompilerTest.php",
-      "tests/SchemaEvolutionHintsTest.php",
-      "tests/SchemaInstallationTest.php",
-      "tests/SchemaPlanTest.php",
-      "tests/SchemaRecoveryContractTest.php"
+      {
+        "owner": "app",
+        "baseline_commit": "24ecf956423c18933e824b43cea1bfb9127a79a9",
+        "path": "tests/Unit/BusinessSchema/Domain/PhysicalNameCompilerTest.php",
+        "methods": [
+          "testNamesAreDeterministicBoundedAndDefinitionScoped",
+          "testRejectsNonCanonicalPrefixesThatCouldCollapseOrProduceInvalidNames",
+          "testDistinctCanonicalPrefixesCannotCompileTheSamePhysicalName"
+        ],
+        "retained_methods": [],
+        "remove_whole_file": true
+      },
+      {
+        "owner": "app",
+        "baseline_commit": "24ecf956423c18933e824b43cea1bfb9127a79a9",
+        "path": "tests/Unit/BusinessSchema/Infrastructure/CanonicalDefinitionPhysicalSchemaCompilerTest.php",
+        "methods": [
+          "testReferenceIdentityUsesGuidPrimaryKeyAndScopedAlternateUniqueIndex",
+          "testConstraintNamesCannotCollideAcrossDefinitions",
+          "testVirtualFormulaIsOmittedAndStoredFormulaUsesItsExactResultType",
+          "testStructuredRuntimeDefaultIsNotEmittedAsANonPortableJsonDatabaseDefault",
+          "testPortableTextLengthBoundaryIsPreservedWithoutSilentCapping",
+          "testForeignKeySupportIndexIsAlwaysExplicitInThePortableBlueprint",
+          "testAReversalCompilesToARestrictedSelfTargetColumn"
+        ],
+        "retained_methods": [],
+        "remove_whole_file": false,
+        "retained_assertions": [
+          "BusinessDefinitionValidator assertion belongs to the definition owner and was not extracted."
+        ]
+      },
+      {
+        "owner": "app",
+        "baseline_commit": "24ecf956423c18933e824b43cea1bfb9127a79a9",
+        "path": "tests/Unit/BusinessSchema/Domain/SchemaEvolutionHintsTest.php",
+        "methods": [
+          "testLiteralAndExpressionBackfillsRoundTripCanonically",
+          "testAmbiguousRenameAndEvolutionKeyTyposFailClosed"
+        ],
+        "retained_methods": [],
+        "remove_whole_file": true
+      },
+      {
+        "owner": "app",
+        "baseline_commit": "24ecf956423c18933e824b43cea1bfb9127a79a9",
+        "path": "tests/Unit/BusinessSchema/Domain/SchemaInstallationTest.php",
+        "methods": [
+          "testExtensionPackageOwnerIdentityIsPreserved"
+        ],
+        "retained_methods": [],
+        "remove_whole_file": true
+      },
+      {
+        "owner": "app",
+        "baseline_commit": "24ecf956423c18933e824b43cea1bfb9127a79a9",
+        "path": "tests/Unit/BusinessSchema/Domain/SchemaPlanTest.php",
+        "methods": [
+          "testApprovalIsChecksumBoundAndExecutionIsFenceBound",
+          "testHighImpactPlanRequiresExactConfirmationAndRecoveryEvidence"
+        ],
+        "retained_methods": [],
+        "remove_whole_file": true
+      },
+      {
+        "owner": "app",
+        "baseline_commit": "24ecf956423c18933e824b43cea1bfb9127a79a9",
+        "path": "tests/Unit/BusinessSchema/Domain/SchemaRecoveryContractTest.php",
+        "methods": [
+          "testCanonicalPlanOrderAndChecksumSurviveEveryRecoveryTransition",
+          "testPersistedPlanRejectsCanonicalAndApprovalChecksumDrift",
+          "testLockingApprovalRequiresConfirmationAndSourceBoundEvidence",
+          "testRecoveryEvidenceQualifiesOnlyForTheExactFreshEnvironmentAndSource",
+          "testInterruptedStepAdvancesAttemptAndFenceBeforeCompletion"
+        ],
+        "retained_methods": [],
+        "remove_whole_file": true
+      }
     ],
     "tests_to_retain_or_add": [
       "Host responsibility cases listed above",

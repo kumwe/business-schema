@@ -8,7 +8,9 @@
         "testRealContainerResolvesSharedCompilerWithExplicitHostPorts",
         "testMissingHostAuthorityBindingDoesNotReceiveAnImplicitDefault"
       ],
-      "implementation_owner": "kumwe/business-schema"
+      "implementation_owner": "kumwe/business-schema",
+      "source_ownership": "new_package_tests",
+      "source_tests": []
     },
     {
       "path": "tests/PhysicalNameCompilerTest.php",
@@ -17,7 +19,22 @@
         "testRejectsNonCanonicalPrefixesThatCouldCollapseOrProduceInvalidNames",
         "testDistinctCanonicalPrefixesCannotCompileTheSamePhysicalName"
       ],
-      "implementation_owner": "kumwe/business-schema"
+      "implementation_owner": "kumwe/business-schema",
+      "source_ownership": "moved_or_adapted",
+      "source_tests": [
+        {
+          "owner": "app",
+          "baseline_commit": "24ecf956423c18933e824b43cea1bfb9127a79a9",
+          "path": "tests/Unit/BusinessSchema/Domain/PhysicalNameCompilerTest.php",
+          "methods": [
+            "testNamesAreDeterministicBoundedAndDefinitionScoped",
+            "testRejectsNonCanonicalPrefixesThatCouldCollapseOrProduceInvalidNames",
+            "testDistinctCanonicalPrefixesCannotCompileTheSamePhysicalName"
+          ],
+          "retained_methods": [],
+          "remove_whole_file": true
+        }
+      ]
     },
     {
       "path": "tests/PhysicalSchemaCompilerTest.php",
@@ -30,7 +47,29 @@
         "testForeignKeySupportIndexIsAlwaysExplicitInThePortableBlueprint",
         "testAReversalCompilesToARestrictedSelfTargetColumn"
       ],
-      "implementation_owner": "kumwe/business-schema"
+      "implementation_owner": "kumwe/business-schema",
+      "source_ownership": "moved_or_adapted",
+      "source_tests": [
+        {
+          "owner": "app",
+          "baseline_commit": "24ecf956423c18933e824b43cea1bfb9127a79a9",
+          "path": "tests/Unit/BusinessSchema/Infrastructure/CanonicalDefinitionPhysicalSchemaCompilerTest.php",
+          "methods": [
+            "testReferenceIdentityUsesGuidPrimaryKeyAndScopedAlternateUniqueIndex",
+            "testConstraintNamesCannotCollideAcrossDefinitions",
+            "testVirtualFormulaIsOmittedAndStoredFormulaUsesItsExactResultType",
+            "testStructuredRuntimeDefaultIsNotEmittedAsANonPortableJsonDatabaseDefault",
+            "testPortableTextLengthBoundaryIsPreservedWithoutSilentCapping",
+            "testForeignKeySupportIndexIsAlwaysExplicitInThePortableBlueprint",
+            "testAReversalCompilesToARestrictedSelfTargetColumn"
+          ],
+          "retained_methods": [],
+          "remove_whole_file": false,
+          "retained_assertions": [
+            "BusinessDefinitionValidator assertion belongs to the definition owner and was not extracted."
+          ]
+        }
+      ]
     },
     {
       "path": "tests/SchemaEvolutionHintsTest.php",
@@ -38,14 +77,41 @@
         "testLiteralAndExpressionBackfillsRoundTripCanonically",
         "testAmbiguousRenameAndEvolutionKeyTyposFailClosed"
       ],
-      "implementation_owner": "kumwe/business-schema"
+      "implementation_owner": "kumwe/business-schema",
+      "source_ownership": "moved_or_adapted",
+      "source_tests": [
+        {
+          "owner": "app",
+          "baseline_commit": "24ecf956423c18933e824b43cea1bfb9127a79a9",
+          "path": "tests/Unit/BusinessSchema/Domain/SchemaEvolutionHintsTest.php",
+          "methods": [
+            "testLiteralAndExpressionBackfillsRoundTripCanonically",
+            "testAmbiguousRenameAndEvolutionKeyTyposFailClosed"
+          ],
+          "retained_methods": [],
+          "remove_whole_file": true
+        }
+      ]
     },
     {
       "path": "tests/SchemaInstallationTest.php",
       "methods": [
         "testExtensionPackageOwnerIdentityIsPreserved"
       ],
-      "implementation_owner": "kumwe/business-schema"
+      "implementation_owner": "kumwe/business-schema",
+      "source_ownership": "moved_or_adapted",
+      "source_tests": [
+        {
+          "owner": "app",
+          "baseline_commit": "24ecf956423c18933e824b43cea1bfb9127a79a9",
+          "path": "tests/Unit/BusinessSchema/Domain/SchemaInstallationTest.php",
+          "methods": [
+            "testExtensionPackageOwnerIdentityIsPreserved"
+          ],
+          "retained_methods": [],
+          "remove_whole_file": true
+        }
+      ]
     },
     {
       "path": "tests/SchemaPlanTest.php",
@@ -53,7 +119,21 @@
         "testApprovalIsChecksumBoundAndExecutionIsFenceBound",
         "testHighImpactPlanRequiresExactConfirmationAndRecoveryEvidence"
       ],
-      "implementation_owner": "kumwe/business-schema"
+      "implementation_owner": "kumwe/business-schema",
+      "source_ownership": "moved_or_adapted",
+      "source_tests": [
+        {
+          "owner": "app",
+          "baseline_commit": "24ecf956423c18933e824b43cea1bfb9127a79a9",
+          "path": "tests/Unit/BusinessSchema/Domain/SchemaPlanTest.php",
+          "methods": [
+            "testApprovalIsChecksumBoundAndExecutionIsFenceBound",
+            "testHighImpactPlanRequiresExactConfirmationAndRecoveryEvidence"
+          ],
+          "retained_methods": [],
+          "remove_whole_file": true
+        }
+      ]
     },
     {
       "path": "tests/SchemaRecoveryContractTest.php",
@@ -64,7 +144,24 @@
         "testRecoveryEvidenceQualifiesOnlyForTheExactFreshEnvironmentAndSource",
         "testInterruptedStepAdvancesAttemptAndFenceBeforeCompletion"
       ],
-      "implementation_owner": "kumwe/business-schema"
+      "implementation_owner": "kumwe/business-schema",
+      "source_ownership": "moved_or_adapted",
+      "source_tests": [
+        {
+          "owner": "app",
+          "baseline_commit": "24ecf956423c18933e824b43cea1bfb9127a79a9",
+          "path": "tests/Unit/BusinessSchema/Domain/SchemaRecoveryContractTest.php",
+          "methods": [
+            "testCanonicalPlanOrderAndChecksumSurviveEveryRecoveryTransition",
+            "testPersistedPlanRejectsCanonicalAndApprovalChecksumDrift",
+            "testLockingApprovalRequiresConfirmationAndSourceBoundEvidence",
+            "testRecoveryEvidenceQualifiesOnlyForTheExactFreshEnvironmentAndSource",
+            "testInterruptedStepAdvancesAttemptAndFenceBeforeCompletion"
+          ],
+          "retained_methods": [],
+          "remove_whole_file": true
+        }
+      ]
     }
   ],
   "app_retains": [
