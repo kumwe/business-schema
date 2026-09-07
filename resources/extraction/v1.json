@@ -110,6 +110,41 @@
       "owner": "app",
       "source": "src/BusinessSchema/Domain/SchemaStepStatus.php",
       "target": "src/Domain/SchemaStepStatus.php"
+    },
+    {
+      "owner": "app",
+      "source": "src/BusinessSchema/Infrastructure/Schema/CanonicalDefinitionPhysicalSchemaCompiler.php",
+      "target": "src/Compiler/CanonicalDefinitionPhysicalSchemaCompiler.php",
+      "extraction_kind": "whole_file",
+      "authority_adaptation": "Host registry/site access is replaced by the explicit DefinitionSchemaLookup port."
+    },
+    {
+      "owner": "app",
+      "source": "src/BusinessSchema/Application/BusinessSchemaPlanner.php",
+      "target": "src/Planner/SchemaChangePlanner.php",
+      "extraction_kind": "partial_methods",
+      "methods": [
+        "operations",
+        "tableOperations",
+        "number",
+        "withoutForeignKeys",
+        "containsPinnedRowBreakingChange",
+        "hasRecordRepin",
+        "additiveColumnRelaxation",
+        "dependencyHandles",
+        "spec",
+        "tablesByLogical",
+        "columnsByLogical",
+        "indexesByLogical",
+        "foreignKeysByLogical",
+        "backfillValue",
+        "backfillValueOrDefault",
+        "backfillState",
+        "transformShadowColumn",
+        "validateEvolutionHints"
+      ],
+      "retain_source_file": true,
+      "retained_responsibility": "Host planning orchestration, authority, repositories, environment and lifecycle remain in App."
     }
   ],
   "release_blocked": true

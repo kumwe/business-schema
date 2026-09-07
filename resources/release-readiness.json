@@ -1,0 +1,14 @@
+{
+  "status": "blocked",
+  "reason": "Source candidate checks do not establish immutable dependency release verification.",
+  "dependencies": {
+    "kumwe/business-definition": {
+      "version": "dev-agent/candidate-sequence-dependency-v2",
+      "attestation": null
+    },
+    "kumwe/sequence": {
+      "version": "dev-main",
+      "attestation": null
+    }
+  }
+}
