@@ -8,9 +8,9 @@
     "php": "^8.5",
     "php-64bit": "*",
     "ext-json": "*",
-    "kumwe/business-definition": "dev-main",
+    "kumwe/business-definition": "0.1.0",
     "ramsey/uuid": "^4.9",
-    "kumwe/sequence": "dev-main",
+    "kumwe/sequence": "0.2.0",
     "ext-mbstring": "*",
     "psr/container": "^2.0"
   },
@@ -85,16 +85,6 @@
       "/composer.candidate.lock"
     ]
   },
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/kumwe/business-definition.git"
-    },
-    {
-      "type": "vcs",
-      "url": "https://github.com/kumwe/sequence.git"
-    }
-  ],
-  "minimum-stability": "dev",
+  "minimum-stability": "stable",
   "prefer-stable": true
 }

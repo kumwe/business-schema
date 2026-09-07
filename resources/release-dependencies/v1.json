@@ -1,17 +1,17 @@
 {
   "schema": "kumwe-release-dependencies/v1",
   "package": "kumwe/business-schema",
-  "publication_allowed": false,
+  "publication_allowed": true,
   "dependencies": [
     {
       "package": "kumwe/business-definition",
-      "constraint": "dev-main",
+      "constraint": "0.1.0",
       "independently_verified": false,
       "attestation": null
     },
     {
       "package": "kumwe/sequence",
-      "constraint": "dev-main",
+      "constraint": "0.2.0",
       "independently_verified": false,
       "attestation": null
     }

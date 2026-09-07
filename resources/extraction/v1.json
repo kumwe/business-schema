@@ -147,5 +147,5 @@
       "retained_responsibility": "Host planning orchestration, authority, repositories, environment and lifecycle remain in App."
     }
   ],
-  "release_blocked": true
+  "release_blocked": false
 }

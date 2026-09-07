@@ -36,14 +36,14 @@ foreach ($requiredFiles as $required) {
 $zip->close();
 $package = $composer;
 unset($package['require-dev'], $package['autoload-dev'], $package['scripts'], $package['repositories']);
-$package['version'] = 'dev-extraction';
+$package['version'] = '0.1.0';
 $package['dist'] = ['type' => 'zip', 'url' => 'file://' . $temporary . '/package.zip'];
 $repositories = array_merge([['type' => 'package', 'package' => $package]], $composer['repositories'] ?? []);
 $consumer = [
     'name' => 'kumwe-verification/consumer',
-    'require' => [$composer['name'] => 'dev-extraction', 'laminas/laminas-servicemanager' => '^4.0'],
+    'require' => [$composer['name'] => '0.1.0', 'laminas/laminas-servicemanager' => '^4.0'],
     'repositories' => $repositories,
-    'minimum-stability' => 'dev',
+    'minimum-stability' => 'stable',
     'prefer-stable' => true,
     'config' => ['allow-plugins' => false],
 ];

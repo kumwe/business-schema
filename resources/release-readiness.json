@@ -1,13 +1,13 @@
 {
-  "status": "blocked",
-  "reason": "Publication awaits a release record and exact stable upstream dependency versions. Independent attestations are optional separate verification evidence.",
+  "status": "ready",
+  "reason": "Version 0.1.0 is recorded with exact published stable upstream requirements. Publication verifies tag, source and dist identity; independent adoption evidence remains separate.",
   "dependencies": {
     "kumwe/business-definition": {
-      "version": "dev-main",
+      "version": "0.1.0",
       "attestation": null
     },
     "kumwe/sequence": {
-      "version": "dev-main",
+      "version": "0.2.0",
       "attestation": null
     }
   }

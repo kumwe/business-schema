@@ -1,13 +1,12 @@
 # Releasing
 
-The callable Package CI gate and shared release-on-record helpers are copied from
-Canonical JSON main 584f965e65a22e098e2ca6edff10047b9f9e3041. The dependency-aware
-publication workflow and verifier use the same Business Definition release gate.
-Unreleased-only changelogs do not select a version. No release is recorded here.
+Version 0.1.0 is recorded in CHANGELOG.md and the public API manifest. Direct Kumwe
+requirements name published stable versions. PRs and human rebase merges run the
+same Package gate, including package-owned behavior tests and a stable, no-dev
+archive consumer installation. A successful default-branch run publishes the recorded
+version from the actual tested commit. Existing tags and releases are preserved.
 
-Before recording a stable release, select exact stable dependency versions with
-independent immutable release attestations. The live dependency verifier checks
-the complete resolved Kumwe closure and fails on development versions, mutable
-releases or missing evidence. Source CI runs its isolated regression fixtures.
-The shared helper verifies the tested default-branch identity and existing tags
-before any publication. Maintainers retain merge and publication authority.
+Normal publication verifies dependency tag, source and installed dist identity.
+Branch protection, GitHub's immutable-release setting and external attestations are
+optional and do not block this publication path. The separate strict evidence audit
+remains available for downstream adoption; App integration is a subsequent change.
