@@ -1,0 +1,50 @@
+{
+  "name": "kumwe/business-schema",
+  "description": "Portable physical schema blueprints, deterministic change plans and recovery values.",
+  "type": "library",
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/kumwe/business-schema",
+  "require": {
+    "php": "^8.5",
+    "php-64bit": "*",
+    "ext-json": "*",
+    "kumwe/business-definition": "0.1.0",
+    "ramsey/uuid": "^4.9",
+    "kumwe/sequence": "0.2.0",
+    "ext-mbstring": "*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^12.0",
+    "phpstan/phpstan": "^2.1",
+    "squizlabs/php_codesniffer": "^4.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Kumwe\\BusinessSchema\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Kumwe\\BusinessSchema\\Tests\\": "tests/"
+    }
+  },
+  "scripts": {
+    "test": "phpunit",
+    "lint": "php tools/lint.php",
+    "analyse": "phpstan analyse --no-progress --memory-limit=1G",
+    "manifests": "php tools/manifests.php",
+    "check": [
+      "composer validate --strict",
+      "@lint",
+      "@test",
+      "@analyse",
+      "@cs",
+      "@manifests"
+    ],
+    "cs": "phpcs -q",
+    "cs:fix": "phpcbf"
+  },
+  "config": {
+    "sort-packages": true
+  }
+}

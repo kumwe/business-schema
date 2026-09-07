@@ -1,0 +1,9 @@
+{
+  "schema": "kumwe-service-map/v1",
+  "package": "kumwe/business-schema",
+  "provider": null,
+  "factories": [],
+  "aliases": [],
+  "lifetimes": [],
+  "provider_absence_reason": "Values, contracts and stateless deterministic operations are constructed directly. Host ports are explicit inputs; no global context is captured."
+}
