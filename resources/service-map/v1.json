@@ -1,20 +1,22 @@
 {
-    "schema": "kumwe-service-map/v1",
+    "schema": "kumwe-package-service-map/v1",
     "package": "kumwe/business-schema",
-    "provider": "Kumwe\\BusinessSchema\\ConfigProvider",
-    "factories": [
-        "Kumwe\\BusinessSchema\\Container\\PhysicalSchemaCompilerFactory",
-        "Kumwe\\BusinessSchema\\Container\\SchemaChangePlannerFactory"
-    ],
-    "aliases": [],
-    "lifetimes": {
-        "Kumwe\\BusinessSchema\\Compiler\\CanonicalDefinitionPhysicalSchemaCompiler": "shared",
-        "Kumwe\\BusinessSchema\\Planner\\SchemaChangePlanner": "shared"
-    },
+    "release": "0.1.1",
+    "config_provider": "Kumwe\\BusinessSchema\\ConfigProvider",
     "provider_absence_reason": null,
-    "required_host_bindings": [
-        "Kumwe\\BusinessSchema\\Contract\\DefinitionSchemaLookup",
-        "Kumwe\\BusinessDefinition\\Application\\FieldTypeDefinitionResolver",
-        "Kumwe\\BusinessSchema\\Domain\\PhysicalNameCompiler"
-    ]
+    "factories": [
+        {
+            "service": "Kumwe\\BusinessSchema\\Compiler\\CanonicalDefinitionPhysicalSchemaCompiler",
+            "factory": "Kumwe\\BusinessSchema\\Container\\PhysicalSchemaCompilerFactory",
+            "lifetime": "shared"
+        },
+        {
+            "service": "Kumwe\\BusinessSchema\\Planner\\SchemaChangePlanner",
+            "factory": "Kumwe\\BusinessSchema\\Container\\SchemaChangePlannerFactory",
+            "lifetime": "shared"
+        }
+    ],
+    "aliases": {},
+    "delegators": [],
+    "configuration_keys": []
 }

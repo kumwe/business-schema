@@ -2,6 +2,8 @@
 
 ## 0.1.1 - 2026-09-07
 
+- Ship consumer-readable v2 manifests and YAML handoff with package-local governance drift checks and refreshed App consumer inventory.
+
 - Detach schema operations, plans, blueprints and recovery metadata from caller references so approved checksums and recovery input cannot change after admission.
 - Add package-owned regression tests and refresh extraction handoff, dependency and release documentation.
 - Keep exact stable dependency requirements; grouped weekly update PRs re-run the package gate.

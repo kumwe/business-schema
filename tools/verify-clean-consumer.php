@@ -64,8 +64,7 @@ $check = <<<'CHECK'
 <?php
 $loader = require $argv[1];
 $manifest = json_decode(file_get_contents($argv[2]), true, 512, JSON_THROW_ON_ERROR);
-foreach ($manifest['symbols'] as $symbol) {
-    $name = $symbol['name'];
+foreach ($manifest['symbols'] as $name => $symbol) {
     if (!class_exists($name) && !interface_exists($name) && !enum_exists($name)) {
         throw new RuntimeException('Unresolvable archive API: ' . $name);
     }

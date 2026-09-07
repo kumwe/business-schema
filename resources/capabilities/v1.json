@@ -1,16 +1,53 @@
 {
-    "schema": "kumwe-capabilities/v1",
+    "schema": "kumwe-package-capabilities/v1",
     "package": "kumwe/business-schema",
+    "release": "0.1.1",
+    "namespace": "Kumwe\\BusinessSchema\\",
+    "responsibility": "Portable physical schema blueprints, deterministic change plans and recovery values.",
+    "non_responsibilities": [
+        "Database execution, persistence, transactions and App orchestration.",
+        "Authorization and tenant authority remain host supplied."
+    ],
     "capabilities": [
         {
             "id": "business-schema.portable-semantics",
-            "responsibility": "Portable physical schema blueprints, deterministic change plans and recovery values.",
-            "implementation_owner": "kumwe/business-schema",
+            "title": "Business Schema portable semantics",
+            "description": "Portable physical schema blueprints, deterministic change plans and recovery values.",
+            "symbols": [
+                "Kumwe\\BusinessSchema\\Compiler\\CanonicalDefinitionPhysicalSchemaCompiler",
+                "Kumwe\\BusinessSchema\\ConfigProvider",
+                "Kumwe\\BusinessSchema\\Container\\PhysicalSchemaCompilerFactory",
+                "Kumwe\\BusinessSchema\\Container\\SchemaChangePlannerFactory",
+                "Kumwe\\BusinessSchema\\Contract\\DefinitionSchemaLookup",
+                "Kumwe\\BusinessSchema\\Domain\\InvalidBusinessSchema",
+                "Kumwe\\BusinessSchema\\Domain\\PhysicalColumnBlueprint",
+                "Kumwe\\BusinessSchema\\Domain\\PhysicalForeignKeyBlueprint",
+                "Kumwe\\BusinessSchema\\Domain\\PhysicalIndexBlueprint",
+                "Kumwe\\BusinessSchema\\Domain\\PhysicalNameCompiler",
+                "Kumwe\\BusinessSchema\\Domain\\PhysicalSchemaBlueprint",
+                "Kumwe\\BusinessSchema\\Domain\\PhysicalTableBlueprint",
+                "Kumwe\\BusinessSchema\\Domain\\PhysicalTableKind",
+                "Kumwe\\BusinessSchema\\Domain\\SchemaDocument",
+                "Kumwe\\BusinessSchema\\Domain\\SchemaEvolutionHints",
+                "Kumwe\\BusinessSchema\\Domain\\SchemaInstallation",
+                "Kumwe\\BusinessSchema\\Domain\\SchemaInstallationStatus",
+                "Kumwe\\BusinessSchema\\Domain\\SchemaOperation",
+                "Kumwe\\BusinessSchema\\Domain\\SchemaOperationKind",
+                "Kumwe\\BusinessSchema\\Domain\\SchemaPlan",
+                "Kumwe\\BusinessSchema\\Domain\\SchemaPlanApproval",
+                "Kumwe\\BusinessSchema\\Domain\\SchemaPlanStatus",
+                "Kumwe\\BusinessSchema\\Domain\\SchemaPlanStep",
+                "Kumwe\\BusinessSchema\\Domain\\SchemaRecoveryEvidence",
+                "Kumwe\\BusinessSchema\\Domain\\SchemaRisk",
+                "Kumwe\\BusinessSchema\\Domain\\SchemaStepStatus",
+                "Kumwe\\BusinessSchema\\Planner\\SchemaChangePlanner"
+            ],
             "documentation": [
                 "docs/public-api.md",
                 "docs/architecture.md"
             ]
         }
     ],
-    "release_verified": false
+    "native_requirements": null,
+    "deprecations": []
 }
