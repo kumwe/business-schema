@@ -1,6 +1,6 @@
 {
   "status": "blocked",
-  "reason": "Source candidate checks do not establish immutable dependency release verification.",
+  "reason": "Publication awaits a release record and exact stable upstream dependency versions. Independent attestations are optional separate verification evidence.",
   "dependencies": {
     "kumwe/business-definition": {
       "version": "dev-main",

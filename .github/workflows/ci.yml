@@ -49,6 +49,7 @@ jobs:
           bash tools/test-release-on-record.sh
           bash tools/test-configure-release-repositories.sh
           bash tools/test-release-dependencies.sh
+          bash tools/test-package-dependencies.sh
   gate:
     name: Package gate
     runs-on: ubuntu-latest
