@@ -1,0 +1,77 @@
+{
+  "schema": "kumwe-test-ownership/v1",
+  "package": "kumwe/business-schema",
+  "tests": [
+    {
+      "path": "tests/ContainerTest.php",
+      "methods": [
+        "testRealContainerResolvesSharedCompilerWithExplicitHostPorts",
+        "testMissingHostAuthorityBindingDoesNotReceiveAnImplicitDefault"
+      ],
+      "implementation_owner": "kumwe/business-schema"
+    },
+    {
+      "path": "tests/PhysicalNameCompilerTest.php",
+      "methods": [
+        "testNamesAreDeterministicBoundedAndDefinitionScoped",
+        "testRejectsNonCanonicalPrefixesThatCouldCollapseOrProduceInvalidNames",
+        "testDistinctCanonicalPrefixesCannotCompileTheSamePhysicalName"
+      ],
+      "implementation_owner": "kumwe/business-schema"
+    },
+    {
+      "path": "tests/PhysicalSchemaCompilerTest.php",
+      "methods": [
+        "testReferenceIdentityUsesGuidPrimaryKeyAndScopedAlternateUniqueIndex",
+        "testConstraintNamesCannotCollideAcrossDefinitions",
+        "testVirtualFormulaIsOmittedAndStoredFormulaUsesItsExactResultType",
+        "testStructuredRuntimeDefaultIsNotEmittedAsANonPortableJsonDatabaseDefault",
+        "testPortableTextLengthBoundaryIsPreservedWithoutSilentCapping",
+        "testForeignKeySupportIndexIsAlwaysExplicitInThePortableBlueprint",
+        "testAReversalCompilesToARestrictedSelfTargetColumn"
+      ],
+      "implementation_owner": "kumwe/business-schema"
+    },
+    {
+      "path": "tests/SchemaEvolutionHintsTest.php",
+      "methods": [
+        "testLiteralAndExpressionBackfillsRoundTripCanonically",
+        "testAmbiguousRenameAndEvolutionKeyTyposFailClosed"
+      ],
+      "implementation_owner": "kumwe/business-schema"
+    },
+    {
+      "path": "tests/SchemaInstallationTest.php",
+      "methods": [
+        "testExtensionPackageOwnerIdentityIsPreserved"
+      ],
+      "implementation_owner": "kumwe/business-schema"
+    },
+    {
+      "path": "tests/SchemaPlanTest.php",
+      "methods": [
+        "testApprovalIsChecksumBoundAndExecutionIsFenceBound",
+        "testHighImpactPlanRequiresExactConfirmationAndRecoveryEvidence"
+      ],
+      "implementation_owner": "kumwe/business-schema"
+    },
+    {
+      "path": "tests/SchemaRecoveryContractTest.php",
+      "methods": [
+        "testCanonicalPlanOrderAndChecksumSurviveEveryRecoveryTransition",
+        "testPersistedPlanRejectsCanonicalAndApprovalChecksumDrift",
+        "testLockingApprovalRequiresConfirmationAndSourceBoundEvidence",
+        "testRecoveryEvidenceQualifiesOnlyForTheExactFreshEnvironmentAndSource",
+        "testInterruptedStepAdvancesAttemptAndFenceBeforeCompletion"
+      ],
+      "implementation_owner": "kumwe/business-schema"
+    }
+  ],
+  "app_retains": [
+    "authorization and generation pinning",
+    "policy-before-query and SQL",
+    "persistence and transaction atomicity",
+    "delivery, export and operational recovery"
+  ],
+  "remove_duplicates_only_after_verified_adoption": true
+}

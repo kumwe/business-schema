@@ -8,15 +8,18 @@
     "php": "^8.5",
     "php-64bit": "*",
     "ext-json": "*",
-    "kumwe/business-definition": "0.1.0",
+    "kumwe/business-definition": "dev-agent/candidate-sequence-dependency-v2",
     "ramsey/uuid": "^4.9",
-    "kumwe/sequence": "0.2.0",
-    "ext-mbstring": "*"
+    "kumwe/sequence": "dev-main",
+    "ext-mbstring": "*",
+    "psr/container": "^2.0"
   },
   "require-dev": {
     "phpunit/phpunit": "^12.0",
     "phpstan/phpstan": "^2.1",
-    "squizlabs/php_codesniffer": "^4.0"
+    "squizlabs/php_codesniffer": "^4.0",
+    "laminas/laminas-servicemanager": "^4.0",
+    "ext-zip": "*"
   },
   "autoload": {
     "psr-4": {
@@ -36,15 +39,51 @@
     "check": [
       "composer validate --strict",
       "@lint",
+      "@architecture",
       "@test",
       "@analyse",
       "@cs",
       "@manifests"
     ],
     "cs": "phpcs -q",
-    "cs:fix": "phpcbf"
+    "cs:fix": "phpcbf",
+    "clean-consumer": "php tools/verify-clean-consumer.php",
+    "security:audit": "composer audit --abandoned=fail",
+    "architecture": "php tools/architecture.php"
   },
   "config": {
     "sort-packages": true
-  }
+  },
+  "archive": {
+    "exclude": [
+      "/vendor",
+      "/tests",
+      "/tools",
+      "/.github",
+      "/composer.local.json",
+      "/composer.local.lock",
+      "/composer.lock",
+      "/phpstan.neon",
+      "/phpcs.xml",
+      "/phpunit.xml",
+      "/.phpstan-cache",
+      "/.phpunit.cache",
+      "/.gitignore",
+      "/.gitattributes",
+      "/composer.candidate.json",
+      "/composer.candidate.lock"
+    ]
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/kumwe/business-definition.git"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/kumwe/sequence.git"
+    }
+  ],
+  "minimum-stability": "dev",
+  "prefer-stable": true
 }

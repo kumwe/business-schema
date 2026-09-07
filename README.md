@@ -8,4 +8,4 @@ Pure values and stateless normalization are constructed directly. No empty conta
 
 See [public API](docs/public-api.md), [architecture](docs/architecture.md), [integration](docs/integration.md) and [test ownership](docs/test-ownership.md).
 
-Run `composer install` followed by `composer check`. License: Apache-2.0.
+For candidate source verification, follow `docs/integration.md`. Run `composer check` after installing the explicit candidate toolchain. `composer clean-consumer` verifies the archive in a fresh no-dev classmap-authoritative consumer. License: Apache-2.0.

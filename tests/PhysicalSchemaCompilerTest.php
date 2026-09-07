@@ -208,8 +208,11 @@ final class PhysicalSchemaCompilerTest extends TestCase
             public function __construct(private array $targets)
             {
             }
-            public function published(string $siteIdentifier, string $handle, ?int $version = null): ?EntityTypeDefinition
-            {
+            public function published(
+                string $siteIdentifier,
+                string $handle,
+                ?int $version = null
+            ): ?EntityTypeDefinition {
                 foreach ($this->targets as $target) {
                     if (
                         $target->handle === $handle && $target->siteIdentifier === $siteIdentifier
@@ -221,7 +224,11 @@ final class PhysicalSchemaCompilerTest extends TestCase
                 return null;
             }
         };
-        return new CanonicalDefinitionPhysicalSchemaCompiler($lookup, new FieldTypeRegistry(), new PhysicalNameCompiler('kumwe_'));
+        return new CanonicalDefinitionPhysicalSchemaCompiler(
+            $lookup,
+            new FieldTypeRegistry(),
+            new PhysicalNameCompiler('kumwe_')
+        );
     }
 
     /**

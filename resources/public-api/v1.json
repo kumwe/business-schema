@@ -62,6 +62,64 @@
             "constants": []
         },
         {
+            "name": "Kumwe\\BusinessSchema\\ConfigProvider",
+            "kind": "class",
+            "methods": [
+                {
+                    "name": "__invoke",
+                    "static": false,
+                    "parameters": [],
+                    "return": "array"
+                }
+            ],
+            "properties": [],
+            "constants": []
+        },
+        {
+            "name": "Kumwe\\BusinessSchema\\Container\\PhysicalSchemaCompilerFactory",
+            "kind": "class",
+            "methods": [
+                {
+                    "name": "__invoke",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "container",
+                            "type": "Psr\\Container\\ContainerInterface",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\BusinessSchema\\Compiler\\CanonicalDefinitionPhysicalSchemaCompiler"
+                }
+            ],
+            "properties": [],
+            "constants": []
+        },
+        {
+            "name": "Kumwe\\BusinessSchema\\Container\\SchemaChangePlannerFactory",
+            "kind": "class",
+            "methods": [
+                {
+                    "name": "__invoke",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "container",
+                            "type": "Psr\\Container\\ContainerInterface",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\BusinessSchema\\Planner\\SchemaChangePlanner"
+                }
+            ],
+            "properties": [],
+            "constants": []
+        },
+        {
             "name": "Kumwe\\BusinessSchema\\Contract\\DefinitionSchemaLookup",
             "kind": "interface",
             "methods": [
