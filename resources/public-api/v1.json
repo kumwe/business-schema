@@ -1,0 +1,3435 @@
+{
+    "schema": "kumwe-public-api/v1",
+    "package": "kumwe/business-schema",
+    "release": null,
+    "namespace": "Kumwe\\BusinessSchema\\",
+    "symbols": [
+        {
+            "name": "Kumwe\\BusinessSchema\\Compiler\\CanonicalDefinitionPhysicalSchemaCompiler",
+            "kind": "class",
+            "methods": [
+                {
+                    "name": "__construct",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "definitions",
+                            "type": "Kumwe\\BusinessSchema\\Contract\\DefinitionSchemaLookup",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "fieldTypes",
+                            "type": "Kumwe\\BusinessDefinition\\Application\\FieldTypeDefinitionResolver",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "names",
+                            "type": "Kumwe\\BusinessSchema\\Domain\\PhysicalNameCompiler",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": ""
+                },
+                {
+                    "name": "compile",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "definition",
+                            "type": "Kumwe\\BusinessDefinition\\Domain\\EntityTypeDefinition",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "site",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\BusinessSchema\\Domain\\PhysicalSchemaBlueprint"
+                }
+            ],
+            "properties": [],
+            "constants": []
+        },
+        {
+            "name": "Kumwe\\BusinessSchema\\Contract\\DefinitionSchemaLookup",
+            "kind": "interface",
+            "methods": [
+                {
+                    "name": "published",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "siteIdentifier",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "handle",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "version",
+                            "type": "?int",
+                            "optional": true,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "?Kumwe\\BusinessDefinition\\Domain\\EntityTypeDefinition"
+                }
+            ],
+            "properties": [],
+            "constants": []
+        },
+        {
+            "name": "Kumwe\\BusinessSchema\\Domain\\InvalidBusinessSchema",
+            "kind": "class",
+            "methods": [],
+            "properties": [],
+            "constants": []
+        },
+        {
+            "name": "Kumwe\\BusinessSchema\\Domain\\PhysicalColumnBlueprint",
+            "kind": "class",
+            "methods": [
+                {
+                    "name": "__construct",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "logicalName",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "physicalName",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "doctrineType",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "options",
+                            "type": "array",
+                            "optional": true,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "nullable",
+                            "type": "bool",
+                            "optional": true,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": ""
+                },
+                {
+                    "name": "fromArray",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "document",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\BusinessSchema\\Domain\\PhysicalColumnBlueprint"
+                },
+                {
+                    "name": "toArray",
+                    "static": false,
+                    "parameters": [],
+                    "return": "array"
+                }
+            ],
+            "properties": [
+                {
+                    "name": "options",
+                    "type": "array",
+                    "readonly": true
+                },
+                {
+                    "name": "logicalName",
+                    "type": "string",
+                    "readonly": true
+                },
+                {
+                    "name": "physicalName",
+                    "type": "string",
+                    "readonly": true
+                },
+                {
+                    "name": "doctrineType",
+                    "type": "string",
+                    "readonly": true
+                },
+                {
+                    "name": "nullable",
+                    "type": "bool",
+                    "readonly": true
+                }
+            ],
+            "constants": []
+        },
+        {
+            "name": "Kumwe\\BusinessSchema\\Domain\\PhysicalForeignKeyBlueprint",
+            "kind": "class",
+            "methods": [
+                {
+                    "name": "__construct",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "logicalName",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "physicalName",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "localColumns",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "foreignTable",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "foreignColumns",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "onDelete",
+                            "type": "string",
+                            "optional": true,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "onUpdate",
+                            "type": "string",
+                            "optional": true,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": ""
+                },
+                {
+                    "name": "fromArray",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "document",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\BusinessSchema\\Domain\\PhysicalForeignKeyBlueprint"
+                },
+                {
+                    "name": "toArray",
+                    "static": false,
+                    "parameters": [],
+                    "return": "array"
+                }
+            ],
+            "properties": [
+                {
+                    "name": "localColumns",
+                    "type": "array",
+                    "readonly": true
+                },
+                {
+                    "name": "foreignColumns",
+                    "type": "array",
+                    "readonly": true
+                },
+                {
+                    "name": "logicalName",
+                    "type": "string",
+                    "readonly": true
+                },
+                {
+                    "name": "physicalName",
+                    "type": "string",
+                    "readonly": true
+                },
+                {
+                    "name": "foreignTable",
+                    "type": "string",
+                    "readonly": true
+                },
+                {
+                    "name": "onDelete",
+                    "type": "string",
+                    "readonly": true
+                },
+                {
+                    "name": "onUpdate",
+                    "type": "string",
+                    "readonly": true
+                }
+            ],
+            "constants": []
+        },
+        {
+            "name": "Kumwe\\BusinessSchema\\Domain\\PhysicalIndexBlueprint",
+            "kind": "class",
+            "methods": [
+                {
+                    "name": "__construct",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "logicalName",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "physicalName",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "columns",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "unique",
+                            "type": "bool",
+                            "optional": true,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "options",
+                            "type": "array",
+                            "optional": true,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": ""
+                },
+                {
+                    "name": "fromArray",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "document",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\BusinessSchema\\Domain\\PhysicalIndexBlueprint"
+                },
+                {
+                    "name": "toArray",
+                    "static": false,
+                    "parameters": [],
+                    "return": "array"
+                }
+            ],
+            "properties": [
+                {
+                    "name": "columns",
+                    "type": "array",
+                    "readonly": true
+                },
+                {
+                    "name": "options",
+                    "type": "array",
+                    "readonly": true
+                },
+                {
+                    "name": "logicalName",
+                    "type": "string",
+                    "readonly": true
+                },
+                {
+                    "name": "physicalName",
+                    "type": "string",
+                    "readonly": true
+                },
+                {
+                    "name": "unique",
+                    "type": "bool",
+                    "readonly": true
+                }
+            ],
+            "constants": []
+        },
+        {
+            "name": "Kumwe\\BusinessSchema\\Domain\\PhysicalNameCompiler",
+            "kind": "class",
+            "methods": [
+                {
+                    "name": "__construct",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "prefix",
+                            "type": "string",
+                            "optional": true,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": ""
+                },
+                {
+                    "name": "entityTable",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "definitionId",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "handle",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "string"
+                },
+                {
+                    "name": "relationTable",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "definitionId",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "handle",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "string"
+                },
+                {
+                    "name": "lineTable",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "definitionId",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "handle",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "string"
+                },
+                {
+                    "name": "column",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "logicalName",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "string"
+                },
+                {
+                    "name": "index",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "tableLogicalName",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "logicalName",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "columns",
+                            "type": "array",
+                            "optional": true,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "string"
+                },
+                {
+                    "name": "foreignKey",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "tableLogicalName",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "logicalName",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "columns",
+                            "type": "array",
+                            "optional": true,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "string"
+                },
+                {
+                    "name": "compile",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "category",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "parts",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "string"
+                }
+            ],
+            "properties": [],
+            "constants": []
+        },
+        {
+            "name": "Kumwe\\BusinessSchema\\Domain\\PhysicalSchemaBlueprint",
+            "kind": "class",
+            "methods": [
+                {
+                    "name": "__construct",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "definitionId",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "definitionVersion",
+                            "type": "int",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "definitionChecksum",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "tables",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": ""
+                },
+                {
+                    "name": "fromArray",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "document",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\BusinessSchema\\Domain\\PhysicalSchemaBlueprint"
+                },
+                {
+                    "name": "tables",
+                    "static": false,
+                    "parameters": [],
+                    "return": "array"
+                },
+                {
+                    "name": "table",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "logicalHandle",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "?Kumwe\\BusinessSchema\\Domain\\PhysicalTableBlueprint"
+                },
+                {
+                    "name": "toArray",
+                    "static": false,
+                    "parameters": [],
+                    "return": "array"
+                },
+                {
+                    "name": "checksum",
+                    "static": false,
+                    "parameters": [],
+                    "return": "string"
+                }
+            ],
+            "properties": [
+                {
+                    "name": "definitionId",
+                    "type": "string",
+                    "readonly": true
+                },
+                {
+                    "name": "definitionVersion",
+                    "type": "int",
+                    "readonly": true
+                },
+                {
+                    "name": "definitionChecksum",
+                    "type": "string",
+                    "readonly": true
+                }
+            ],
+            "constants": []
+        },
+        {
+            "name": "Kumwe\\BusinessSchema\\Domain\\PhysicalTableBlueprint",
+            "kind": "class",
+            "methods": [
+                {
+                    "name": "__construct",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "logicalName",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "physicalName",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "kind",
+                            "type": "Kumwe\\BusinessSchema\\Domain\\PhysicalTableKind",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "columns",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "primaryKey",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "indexes",
+                            "type": "array",
+                            "optional": true,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "foreignKeys",
+                            "type": "array",
+                            "optional": true,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "options",
+                            "type": "array",
+                            "optional": true,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": ""
+                },
+                {
+                    "name": "fromArray",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "document",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\BusinessSchema\\Domain\\PhysicalTableBlueprint"
+                },
+                {
+                    "name": "columns",
+                    "static": false,
+                    "parameters": [],
+                    "return": "array"
+                },
+                {
+                    "name": "column",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "logicalName",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "?Kumwe\\BusinessSchema\\Domain\\PhysicalColumnBlueprint"
+                },
+                {
+                    "name": "physicalColumn",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "physicalName",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "?Kumwe\\BusinessSchema\\Domain\\PhysicalColumnBlueprint"
+                },
+                {
+                    "name": "indexes",
+                    "static": false,
+                    "parameters": [],
+                    "return": "array"
+                },
+                {
+                    "name": "foreignKeys",
+                    "static": false,
+                    "parameters": [],
+                    "return": "array"
+                },
+                {
+                    "name": "toArray",
+                    "static": false,
+                    "parameters": [],
+                    "return": "array"
+                }
+            ],
+            "properties": [
+                {
+                    "name": "primaryKey",
+                    "type": "array",
+                    "readonly": true
+                },
+                {
+                    "name": "options",
+                    "type": "array",
+                    "readonly": true
+                },
+                {
+                    "name": "logicalName",
+                    "type": "string",
+                    "readonly": true
+                },
+                {
+                    "name": "physicalName",
+                    "type": "string",
+                    "readonly": true
+                },
+                {
+                    "name": "kind",
+                    "type": "Kumwe\\BusinessSchema\\Domain\\PhysicalTableKind",
+                    "readonly": true
+                }
+            ],
+            "constants": []
+        },
+        {
+            "name": "Kumwe\\BusinessSchema\\Domain\\PhysicalTableKind",
+            "kind": "enum",
+            "methods": [
+                {
+                    "name": "cases",
+                    "static": true,
+                    "parameters": [],
+                    "return": "array"
+                },
+                {
+                    "name": "from",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "value",
+                            "type": "string|int",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "static"
+                },
+                {
+                    "name": "tryFrom",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "value",
+                            "type": "string|int",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "?static"
+                }
+            ],
+            "properties": [
+                {
+                    "name": "name",
+                    "type": "string",
+                    "readonly": true
+                },
+                {
+                    "name": "value",
+                    "type": "string",
+                    "readonly": true
+                }
+            ],
+            "constants": [
+                "Entity",
+                "Relation",
+                "Junction",
+                "OwnedLine"
+            ]
+        },
+        {
+            "name": "Kumwe\\BusinessSchema\\Domain\\SchemaDocument",
+            "kind": "class",
+            "methods": [
+                {
+                    "name": "assertOnly",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "document",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "allowed",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "subject",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "void"
+                },
+                {
+                    "name": "string",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "document",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "key",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "string"
+                },
+                {
+                    "name": "nullableString",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "document",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "key",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "?string"
+                },
+                {
+                    "name": "integer",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "document",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "key",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "int"
+                },
+                {
+                    "name": "nullableInteger",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "document",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "key",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "?int"
+                },
+                {
+                    "name": "boolean",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "document",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "key",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "default",
+                            "type": "bool",
+                            "optional": true,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "bool"
+                },
+                {
+                    "name": "object",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "document",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "key",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "nullable",
+                            "type": "bool",
+                            "optional": true,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "?array"
+                },
+                {
+                    "name": "objects",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "document",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "key",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "array"
+                },
+                {
+                    "name": "strings",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "document",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "key",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "array"
+                },
+                {
+                    "name": "assertUuid",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "value",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "subject",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "void"
+                },
+                {
+                    "name": "assertChecksum",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "value",
+                            "type": "?string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "subject",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "nullable",
+                            "type": "bool",
+                            "optional": true,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "void"
+                },
+                {
+                    "name": "assertIdentifier",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "value",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "subject",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "maximum",
+                            "type": "int",
+                            "optional": true,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "void"
+                },
+                {
+                    "name": "assertBoundedText",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "value",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "subject",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "maximum",
+                            "type": "int",
+                            "optional": true,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "void"
+                },
+                {
+                    "name": "assertObjectValue",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "value",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "subject",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "void"
+                },
+                {
+                    "name": "assertPhysicalIdentifier",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "value",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "subject",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "void"
+                },
+                {
+                    "name": "date",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "value",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "subject",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "DateTimeImmutable"
+                },
+                {
+                    "name": "formatDate",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "value",
+                            "type": "DateTimeInterface",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "string"
+                }
+            ],
+            "properties": [],
+            "constants": []
+        },
+        {
+            "name": "Kumwe\\BusinessSchema\\Domain\\SchemaEvolutionHints",
+            "kind": "class",
+            "methods": [
+                {
+                    "name": "fromDefinition",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "definition",
+                            "type": "Kumwe\\BusinessDefinition\\Domain\\EntityTypeDefinition",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\BusinessSchema\\Domain\\SchemaEvolutionHints"
+                },
+                {
+                    "name": "fromArray",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "document",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\BusinessSchema\\Domain\\SchemaEvolutionHints"
+                },
+                {
+                    "name": "renameForTable",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "logicalTable",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "array"
+                },
+                {
+                    "name": "hasBackfill",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "logicalColumn",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "bool"
+                },
+                {
+                    "name": "backfill",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "logicalColumn",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\BusinessDefinition\\Domain\\Expression|string|int|bool|null"
+                },
+                {
+                    "name": "transform",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "logicalColumn",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "?Kumwe\\BusinessDefinition\\Domain\\Expression"
+                },
+                {
+                    "name": "transforms",
+                    "static": false,
+                    "parameters": [],
+                    "return": "array"
+                },
+                {
+                    "name": "renames",
+                    "static": false,
+                    "parameters": [],
+                    "return": "array"
+                },
+                {
+                    "name": "backfills",
+                    "static": false,
+                    "parameters": [],
+                    "return": "array"
+                },
+                {
+                    "name": "repin",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "definitionHandle",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "?int"
+                },
+                {
+                    "name": "repins",
+                    "static": false,
+                    "parameters": [],
+                    "return": "array"
+                },
+                {
+                    "name": "toArray",
+                    "static": false,
+                    "parameters": [],
+                    "return": "array"
+                },
+                {
+                    "name": "checksum",
+                    "static": false,
+                    "parameters": [],
+                    "return": "string"
+                }
+            ],
+            "properties": [],
+            "constants": []
+        },
+        {
+            "name": "Kumwe\\BusinessSchema\\Domain\\SchemaInstallation",
+            "kind": "class",
+            "methods": [
+                {
+                    "name": "__construct",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "definitionId",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "siteIdentifier",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "ownerIdentifier",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "definitionVersion",
+                            "type": "int",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "definitionChecksum",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "schemaChecksum",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "blueprint",
+                            "type": "Kumwe\\BusinessSchema\\Domain\\PhysicalSchemaBlueprint",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "status",
+                            "type": "Kumwe\\BusinessSchema\\Domain\\SchemaInstallationStatus",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "installedAt",
+                            "type": "DateTimeImmutable",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "updatedAt",
+                            "type": "DateTimeImmutable",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": ""
+                },
+                {
+                    "name": "fromArray",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "document",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\BusinessSchema\\Domain\\SchemaInstallation"
+                },
+                {
+                    "name": "disable",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "at",
+                            "type": "DateTimeImmutable",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\BusinessSchema\\Domain\\SchemaInstallation"
+                },
+                {
+                    "name": "reactivate",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "at",
+                            "type": "DateTimeImmutable",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\BusinessSchema\\Domain\\SchemaInstallation"
+                },
+                {
+                    "name": "preserve",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "at",
+                            "type": "DateTimeImmutable",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\BusinessSchema\\Domain\\SchemaInstallation"
+                },
+                {
+                    "name": "toArray",
+                    "static": false,
+                    "parameters": [],
+                    "return": "array"
+                }
+            ],
+            "properties": [
+                {
+                    "name": "definitionId",
+                    "type": "string",
+                    "readonly": true
+                },
+                {
+                    "name": "siteIdentifier",
+                    "type": "string",
+                    "readonly": true
+                },
+                {
+                    "name": "ownerIdentifier",
+                    "type": "string",
+                    "readonly": true
+                },
+                {
+                    "name": "definitionVersion",
+                    "type": "int",
+                    "readonly": true
+                },
+                {
+                    "name": "definitionChecksum",
+                    "type": "string",
+                    "readonly": true
+                },
+                {
+                    "name": "schemaChecksum",
+                    "type": "string",
+                    "readonly": true
+                },
+                {
+                    "name": "blueprint",
+                    "type": "Kumwe\\BusinessSchema\\Domain\\PhysicalSchemaBlueprint",
+                    "readonly": true
+                },
+                {
+                    "name": "status",
+                    "type": "Kumwe\\BusinessSchema\\Domain\\SchemaInstallationStatus",
+                    "readonly": true
+                },
+                {
+                    "name": "installedAt",
+                    "type": "DateTimeImmutable",
+                    "readonly": true
+                },
+                {
+                    "name": "updatedAt",
+                    "type": "DateTimeImmutable",
+                    "readonly": true
+                }
+            ],
+            "constants": []
+        },
+        {
+            "name": "Kumwe\\BusinessSchema\\Domain\\SchemaInstallationStatus",
+            "kind": "enum",
+            "methods": [
+                {
+                    "name": "cases",
+                    "static": true,
+                    "parameters": [],
+                    "return": "array"
+                },
+                {
+                    "name": "from",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "value",
+                            "type": "string|int",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "static"
+                },
+                {
+                    "name": "tryFrom",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "value",
+                            "type": "string|int",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "?static"
+                }
+            ],
+            "properties": [
+                {
+                    "name": "name",
+                    "type": "string",
+                    "readonly": true
+                },
+                {
+                    "name": "value",
+                    "type": "string",
+                    "readonly": true
+                }
+            ],
+            "constants": [
+                "Installing",
+                "Active",
+                "Disabled",
+                "Preserved",
+                "Failed"
+            ]
+        },
+        {
+            "name": "Kumwe\\BusinessSchema\\Domain\\SchemaOperation",
+            "kind": "class",
+            "methods": [
+                {
+                    "name": "__construct",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "ordinal",
+                            "type": "int",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "kind",
+                            "type": "Kumwe\\BusinessSchema\\Domain\\SchemaOperationKind",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "risk",
+                            "type": "Kumwe\\BusinessSchema\\Domain\\SchemaRisk",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "table",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "subject",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "before",
+                            "type": "?array",
+                            "optional": true,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "after",
+                            "type": "?array",
+                            "optional": true,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "requiresBackfill",
+                            "type": "bool",
+                            "optional": true,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "recoveryImplication",
+                            "type": "string",
+                            "optional": true,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": ""
+                },
+                {
+                    "name": "fromArray",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "document",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\BusinessSchema\\Domain\\SchemaOperation"
+                },
+                {
+                    "name": "toArray",
+                    "static": false,
+                    "parameters": [],
+                    "return": "array"
+                },
+                {
+                    "name": "persistedArray",
+                    "static": false,
+                    "parameters": [],
+                    "return": "array"
+                },
+                {
+                    "name": "checksum",
+                    "static": false,
+                    "parameters": [],
+                    "return": "string"
+                }
+            ],
+            "properties": [
+                {
+                    "name": "before",
+                    "type": "?array",
+                    "readonly": true
+                },
+                {
+                    "name": "after",
+                    "type": "?array",
+                    "readonly": true
+                },
+                {
+                    "name": "ordinal",
+                    "type": "int",
+                    "readonly": true
+                },
+                {
+                    "name": "kind",
+                    "type": "Kumwe\\BusinessSchema\\Domain\\SchemaOperationKind",
+                    "readonly": true
+                },
+                {
+                    "name": "risk",
+                    "type": "Kumwe\\BusinessSchema\\Domain\\SchemaRisk",
+                    "readonly": true
+                },
+                {
+                    "name": "table",
+                    "type": "string",
+                    "readonly": true
+                },
+                {
+                    "name": "subject",
+                    "type": "string",
+                    "readonly": true
+                },
+                {
+                    "name": "requiresBackfill",
+                    "type": "bool",
+                    "readonly": true
+                },
+                {
+                    "name": "recoveryImplication",
+                    "type": "string",
+                    "readonly": true
+                }
+            ],
+            "constants": []
+        },
+        {
+            "name": "Kumwe\\BusinessSchema\\Domain\\SchemaOperationKind",
+            "kind": "enum",
+            "methods": [
+                {
+                    "name": "cases",
+                    "static": true,
+                    "parameters": [],
+                    "return": "array"
+                },
+                {
+                    "name": "from",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "value",
+                            "type": "string|int",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "static"
+                },
+                {
+                    "name": "tryFrom",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "value",
+                            "type": "string|int",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "?static"
+                }
+            ],
+            "properties": [
+                {
+                    "name": "name",
+                    "type": "string",
+                    "readonly": true
+                },
+                {
+                    "name": "value",
+                    "type": "string",
+                    "readonly": true
+                }
+            ],
+            "constants": [
+                "CreateTable",
+                "RenameTable",
+                "DropTable",
+                "AddColumn",
+                "AlterColumn",
+                "RenameColumn",
+                "DropColumn",
+                "AddPrimaryKey",
+                "DropPrimaryKey",
+                "AddIndex",
+                "DropIndex",
+                "AddForeignKey",
+                "DropForeignKey",
+                "Backfill",
+                "Transform",
+                "RepinRecords",
+                "ValidateConstraint"
+            ]
+        },
+        {
+            "name": "Kumwe\\BusinessSchema\\Domain\\SchemaPlan",
+            "kind": "class",
+            "methods": [
+                {
+                    "name": "__construct",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "id",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "definitionId",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "siteIdentifier",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "fromDefinitionVersion",
+                            "type": "?int",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "toDefinitionVersion",
+                            "type": "int",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "fromDefinitionChecksum",
+                            "type": "?string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "toDefinitionChecksum",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "fromSchemaChecksum",
+                            "type": "?string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "targetSchemaChecksum",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "operations",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "risk",
+                            "type": "Kumwe\\BusinessSchema\\Domain\\SchemaRisk",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "status",
+                            "type": "Kumwe\\BusinessSchema\\Domain\\SchemaPlanStatus",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "revision",
+                            "type": "int",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "createdBy",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "createdAt",
+                            "type": "DateTimeImmutable",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "approval",
+                            "type": "?Kumwe\\BusinessSchema\\Domain\\SchemaPlanApproval",
+                            "optional": true,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "recoveryEvidenceId",
+                            "type": "?string",
+                            "optional": true,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "executionFence",
+                            "type": "?int",
+                            "optional": true,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "outcome",
+                            "type": "?array",
+                            "optional": true,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "updatedAt",
+                            "type": "?DateTimeImmutable",
+                            "optional": true,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": ""
+                },
+                {
+                    "name": "fromArray",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "document",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\BusinessSchema\\Domain\\SchemaPlan"
+                },
+                {
+                    "name": "operations",
+                    "static": false,
+                    "parameters": [],
+                    "return": "array"
+                },
+                {
+                    "name": "approve",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "actorIdentifier",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "approvedAt",
+                            "type": "DateTimeImmutable",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "expectedChecksum",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "confirmationDigest",
+                            "type": "?string",
+                            "optional": true,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "recoveryEvidenceId",
+                            "type": "?string",
+                            "optional": true,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\BusinessSchema\\Domain\\SchemaPlan"
+                },
+                {
+                    "name": "begin",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "fence",
+                            "type": "int",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "at",
+                            "type": "DateTimeImmutable",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\BusinessSchema\\Domain\\SchemaPlan"
+                },
+                {
+                    "name": "resume",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "fence",
+                            "type": "int",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "at",
+                            "type": "DateTimeImmutable",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\BusinessSchema\\Domain\\SchemaPlan"
+                },
+                {
+                    "name": "complete",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "outcome",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "at",
+                            "type": "DateTimeImmutable",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\BusinessSchema\\Domain\\SchemaPlan"
+                },
+                {
+                    "name": "fail",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "errorCode",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "outcome",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "at",
+                            "type": "DateTimeImmutable",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\BusinessSchema\\Domain\\SchemaPlan"
+                },
+                {
+                    "name": "recoveryRequired",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "errorCode",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "outcome",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "at",
+                            "type": "DateTimeImmutable",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\BusinessSchema\\Domain\\SchemaPlan"
+                },
+                {
+                    "name": "compensate",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "outcome",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "at",
+                            "type": "DateTimeImmutable",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\BusinessSchema\\Domain\\SchemaPlan"
+                },
+                {
+                    "name": "canonicalPlan",
+                    "static": false,
+                    "parameters": [],
+                    "return": "array"
+                },
+                {
+                    "name": "checksum",
+                    "static": false,
+                    "parameters": [],
+                    "return": "string"
+                },
+                {
+                    "name": "toArray",
+                    "static": false,
+                    "parameters": [],
+                    "return": "array"
+                }
+            ],
+            "properties": [
+                {
+                    "name": "outcome",
+                    "type": "?array",
+                    "readonly": true
+                },
+                {
+                    "name": "updatedAt",
+                    "type": "DateTimeImmutable",
+                    "readonly": true
+                },
+                {
+                    "name": "id",
+                    "type": "string",
+                    "readonly": true
+                },
+                {
+                    "name": "definitionId",
+                    "type": "string",
+                    "readonly": true
+                },
+                {
+                    "name": "siteIdentifier",
+                    "type": "string",
+                    "readonly": true
+                },
+                {
+                    "name": "fromDefinitionVersion",
+                    "type": "?int",
+                    "readonly": true
+                },
+                {
+                    "name": "toDefinitionVersion",
+                    "type": "int",
+                    "readonly": true
+                },
+                {
+                    "name": "fromDefinitionChecksum",
+                    "type": "?string",
+                    "readonly": true
+                },
+                {
+                    "name": "toDefinitionChecksum",
+                    "type": "string",
+                    "readonly": true
+                },
+                {
+                    "name": "fromSchemaChecksum",
+                    "type": "?string",
+                    "readonly": true
+                },
+                {
+                    "name": "targetSchemaChecksum",
+                    "type": "string",
+                    "readonly": true
+                },
+                {
+                    "name": "risk",
+                    "type": "Kumwe\\BusinessSchema\\Domain\\SchemaRisk",
+                    "readonly": true
+                },
+                {
+                    "name": "status",
+                    "type": "Kumwe\\BusinessSchema\\Domain\\SchemaPlanStatus",
+                    "readonly": true
+                },
+                {
+                    "name": "revision",
+                    "type": "int",
+                    "readonly": true
+                },
+                {
+                    "name": "createdBy",
+                    "type": "string",
+                    "readonly": true
+                },
+                {
+                    "name": "createdAt",
+                    "type": "DateTimeImmutable",
+                    "readonly": true
+                },
+                {
+                    "name": "approval",
+                    "type": "?Kumwe\\BusinessSchema\\Domain\\SchemaPlanApproval",
+                    "readonly": true
+                },
+                {
+                    "name": "recoveryEvidenceId",
+                    "type": "?string",
+                    "readonly": true
+                },
+                {
+                    "name": "executionFence",
+                    "type": "?int",
+                    "readonly": true
+                }
+            ],
+            "constants": []
+        },
+        {
+            "name": "Kumwe\\BusinessSchema\\Domain\\SchemaPlanApproval",
+            "kind": "class",
+            "methods": [
+                {
+                    "name": "__construct",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "actorIdentifier",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "approvedAt",
+                            "type": "DateTimeImmutable",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "approvedChecksum",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "confirmationDigest",
+                            "type": "?string",
+                            "optional": true,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": ""
+                },
+                {
+                    "name": "fromArray",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "document",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\BusinessSchema\\Domain\\SchemaPlanApproval"
+                },
+                {
+                    "name": "toArray",
+                    "static": false,
+                    "parameters": [],
+                    "return": "array"
+                }
+            ],
+            "properties": [
+                {
+                    "name": "actorIdentifier",
+                    "type": "string",
+                    "readonly": true
+                },
+                {
+                    "name": "approvedAt",
+                    "type": "DateTimeImmutable",
+                    "readonly": true
+                },
+                {
+                    "name": "approvedChecksum",
+                    "type": "string",
+                    "readonly": true
+                },
+                {
+                    "name": "confirmationDigest",
+                    "type": "?string",
+                    "readonly": true
+                }
+            ],
+            "constants": []
+        },
+        {
+            "name": "Kumwe\\BusinessSchema\\Domain\\SchemaPlanStatus",
+            "kind": "enum",
+            "methods": [
+                {
+                    "name": "terminal",
+                    "static": false,
+                    "parameters": [],
+                    "return": "bool"
+                },
+                {
+                    "name": "cases",
+                    "static": true,
+                    "parameters": [],
+                    "return": "array"
+                },
+                {
+                    "name": "from",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "value",
+                            "type": "string|int",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "static"
+                },
+                {
+                    "name": "tryFrom",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "value",
+                            "type": "string|int",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "?static"
+                }
+            ],
+            "properties": [
+                {
+                    "name": "name",
+                    "type": "string",
+                    "readonly": true
+                },
+                {
+                    "name": "value",
+                    "type": "string",
+                    "readonly": true
+                }
+            ],
+            "constants": [
+                "PendingApproval",
+                "Approved",
+                "Executing",
+                "Completed",
+                "Failed",
+                "RecoveryRequired",
+                "Compensated",
+                "Cancelled"
+            ]
+        },
+        {
+            "name": "Kumwe\\BusinessSchema\\Domain\\SchemaPlanStep",
+            "kind": "class",
+            "methods": [
+                {
+                    "name": "__construct",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "planId",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "ordinal",
+                            "type": "int",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "operationChecksum",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "operationKind",
+                            "type": "Kumwe\\BusinessSchema\\Domain\\SchemaOperationKind",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "risk",
+                            "type": "Kumwe\\BusinessSchema\\Domain\\SchemaRisk",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "state",
+                            "type": "Kumwe\\BusinessSchema\\Domain\\SchemaStepStatus",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "attempt",
+                            "type": "int",
+                            "optional": true,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "executionFence",
+                            "type": "?int",
+                            "optional": true,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "cursor",
+                            "type": "?array",
+                            "optional": true,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "beforeSchemaChecksum",
+                            "type": "?string",
+                            "optional": true,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "afterSchemaChecksum",
+                            "type": "?string",
+                            "optional": true,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "outcome",
+                            "type": "?array",
+                            "optional": true,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "errorCode",
+                            "type": "?string",
+                            "optional": true,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "startedAt",
+                            "type": "?DateTimeImmutable",
+                            "optional": true,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "completedAt",
+                            "type": "?DateTimeImmutable",
+                            "optional": true,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "updatedAt",
+                            "type": "?DateTimeImmutable",
+                            "optional": true,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": ""
+                },
+                {
+                    "name": "fromArray",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "document",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\BusinessSchema\\Domain\\SchemaPlanStep"
+                },
+                {
+                    "name": "pending",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "planId",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "operation",
+                            "type": "Kumwe\\BusinessSchema\\Domain\\SchemaOperation",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "updatedAt",
+                            "type": "?DateTimeImmutable",
+                            "optional": true,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\BusinessSchema\\Domain\\SchemaPlanStep"
+                },
+                {
+                    "name": "start",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "executionFence",
+                            "type": "int",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "beforeSchemaChecksum",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "at",
+                            "type": "DateTimeImmutable",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\BusinessSchema\\Domain\\SchemaPlanStep"
+                },
+                {
+                    "name": "resume",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "executionFence",
+                            "type": "int",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "at",
+                            "type": "DateTimeImmutable",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\BusinessSchema\\Domain\\SchemaPlanStep"
+                },
+                {
+                    "name": "checkpoint",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "cursor",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "at",
+                            "type": "DateTimeImmutable",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\BusinessSchema\\Domain\\SchemaPlanStep"
+                },
+                {
+                    "name": "complete",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "afterSchemaChecksum",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "outcome",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "at",
+                            "type": "DateTimeImmutable",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\BusinessSchema\\Domain\\SchemaPlanStep"
+                },
+                {
+                    "name": "fail",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "errorCode",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "outcome",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "at",
+                            "type": "DateTimeImmutable",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\BusinessSchema\\Domain\\SchemaPlanStep"
+                },
+                {
+                    "name": "toArray",
+                    "static": false,
+                    "parameters": [],
+                    "return": "array"
+                }
+            ],
+            "properties": [
+                {
+                    "name": "cursor",
+                    "type": "?array",
+                    "readonly": true
+                },
+                {
+                    "name": "outcome",
+                    "type": "?array",
+                    "readonly": true
+                },
+                {
+                    "name": "planId",
+                    "type": "string",
+                    "readonly": true
+                },
+                {
+                    "name": "ordinal",
+                    "type": "int",
+                    "readonly": true
+                },
+                {
+                    "name": "operationChecksum",
+                    "type": "string",
+                    "readonly": true
+                },
+                {
+                    "name": "operationKind",
+                    "type": "Kumwe\\BusinessSchema\\Domain\\SchemaOperationKind",
+                    "readonly": true
+                },
+                {
+                    "name": "risk",
+                    "type": "Kumwe\\BusinessSchema\\Domain\\SchemaRisk",
+                    "readonly": true
+                },
+                {
+                    "name": "state",
+                    "type": "Kumwe\\BusinessSchema\\Domain\\SchemaStepStatus",
+                    "readonly": true
+                },
+                {
+                    "name": "attempt",
+                    "type": "int",
+                    "readonly": true
+                },
+                {
+                    "name": "executionFence",
+                    "type": "?int",
+                    "readonly": true
+                },
+                {
+                    "name": "beforeSchemaChecksum",
+                    "type": "?string",
+                    "readonly": true
+                },
+                {
+                    "name": "afterSchemaChecksum",
+                    "type": "?string",
+                    "readonly": true
+                },
+                {
+                    "name": "errorCode",
+                    "type": "?string",
+                    "readonly": true
+                },
+                {
+                    "name": "startedAt",
+                    "type": "?DateTimeImmutable",
+                    "readonly": true
+                },
+                {
+                    "name": "completedAt",
+                    "type": "?DateTimeImmutable",
+                    "readonly": true
+                },
+                {
+                    "name": "updatedAt",
+                    "type": "?DateTimeImmutable",
+                    "readonly": true
+                }
+            ],
+            "constants": []
+        },
+        {
+            "name": "Kumwe\\BusinessSchema\\Domain\\SchemaRecoveryEvidence",
+            "kind": "class",
+            "methods": [
+                {
+                    "name": "__construct",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "id",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "siteIdentifier",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "databaseDriver",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "databaseServerVersion",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "applicationRelease",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "sourceSchemaChecksum",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "backupManifestChecksum",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "restoreTested",
+                            "type": "bool",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "backupCreatedAt",
+                            "type": "DateTimeImmutable",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "verifiedAt",
+                            "type": "DateTimeImmutable",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "verifiedBy",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "drillReference",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "details",
+                            "type": "array",
+                            "optional": true,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": ""
+                },
+                {
+                    "name": "fromArray",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "document",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\BusinessSchema\\Domain\\SchemaRecoveryEvidence"
+                },
+                {
+                    "name": "qualifies",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "siteIdentifier",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "driver",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "serverVersion",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "applicationRelease",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "schemaChecksum",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "notBefore",
+                            "type": "DateTimeImmutable",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "bool"
+                },
+                {
+                    "name": "toArray",
+                    "static": false,
+                    "parameters": [],
+                    "return": "array"
+                },
+                {
+                    "name": "checksum",
+                    "static": false,
+                    "parameters": [],
+                    "return": "string"
+                }
+            ],
+            "properties": [
+                {
+                    "name": "details",
+                    "type": "array",
+                    "readonly": true
+                },
+                {
+                    "name": "id",
+                    "type": "string",
+                    "readonly": true
+                },
+                {
+                    "name": "siteIdentifier",
+                    "type": "string",
+                    "readonly": true
+                },
+                {
+                    "name": "databaseDriver",
+                    "type": "string",
+                    "readonly": true
+                },
+                {
+                    "name": "databaseServerVersion",
+                    "type": "string",
+                    "readonly": true
+                },
+                {
+                    "name": "applicationRelease",
+                    "type": "string",
+                    "readonly": true
+                },
+                {
+                    "name": "sourceSchemaChecksum",
+                    "type": "string",
+                    "readonly": true
+                },
+                {
+                    "name": "backupManifestChecksum",
+                    "type": "string",
+                    "readonly": true
+                },
+                {
+                    "name": "restoreTested",
+                    "type": "bool",
+                    "readonly": true
+                },
+                {
+                    "name": "backupCreatedAt",
+                    "type": "DateTimeImmutable",
+                    "readonly": true
+                },
+                {
+                    "name": "verifiedAt",
+                    "type": "DateTimeImmutable",
+                    "readonly": true
+                },
+                {
+                    "name": "verifiedBy",
+                    "type": "string",
+                    "readonly": true
+                },
+                {
+                    "name": "drillReference",
+                    "type": "string",
+                    "readonly": true
+                }
+            ],
+            "constants": []
+        },
+        {
+            "name": "Kumwe\\BusinessSchema\\Domain\\SchemaRisk",
+            "kind": "enum",
+            "methods": [
+                {
+                    "name": "severity",
+                    "static": false,
+                    "parameters": [],
+                    "return": "int"
+                },
+                {
+                    "name": "requiresHighImpactAuthorization",
+                    "static": false,
+                    "parameters": [],
+                    "return": "bool"
+                },
+                {
+                    "name": "requiresRecoveryEvidence",
+                    "static": false,
+                    "parameters": [],
+                    "return": "bool"
+                },
+                {
+                    "name": "highest",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "risks",
+                            "type": "iterable",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\BusinessSchema\\Domain\\SchemaRisk"
+                },
+                {
+                    "name": "cases",
+                    "static": true,
+                    "parameters": [],
+                    "return": "array"
+                },
+                {
+                    "name": "from",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "value",
+                            "type": "string|int",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "static"
+                },
+                {
+                    "name": "tryFrom",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "value",
+                            "type": "string|int",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "?static"
+                }
+            ],
+            "properties": [
+                {
+                    "name": "name",
+                    "type": "string",
+                    "readonly": true
+                },
+                {
+                    "name": "value",
+                    "type": "string",
+                    "readonly": true
+                }
+            ],
+            "constants": [
+                "OnlineSafeAdditive",
+                "BackfillRequired",
+                "RebuildOrLocking",
+                "BehaviorChanging",
+                "Destructive"
+            ]
+        },
+        {
+            "name": "Kumwe\\BusinessSchema\\Domain\\SchemaStepStatus",
+            "kind": "enum",
+            "methods": [
+                {
+                    "name": "terminal",
+                    "static": false,
+                    "parameters": [],
+                    "return": "bool"
+                },
+                {
+                    "name": "cases",
+                    "static": true,
+                    "parameters": [],
+                    "return": "array"
+                },
+                {
+                    "name": "from",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "value",
+                            "type": "string|int",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "static"
+                },
+                {
+                    "name": "tryFrom",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "value",
+                            "type": "string|int",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "?static"
+                }
+            ],
+            "properties": [
+                {
+                    "name": "name",
+                    "type": "string",
+                    "readonly": true
+                },
+                {
+                    "name": "value",
+                    "type": "string",
+                    "readonly": true
+                }
+            ],
+            "constants": [
+                "Pending",
+                "Running",
+                "Completed",
+                "Failed",
+                "Compensated",
+                "Skipped"
+            ]
+        },
+        {
+            "name": "Kumwe\\BusinessSchema\\Planner\\SchemaChangePlanner",
+            "kind": "class",
+            "methods": [
+                {
+                    "name": "operations",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "prior",
+                            "type": "?Kumwe\\BusinessSchema\\Domain\\PhysicalSchemaBlueprint",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "target",
+                            "type": "Kumwe\\BusinessSchema\\Domain\\PhysicalSchemaBlueprint",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "definition",
+                            "type": "Kumwe\\BusinessDefinition\\Domain\\EntityTypeDefinition",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "dependencyBlueprints",
+                            "type": "array",
+                            "optional": true,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "array"
+                },
+                {
+                    "name": "containsPinnedRowBreakingChange",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "operations",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "bool"
+                },
+                {
+                    "name": "hasRecordRepin",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "operations",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        },
+                        {
+                            "name": "targetVersion",
+                            "type": "int",
+                            "optional": false,
+                            "variadic": false,
+                            "reference": false
+                        }
+                    ],
+                    "return": "bool"
+                }
+            ],
+            "properties": [],
+            "constants": []
+        }
+    ]
+}

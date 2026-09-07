@@ -1,0 +1,116 @@
+{
+  "schema": "kumwe-extraction/v1",
+  "package": "kumwe/business-schema",
+  "source_baselines": {
+    "app": "24ecf956423c18933e824b43cea1bfb9127a79a9",
+    "sdk": "e8ec23f155c5836c6bd083f154a8efb6e50aec66"
+  },
+  "symbols": [
+    {
+      "owner": "app",
+      "source": "src/BusinessSchema/Domain/InvalidBusinessSchema.php",
+      "target": "src/Domain/InvalidBusinessSchema.php"
+    },
+    {
+      "owner": "app",
+      "source": "src/BusinessSchema/Domain/PhysicalColumnBlueprint.php",
+      "target": "src/Domain/PhysicalColumnBlueprint.php"
+    },
+    {
+      "owner": "app",
+      "source": "src/BusinessSchema/Domain/PhysicalForeignKeyBlueprint.php",
+      "target": "src/Domain/PhysicalForeignKeyBlueprint.php"
+    },
+    {
+      "owner": "app",
+      "source": "src/BusinessSchema/Domain/PhysicalIndexBlueprint.php",
+      "target": "src/Domain/PhysicalIndexBlueprint.php"
+    },
+    {
+      "owner": "app",
+      "source": "src/BusinessSchema/Domain/PhysicalNameCompiler.php",
+      "target": "src/Domain/PhysicalNameCompiler.php"
+    },
+    {
+      "owner": "app",
+      "source": "src/BusinessSchema/Domain/PhysicalSchemaBlueprint.php",
+      "target": "src/Domain/PhysicalSchemaBlueprint.php"
+    },
+    {
+      "owner": "app",
+      "source": "src/BusinessSchema/Domain/PhysicalTableBlueprint.php",
+      "target": "src/Domain/PhysicalTableBlueprint.php"
+    },
+    {
+      "owner": "app",
+      "source": "src/BusinessSchema/Domain/PhysicalTableKind.php",
+      "target": "src/Domain/PhysicalTableKind.php"
+    },
+    {
+      "owner": "app",
+      "source": "src/BusinessSchema/Domain/SchemaDocument.php",
+      "target": "src/Domain/SchemaDocument.php"
+    },
+    {
+      "owner": "app",
+      "source": "src/BusinessSchema/Domain/SchemaEvolutionHints.php",
+      "target": "src/Domain/SchemaEvolutionHints.php"
+    },
+    {
+      "owner": "app",
+      "source": "src/BusinessSchema/Domain/SchemaInstallation.php",
+      "target": "src/Domain/SchemaInstallation.php"
+    },
+    {
+      "owner": "app",
+      "source": "src/BusinessSchema/Domain/SchemaInstallationStatus.php",
+      "target": "src/Domain/SchemaInstallationStatus.php"
+    },
+    {
+      "owner": "app",
+      "source": "src/BusinessSchema/Domain/SchemaOperation.php",
+      "target": "src/Domain/SchemaOperation.php"
+    },
+    {
+      "owner": "app",
+      "source": "src/BusinessSchema/Domain/SchemaOperationKind.php",
+      "target": "src/Domain/SchemaOperationKind.php"
+    },
+    {
+      "owner": "app",
+      "source": "src/BusinessSchema/Domain/SchemaPlan.php",
+      "target": "src/Domain/SchemaPlan.php"
+    },
+    {
+      "owner": "app",
+      "source": "src/BusinessSchema/Domain/SchemaPlanApproval.php",
+      "target": "src/Domain/SchemaPlanApproval.php"
+    },
+    {
+      "owner": "app",
+      "source": "src/BusinessSchema/Domain/SchemaPlanStatus.php",
+      "target": "src/Domain/SchemaPlanStatus.php"
+    },
+    {
+      "owner": "app",
+      "source": "src/BusinessSchema/Domain/SchemaPlanStep.php",
+      "target": "src/Domain/SchemaPlanStep.php"
+    },
+    {
+      "owner": "app",
+      "source": "src/BusinessSchema/Domain/SchemaRecoveryEvidence.php",
+      "target": "src/Domain/SchemaRecoveryEvidence.php"
+    },
+    {
+      "owner": "app",
+      "source": "src/BusinessSchema/Domain/SchemaRisk.php",
+      "target": "src/Domain/SchemaRisk.php"
+    },
+    {
+      "owner": "app",
+      "source": "src/BusinessSchema/Domain/SchemaStepStatus.php",
+      "target": "src/Domain/SchemaStepStatus.php"
+    }
+  ],
+  "release_blocked": true
+}

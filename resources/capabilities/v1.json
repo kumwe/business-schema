@@ -1,0 +1,16 @@
+{
+  "schema": "kumwe-capabilities/v1",
+  "package": "kumwe/business-schema",
+  "capabilities": [
+    {
+      "id": "business-schema.portable-semantics",
+      "responsibility": "Portable physical schema blueprints, deterministic change plans and recovery values.",
+      "implementation_owner": "kumwe/business-schema",
+      "documentation": [
+        "docs/public-api.md",
+        "docs/architecture.md"
+      ]
+    }
+  ],
+  "release_verified": false
+}
