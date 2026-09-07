@@ -8,7 +8,7 @@
     "php": "^8.5",
     "php-64bit": "*",
     "ext-json": "*",
-    "kumwe/business-definition": "dev-agent/candidate-sequence-dependency-v2",
+    "kumwe/business-definition": "dev-main",
     "ramsey/uuid": "^4.9",
     "kumwe/sequence": "dev-main",
     "ext-mbstring": "*",
