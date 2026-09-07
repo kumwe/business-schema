@@ -65,6 +65,7 @@ foreach ($files as $file) {
          'constants' => $constants];
 }
 usort($symbols, static fn ($a, $b) => strcmp($a['name'], $b['name']));
+preg_match('/^##\s+([0-9]+\.[0-9]+\.[0-9]+)\b/m', file_get_contents($root . '/CHANGELOG.md'), $release);
 $manifest = ['schema' => 'kumwe-public-api/v1',
      'package' => $composer['name'],
      'release' => '0.1.0',

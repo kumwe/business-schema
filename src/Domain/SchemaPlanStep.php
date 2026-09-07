@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Kumwe\BusinessSchema\Domain;
 
+use Kumwe\BusinessSchema\Internal\ValueSnapshot;
 use DateTimeImmutable;
 use Kumwe\BusinessDefinition\Domain\CanonicalDefinitionJson;
 
@@ -113,7 +114,7 @@ final readonly class SchemaPlanStep
             $admittedCursor[$key] = $value;
         }
         $this->cursor = $cursor === null ? null : $admittedCursor;
-        $this->outcome = $outcome;
+        $this->outcome = ValueSnapshot::copy($outcome);
         $this->assertState();
         if ($completedAt !== null && $startedAt !== null && $completedAt < $startedAt) {
             throw new InvalidBusinessSchema('A schema-plan step cannot complete before it starts.');

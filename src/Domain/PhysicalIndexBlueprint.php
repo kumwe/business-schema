@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Kumwe\BusinessSchema\Domain;
 
+use Kumwe\BusinessSchema\Internal\ValueSnapshot;
 use Kumwe\BusinessDefinition\Domain\CanonicalDefinitionJson;
 
 /**
@@ -76,8 +77,8 @@ final readonly class PhysicalIndexBlueprint
         }
         CanonicalDefinitionJson::encode($options);
         ksort($options, SORT_STRING);
-        $this->columns = array_values($columns);
-        $this->options = $options;
+        $this->columns = ValueSnapshot::copy(array_values($columns));
+        $this->options = ValueSnapshot::copy($options);
     }
 
     /**

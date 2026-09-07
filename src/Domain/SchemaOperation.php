@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Kumwe\BusinessSchema\Domain;
 
+use Kumwe\BusinessSchema\Internal\ValueSnapshot;
 use Kumwe\BusinessDefinition\Domain\CanonicalDefinitionJson;
 
 /**
@@ -105,8 +106,8 @@ final readonly class SchemaOperation
                 CanonicalDefinitionJson::encode($state);
             }
         }
-        $this->before = $before;
-        $this->after = $after;
+        $this->before = ValueSnapshot::copy($before);
+        $this->after = ValueSnapshot::copy($after);
     }
 
     /**

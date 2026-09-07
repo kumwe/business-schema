@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Kumwe\BusinessSchema\Domain;
 
+use Kumwe\BusinessSchema\Internal\ValueSnapshot;
 use Kumwe\BusinessDefinition\Domain\CanonicalDefinitionJson;
 use Kumwe\BusinessDefinition\Domain\EntityTypeDefinition;
 use Kumwe\BusinessDefinition\Domain\Expression;
@@ -92,10 +93,10 @@ final readonly class SchemaEvolutionHints
         array $transforms,
         array $repins,
     ) {
-        $this->renamesByTable = $renamesByTable;
-        $this->backfills = $backfills;
-        $this->transforms = $transforms;
-        $this->repins = $repins;
+        $this->renamesByTable = ValueSnapshot::copy($renamesByTable);
+        $this->backfills = ValueSnapshot::copy($backfills);
+        $this->transforms = ValueSnapshot::copy($transforms);
+        $this->repins = ValueSnapshot::copy($repins);
     }
 
     /**
