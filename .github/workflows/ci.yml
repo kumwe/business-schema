@@ -27,7 +27,7 @@ jobs:
           extensions: mbstring, tokenizer, xmlwriter, zip
           coverage: none
           tools: composer:v2
-      - name: Install explicit candidate source dependencies
+      - name: Install stable package dependencies
         run: |
           composer validate --strict
           composer install --prefer-dist --no-interaction

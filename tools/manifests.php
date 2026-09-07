@@ -67,7 +67,7 @@ foreach ($files as $file) {
 usort($symbols, static fn ($a, $b) => strcmp($a['name'], $b['name']));
 $manifest = ['schema' => 'kumwe-public-api/v1',
      'package' => $composer['name'],
-     'release' => null,
+     'release' => '0.1.0',
      'namespace' => $prefix,
      'symbols' => $symbols];
 $encoded = json_encode($manifest, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR) . "\n";

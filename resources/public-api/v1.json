@@ -1,7 +1,7 @@
 {
     "schema": "kumwe-public-api/v1",
     "package": "kumwe/business-schema",
-    "release": null,
+    "release": "0.1.0",
     "namespace": "Kumwe\\BusinessSchema\\",
     "symbols": [
         {
