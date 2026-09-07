@@ -113,7 +113,7 @@ final readonly class SchemaPlanStep
             }
             $admittedCursor[$key] = $value;
         }
-        $this->cursor = $cursor === null ? null : $admittedCursor;
+        $this->cursor = ValueSnapshot::copy($cursor === null ? null : $admittedCursor);
         $this->outcome = ValueSnapshot::copy($outcome);
         $this->assertState();
         if ($completedAt !== null && $startedAt !== null && $completedAt < $startedAt) {

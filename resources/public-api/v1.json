@@ -1,15 +1,22 @@
 {
-    "schema": "kumwe-public-api/v1",
+    "schema": "kumwe-package-public-api/v1",
     "package": "kumwe/business-schema",
-    "release": "0.1.0",
+    "release": "0.1.1",
     "namespace": "Kumwe\\BusinessSchema\\",
-    "symbols": [
-        {
-            "name": "Kumwe\\BusinessSchema\\Compiler\\CanonicalDefinitionPhysicalSchemaCompiler",
+    "symbols": {
+        "Kumwe\\BusinessSchema\\Compiler\\CanonicalDefinitionPhysicalSchemaCompiler": {
+            "stability": "stable",
+            "file": "src/Compiler/CanonicalDefinitionPhysicalSchemaCompiler.php",
+            "abstract": false,
+            "final": true,
+            "readonly": true,
+            "parent": null,
+            "interfaces": [],
+            "deprecated": null,
             "kind": "class",
-            "methods": [
-                {
-                    "name": "__construct",
+            "methods": {
+                "__construct": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [
                         {
@@ -17,27 +24,27 @@
                             "type": "Kumwe\\BusinessSchema\\Contract\\DefinitionSchemaLookup",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "fieldTypes",
                             "type": "Kumwe\\BusinessDefinition\\Application\\FieldTypeDefinitionResolver",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "names",
                             "type": "Kumwe\\BusinessSchema\\Domain\\PhysicalNameCompiler",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": ""
                 },
-                {
-                    "name": "compile",
+                "compile": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [
                         {
@@ -45,42 +52,56 @@
                             "type": "Kumwe\\BusinessDefinition\\Domain\\EntityTypeDefinition",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "site",
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "Kumwe\\BusinessSchema\\Domain\\PhysicalSchemaBlueprint"
                 }
-            ],
-            "properties": [],
-            "constants": []
+            },
+            "properties": {},
+            "constants": {}
         },
-        {
-            "name": "Kumwe\\BusinessSchema\\ConfigProvider",
+        "Kumwe\\BusinessSchema\\ConfigProvider": {
+            "stability": "stable",
+            "file": "src/ConfigProvider.php",
+            "abstract": false,
+            "final": true,
+            "readonly": false,
+            "parent": null,
+            "interfaces": [],
+            "deprecated": null,
             "kind": "class",
-            "methods": [
-                {
-                    "name": "__invoke",
+            "methods": {
+                "__invoke": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [],
                     "return": "array"
                 }
-            ],
-            "properties": [],
-            "constants": []
+            },
+            "properties": {},
+            "constants": {}
         },
-        {
-            "name": "Kumwe\\BusinessSchema\\Container\\PhysicalSchemaCompilerFactory",
+        "Kumwe\\BusinessSchema\\Container\\PhysicalSchemaCompilerFactory": {
+            "stability": "stable",
+            "file": "src/Container/PhysicalSchemaCompilerFactory.php",
+            "abstract": false,
+            "final": true,
+            "readonly": false,
+            "parent": null,
+            "interfaces": [],
+            "deprecated": null,
             "kind": "class",
-            "methods": [
-                {
-                    "name": "__invoke",
+            "methods": {
+                "__invoke": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [
                         {
@@ -88,21 +109,28 @@
                             "type": "Psr\\Container\\ContainerInterface",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "Kumwe\\BusinessSchema\\Compiler\\CanonicalDefinitionPhysicalSchemaCompiler"
                 }
-            ],
-            "properties": [],
-            "constants": []
+            },
+            "properties": {},
+            "constants": {}
         },
-        {
-            "name": "Kumwe\\BusinessSchema\\Container\\SchemaChangePlannerFactory",
+        "Kumwe\\BusinessSchema\\Container\\SchemaChangePlannerFactory": {
+            "stability": "stable",
+            "file": "src/Container/SchemaChangePlannerFactory.php",
+            "abstract": false,
+            "final": true,
+            "readonly": false,
+            "parent": null,
+            "interfaces": [],
+            "deprecated": null,
             "kind": "class",
-            "methods": [
-                {
-                    "name": "__invoke",
+            "methods": {
+                "__invoke": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [
                         {
@@ -110,21 +138,28 @@
                             "type": "Psr\\Container\\ContainerInterface",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "Kumwe\\BusinessSchema\\Planner\\SchemaChangePlanner"
                 }
-            ],
-            "properties": [],
-            "constants": []
+            },
+            "properties": {},
+            "constants": {}
         },
-        {
-            "name": "Kumwe\\BusinessSchema\\Contract\\DefinitionSchemaLookup",
+        "Kumwe\\BusinessSchema\\Contract\\DefinitionSchemaLookup": {
+            "stability": "stable",
+            "file": "src/Contract/DefinitionSchemaLookup.php",
+            "abstract": true,
+            "final": false,
+            "readonly": false,
+            "parent": null,
+            "interfaces": [],
+            "deprecated": null,
             "kind": "interface",
-            "methods": [
-                {
-                    "name": "published",
+            "methods": {
+                "published": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [
                         {
@@ -132,42 +167,59 @@
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "handle",
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "version",
                             "type": "?int",
                             "optional": true,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "?Kumwe\\BusinessDefinition\\Domain\\EntityTypeDefinition"
                 }
+            },
+            "properties": {},
+            "constants": {}
+        },
+        "Kumwe\\BusinessSchema\\Domain\\InvalidBusinessSchema": {
+            "stability": "stable",
+            "file": "src/Domain/InvalidBusinessSchema.php",
+            "abstract": false,
+            "final": true,
+            "readonly": false,
+            "parent": "InvalidArgumentException",
+            "interfaces": [
+                "Throwable",
+                "Stringable"
             ],
-            "properties": [],
-            "constants": []
-        },
-        {
-            "name": "Kumwe\\BusinessSchema\\Domain\\InvalidBusinessSchema",
+            "deprecated": null,
             "kind": "class",
-            "methods": [],
-            "properties": [],
-            "constants": []
+            "methods": {},
+            "properties": {},
+            "constants": {}
         },
-        {
-            "name": "Kumwe\\BusinessSchema\\Domain\\PhysicalColumnBlueprint",
+        "Kumwe\\BusinessSchema\\Domain\\PhysicalColumnBlueprint": {
+            "stability": "stable",
+            "file": "src/Domain/PhysicalColumnBlueprint.php",
+            "abstract": false,
+            "final": true,
+            "readonly": true,
+            "parent": null,
+            "interfaces": [],
+            "deprecated": null,
             "kind": "class",
-            "methods": [
-                {
-                    "name": "__construct",
+            "methods": {
+                "__construct": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [
                         {
@@ -175,41 +227,41 @@
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "physicalName",
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "doctrineType",
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "options",
                             "type": "array",
                             "optional": true,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "nullable",
                             "type": "bool",
                             "optional": true,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": ""
                 },
-                {
-                    "name": "fromArray",
+                "fromArray": {
+                    "visibility": "public",
                     "static": true,
                     "parameters": [
                         {
@@ -217,53 +269,60 @@
                             "type": "array",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "Kumwe\\BusinessSchema\\Domain\\PhysicalColumnBlueprint"
                 },
-                {
-                    "name": "toArray",
+                "toArray": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [],
                     "return": "array"
                 }
-            ],
-            "properties": [
-                {
-                    "name": "options",
+            },
+            "properties": {
+                "options": {
+                    "static": false,
                     "type": "array",
                     "readonly": true
                 },
-                {
-                    "name": "logicalName",
+                "logicalName": {
+                    "static": false,
                     "type": "string",
                     "readonly": true
                 },
-                {
-                    "name": "physicalName",
+                "physicalName": {
+                    "static": false,
                     "type": "string",
                     "readonly": true
                 },
-                {
-                    "name": "doctrineType",
+                "doctrineType": {
+                    "static": false,
                     "type": "string",
                     "readonly": true
                 },
-                {
-                    "name": "nullable",
+                "nullable": {
+                    "static": false,
                     "type": "bool",
                     "readonly": true
                 }
-            ],
-            "constants": []
+            },
+            "constants": {}
         },
-        {
-            "name": "Kumwe\\BusinessSchema\\Domain\\PhysicalForeignKeyBlueprint",
+        "Kumwe\\BusinessSchema\\Domain\\PhysicalForeignKeyBlueprint": {
+            "stability": "stable",
+            "file": "src/Domain/PhysicalForeignKeyBlueprint.php",
+            "abstract": false,
+            "final": true,
+            "readonly": true,
+            "parent": null,
+            "interfaces": [],
+            "deprecated": null,
             "kind": "class",
-            "methods": [
-                {
-                    "name": "__construct",
+            "methods": {
+                "__construct": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [
                         {
@@ -271,55 +330,55 @@
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "physicalName",
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "localColumns",
                             "type": "array",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "foreignTable",
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "foreignColumns",
                             "type": "array",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "onDelete",
                             "type": "string",
                             "optional": true,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "onUpdate",
                             "type": "string",
                             "optional": true,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": ""
                 },
-                {
-                    "name": "fromArray",
+                "fromArray": {
+                    "visibility": "public",
                     "static": true,
                     "parameters": [
                         {
@@ -327,63 +386,70 @@
                             "type": "array",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "Kumwe\\BusinessSchema\\Domain\\PhysicalForeignKeyBlueprint"
                 },
-                {
-                    "name": "toArray",
+                "toArray": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [],
                     "return": "array"
                 }
-            ],
-            "properties": [
-                {
-                    "name": "localColumns",
+            },
+            "properties": {
+                "localColumns": {
+                    "static": false,
                     "type": "array",
                     "readonly": true
                 },
-                {
-                    "name": "foreignColumns",
+                "foreignColumns": {
+                    "static": false,
                     "type": "array",
                     "readonly": true
                 },
-                {
-                    "name": "logicalName",
+                "logicalName": {
+                    "static": false,
                     "type": "string",
                     "readonly": true
                 },
-                {
-                    "name": "physicalName",
+                "physicalName": {
+                    "static": false,
                     "type": "string",
                     "readonly": true
                 },
-                {
-                    "name": "foreignTable",
+                "foreignTable": {
+                    "static": false,
                     "type": "string",
                     "readonly": true
                 },
-                {
-                    "name": "onDelete",
+                "onDelete": {
+                    "static": false,
                     "type": "string",
                     "readonly": true
                 },
-                {
-                    "name": "onUpdate",
+                "onUpdate": {
+                    "static": false,
                     "type": "string",
                     "readonly": true
                 }
-            ],
-            "constants": []
+            },
+            "constants": {}
         },
-        {
-            "name": "Kumwe\\BusinessSchema\\Domain\\PhysicalIndexBlueprint",
+        "Kumwe\\BusinessSchema\\Domain\\PhysicalIndexBlueprint": {
+            "stability": "stable",
+            "file": "src/Domain/PhysicalIndexBlueprint.php",
+            "abstract": false,
+            "final": true,
+            "readonly": true,
+            "parent": null,
+            "interfaces": [],
+            "deprecated": null,
             "kind": "class",
-            "methods": [
-                {
-                    "name": "__construct",
+            "methods": {
+                "__construct": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [
                         {
@@ -391,41 +457,41 @@
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "physicalName",
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "columns",
                             "type": "array",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "unique",
                             "type": "bool",
                             "optional": true,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "options",
                             "type": "array",
                             "optional": true,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": ""
                 },
-                {
-                    "name": "fromArray",
+                "fromArray": {
+                    "visibility": "public",
                     "static": true,
                     "parameters": [
                         {
@@ -433,53 +499,60 @@
                             "type": "array",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "Kumwe\\BusinessSchema\\Domain\\PhysicalIndexBlueprint"
                 },
-                {
-                    "name": "toArray",
+                "toArray": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [],
                     "return": "array"
                 }
-            ],
-            "properties": [
-                {
-                    "name": "columns",
+            },
+            "properties": {
+                "columns": {
+                    "static": false,
                     "type": "array",
                     "readonly": true
                 },
-                {
-                    "name": "options",
+                "options": {
+                    "static": false,
                     "type": "array",
                     "readonly": true
                 },
-                {
-                    "name": "logicalName",
+                "logicalName": {
+                    "static": false,
                     "type": "string",
                     "readonly": true
                 },
-                {
-                    "name": "physicalName",
+                "physicalName": {
+                    "static": false,
                     "type": "string",
                     "readonly": true
                 },
-                {
-                    "name": "unique",
+                "unique": {
+                    "static": false,
                     "type": "bool",
                     "readonly": true
                 }
-            ],
-            "constants": []
+            },
+            "constants": {}
         },
-        {
-            "name": "Kumwe\\BusinessSchema\\Domain\\PhysicalNameCompiler",
+        "Kumwe\\BusinessSchema\\Domain\\PhysicalNameCompiler": {
+            "stability": "stable",
+            "file": "src/Domain/PhysicalNameCompiler.php",
+            "abstract": false,
+            "final": true,
+            "readonly": true,
+            "parent": null,
+            "interfaces": [],
+            "deprecated": null,
             "kind": "class",
-            "methods": [
-                {
-                    "name": "__construct",
+            "methods": {
+                "__construct": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [
                         {
@@ -487,13 +560,13 @@
                             "type": "string",
                             "optional": true,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": ""
                 },
-                {
-                    "name": "entityTable",
+                "entityTable": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [
                         {
@@ -501,20 +574,20 @@
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "handle",
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "string"
                 },
-                {
-                    "name": "relationTable",
+                "relationTable": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [
                         {
@@ -522,20 +595,20 @@
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "handle",
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "string"
                 },
-                {
-                    "name": "lineTable",
+                "lineTable": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [
                         {
@@ -543,20 +616,20 @@
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "handle",
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "string"
                 },
-                {
-                    "name": "column",
+                "column": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [
                         {
@@ -564,13 +637,13 @@
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "string"
                 },
-                {
-                    "name": "index",
+                "index": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [
                         {
@@ -578,27 +651,27 @@
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "logicalName",
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "columns",
                             "type": "array",
                             "optional": true,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "string"
                 },
-                {
-                    "name": "foreignKey",
+                "foreignKey": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [
                         {
@@ -606,27 +679,27 @@
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "logicalName",
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "columns",
                             "type": "array",
                             "optional": true,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "string"
                 },
-                {
-                    "name": "compile",
+                "compile": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [
                         {
@@ -634,28 +707,35 @@
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "parts",
                             "type": "array",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "string"
                 }
-            ],
-            "properties": [],
-            "constants": []
+            },
+            "properties": {},
+            "constants": {}
         },
-        {
-            "name": "Kumwe\\BusinessSchema\\Domain\\PhysicalSchemaBlueprint",
+        "Kumwe\\BusinessSchema\\Domain\\PhysicalSchemaBlueprint": {
+            "stability": "stable",
+            "file": "src/Domain/PhysicalSchemaBlueprint.php",
+            "abstract": false,
+            "final": true,
+            "readonly": true,
+            "parent": null,
+            "interfaces": [],
+            "deprecated": null,
             "kind": "class",
-            "methods": [
-                {
-                    "name": "__construct",
+            "methods": {
+                "__construct": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [
                         {
@@ -663,34 +743,34 @@
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "definitionVersion",
                             "type": "int",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "definitionChecksum",
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "tables",
                             "type": "array",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": ""
                 },
-                {
-                    "name": "fromArray",
+                "fromArray": {
+                    "visibility": "public",
                     "static": true,
                     "parameters": [
                         {
@@ -698,19 +778,19 @@
                             "type": "array",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "Kumwe\\BusinessSchema\\Domain\\PhysicalSchemaBlueprint"
                 },
-                {
-                    "name": "tables",
+                "tables": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [],
                     "return": "array"
                 },
-                {
-                    "name": "table",
+                "table": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [
                         {
@@ -718,49 +798,56 @@
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "?Kumwe\\BusinessSchema\\Domain\\PhysicalTableBlueprint"
                 },
-                {
-                    "name": "toArray",
+                "toArray": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [],
                     "return": "array"
                 },
-                {
-                    "name": "checksum",
+                "checksum": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [],
                     "return": "string"
                 }
-            ],
-            "properties": [
-                {
-                    "name": "definitionId",
+            },
+            "properties": {
+                "definitionId": {
+                    "static": false,
                     "type": "string",
                     "readonly": true
                 },
-                {
-                    "name": "definitionVersion",
+                "definitionVersion": {
+                    "static": false,
                     "type": "int",
                     "readonly": true
                 },
-                {
-                    "name": "definitionChecksum",
+                "definitionChecksum": {
+                    "static": false,
                     "type": "string",
                     "readonly": true
                 }
-            ],
-            "constants": []
+            },
+            "constants": {}
         },
-        {
-            "name": "Kumwe\\BusinessSchema\\Domain\\PhysicalTableBlueprint",
+        "Kumwe\\BusinessSchema\\Domain\\PhysicalTableBlueprint": {
+            "stability": "stable",
+            "file": "src/Domain/PhysicalTableBlueprint.php",
+            "abstract": false,
+            "final": true,
+            "readonly": true,
+            "parent": null,
+            "interfaces": [],
+            "deprecated": null,
             "kind": "class",
-            "methods": [
-                {
-                    "name": "__construct",
+            "methods": {
+                "__construct": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [
                         {
@@ -768,62 +855,62 @@
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "physicalName",
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "kind",
                             "type": "Kumwe\\BusinessSchema\\Domain\\PhysicalTableKind",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "columns",
                             "type": "array",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "primaryKey",
                             "type": "array",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "indexes",
                             "type": "array",
                             "optional": true,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "foreignKeys",
                             "type": "array",
                             "optional": true,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "options",
                             "type": "array",
                             "optional": true,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": ""
                 },
-                {
-                    "name": "fromArray",
+                "fromArray": {
+                    "visibility": "public",
                     "static": true,
                     "parameters": [
                         {
@@ -831,19 +918,19 @@
                             "type": "array",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "Kumwe\\BusinessSchema\\Domain\\PhysicalTableBlueprint"
                 },
-                {
-                    "name": "columns",
+                "columns": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [],
                     "return": "array"
                 },
-                {
-                    "name": "column",
+                "column": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [
                         {
@@ -851,13 +938,13 @@
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "?Kumwe\\BusinessSchema\\Domain\\PhysicalColumnBlueprint"
                 },
-                {
-                    "name": "physicalColumn",
+                "physicalColumn": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [
                         {
@@ -865,71 +952,81 @@
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "?Kumwe\\BusinessSchema\\Domain\\PhysicalColumnBlueprint"
                 },
-                {
-                    "name": "indexes",
+                "indexes": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [],
                     "return": "array"
                 },
-                {
-                    "name": "foreignKeys",
+                "foreignKeys": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [],
                     "return": "array"
                 },
-                {
-                    "name": "toArray",
+                "toArray": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [],
                     "return": "array"
                 }
-            ],
-            "properties": [
-                {
-                    "name": "primaryKey",
+            },
+            "properties": {
+                "primaryKey": {
+                    "static": false,
                     "type": "array",
                     "readonly": true
                 },
-                {
-                    "name": "options",
+                "options": {
+                    "static": false,
                     "type": "array",
                     "readonly": true
                 },
-                {
-                    "name": "logicalName",
+                "logicalName": {
+                    "static": false,
                     "type": "string",
                     "readonly": true
                 },
-                {
-                    "name": "physicalName",
+                "physicalName": {
+                    "static": false,
                     "type": "string",
                     "readonly": true
                 },
-                {
-                    "name": "kind",
+                "kind": {
+                    "static": false,
                     "type": "Kumwe\\BusinessSchema\\Domain\\PhysicalTableKind",
                     "readonly": true
                 }
-            ],
-            "constants": []
+            },
+            "constants": {}
         },
-        {
-            "name": "Kumwe\\BusinessSchema\\Domain\\PhysicalTableKind",
+        "Kumwe\\BusinessSchema\\Domain\\PhysicalTableKind": {
+            "stability": "stable",
+            "file": "src/Domain/PhysicalTableKind.php",
+            "abstract": false,
+            "final": true,
+            "readonly": false,
+            "parent": null,
+            "interfaces": [
+                "UnitEnum",
+                "BackedEnum"
+            ],
+            "deprecated": null,
             "kind": "enum",
-            "methods": [
-                {
-                    "name": "cases",
+            "methods": {
+                "cases": {
+                    "visibility": "public",
                     "static": true,
                     "parameters": [],
                     "return": "array"
                 },
-                {
-                    "name": "from",
+                "from": {
+                    "visibility": "public",
                     "static": true,
                     "parameters": [
                         {
@@ -937,13 +1034,13 @@
                             "type": "string|int",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "static"
                 },
-                {
-                    "name": "tryFrom",
+                "tryFrom": {
+                    "visibility": "public",
                     "static": true,
                     "parameters": [
                         {
@@ -951,37 +1048,52 @@
                             "type": "string|int",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "?static"
                 }
-            ],
-            "properties": [
-                {
-                    "name": "name",
+            },
+            "properties": {
+                "name": {
+                    "static": false,
                     "type": "string",
                     "readonly": true
                 },
-                {
-                    "name": "value",
+                "value": {
+                    "static": false,
                     "type": "string",
                     "readonly": true
                 }
-            ],
-            "constants": [
-                "Entity",
-                "Relation",
-                "Junction",
-                "OwnedLine"
-            ]
+            },
+            "constants": {
+                "Entity": {
+                    "type": null
+                },
+                "Relation": {
+                    "type": null
+                },
+                "Junction": {
+                    "type": null
+                },
+                "OwnedLine": {
+                    "type": null
+                }
+            }
         },
-        {
-            "name": "Kumwe\\BusinessSchema\\Domain\\SchemaDocument",
+        "Kumwe\\BusinessSchema\\Domain\\SchemaDocument": {
+            "stability": "stable",
+            "file": "src/Domain/SchemaDocument.php",
+            "abstract": false,
+            "final": true,
+            "readonly": false,
+            "parent": null,
+            "interfaces": [],
+            "deprecated": null,
             "kind": "class",
-            "methods": [
-                {
-                    "name": "assertOnly",
+            "methods": {
+                "assertOnly": {
+                    "visibility": "public",
                     "static": true,
                     "parameters": [
                         {
@@ -989,27 +1101,27 @@
                             "type": "array",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "allowed",
                             "type": "array",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "subject",
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "void"
                 },
-                {
-                    "name": "string",
+                "string": {
+                    "visibility": "public",
                     "static": true,
                     "parameters": [
                         {
@@ -1017,20 +1129,20 @@
                             "type": "array",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "key",
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "string"
                 },
-                {
-                    "name": "nullableString",
+                "nullableString": {
+                    "visibility": "public",
                     "static": true,
                     "parameters": [
                         {
@@ -1038,20 +1150,20 @@
                             "type": "array",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "key",
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "?string"
                 },
-                {
-                    "name": "integer",
+                "integer": {
+                    "visibility": "public",
                     "static": true,
                     "parameters": [
                         {
@@ -1059,20 +1171,20 @@
                             "type": "array",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "key",
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "int"
                 },
-                {
-                    "name": "nullableInteger",
+                "nullableInteger": {
+                    "visibility": "public",
                     "static": true,
                     "parameters": [
                         {
@@ -1080,20 +1192,20 @@
                             "type": "array",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "key",
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "?int"
                 },
-                {
-                    "name": "boolean",
+                "boolean": {
+                    "visibility": "public",
                     "static": true,
                     "parameters": [
                         {
@@ -1101,27 +1213,27 @@
                             "type": "array",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "key",
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "default",
                             "type": "bool",
                             "optional": true,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "bool"
                 },
-                {
-                    "name": "object",
+                "object": {
+                    "visibility": "public",
                     "static": true,
                     "parameters": [
                         {
@@ -1129,27 +1241,27 @@
                             "type": "array",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "key",
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "nullable",
                             "type": "bool",
                             "optional": true,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "?array"
                 },
-                {
-                    "name": "objects",
+                "objects": {
+                    "visibility": "public",
                     "static": true,
                     "parameters": [
                         {
@@ -1157,20 +1269,20 @@
                             "type": "array",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "key",
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "array"
                 },
-                {
-                    "name": "strings",
+                "strings": {
+                    "visibility": "public",
                     "static": true,
                     "parameters": [
                         {
@@ -1178,20 +1290,20 @@
                             "type": "array",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "key",
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "array"
                 },
-                {
-                    "name": "assertUuid",
+                "assertUuid": {
+                    "visibility": "public",
                     "static": true,
                     "parameters": [
                         {
@@ -1199,20 +1311,20 @@
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "subject",
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "void"
                 },
-                {
-                    "name": "assertChecksum",
+                "assertChecksum": {
+                    "visibility": "public",
                     "static": true,
                     "parameters": [
                         {
@@ -1220,27 +1332,27 @@
                             "type": "?string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "subject",
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "nullable",
                             "type": "bool",
                             "optional": true,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "void"
                 },
-                {
-                    "name": "assertIdentifier",
+                "assertIdentifier": {
+                    "visibility": "public",
                     "static": true,
                     "parameters": [
                         {
@@ -1248,27 +1360,27 @@
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "subject",
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "maximum",
                             "type": "int",
                             "optional": true,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "void"
                 },
-                {
-                    "name": "assertBoundedText",
+                "assertBoundedText": {
+                    "visibility": "public",
                     "static": true,
                     "parameters": [
                         {
@@ -1276,27 +1388,27 @@
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "subject",
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "maximum",
                             "type": "int",
                             "optional": true,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "void"
                 },
-                {
-                    "name": "assertObjectValue",
+                "assertObjectValue": {
+                    "visibility": "public",
                     "static": true,
                     "parameters": [
                         {
@@ -1304,20 +1416,20 @@
                             "type": "array",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "subject",
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "void"
                 },
-                {
-                    "name": "assertPhysicalIdentifier",
+                "assertPhysicalIdentifier": {
+                    "visibility": "public",
                     "static": true,
                     "parameters": [
                         {
@@ -1325,20 +1437,20 @@
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "subject",
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "void"
                 },
-                {
-                    "name": "date",
+                "date": {
+                    "visibility": "public",
                     "static": true,
                     "parameters": [
                         {
@@ -1346,20 +1458,20 @@
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "subject",
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "DateTimeImmutable"
                 },
-                {
-                    "name": "formatDate",
+                "formatDate": {
+                    "visibility": "public",
                     "static": true,
                     "parameters": [
                         {
@@ -1367,21 +1479,28 @@
                             "type": "DateTimeInterface",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "string"
                 }
-            ],
-            "properties": [],
-            "constants": []
+            },
+            "properties": {},
+            "constants": {}
         },
-        {
-            "name": "Kumwe\\BusinessSchema\\Domain\\SchemaEvolutionHints",
+        "Kumwe\\BusinessSchema\\Domain\\SchemaEvolutionHints": {
+            "stability": "stable",
+            "file": "src/Domain/SchemaEvolutionHints.php",
+            "abstract": false,
+            "final": true,
+            "readonly": true,
+            "parent": null,
+            "interfaces": [],
+            "deprecated": null,
             "kind": "class",
-            "methods": [
-                {
-                    "name": "fromDefinition",
+            "methods": {
+                "fromDefinition": {
+                    "visibility": "public",
                     "static": true,
                     "parameters": [
                         {
@@ -1389,13 +1508,13 @@
                             "type": "Kumwe\\BusinessDefinition\\Domain\\EntityTypeDefinition",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "Kumwe\\BusinessSchema\\Domain\\SchemaEvolutionHints"
                 },
-                {
-                    "name": "fromArray",
+                "fromArray": {
+                    "visibility": "public",
                     "static": true,
                     "parameters": [
                         {
@@ -1403,13 +1522,13 @@
                             "type": "array",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "Kumwe\\BusinessSchema\\Domain\\SchemaEvolutionHints"
                 },
-                {
-                    "name": "renameForTable",
+                "renameForTable": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [
                         {
@@ -1417,13 +1536,13 @@
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "array"
                 },
-                {
-                    "name": "hasBackfill",
+                "hasBackfill": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [
                         {
@@ -1431,13 +1550,13 @@
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "bool"
                 },
-                {
-                    "name": "backfill",
+                "backfill": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [
                         {
@@ -1445,13 +1564,13 @@
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "Kumwe\\BusinessDefinition\\Domain\\Expression|string|int|bool|null"
                 },
-                {
-                    "name": "transform",
+                "transform": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [
                         {
@@ -1459,31 +1578,31 @@
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "?Kumwe\\BusinessDefinition\\Domain\\Expression"
                 },
-                {
-                    "name": "transforms",
+                "transforms": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [],
                     "return": "array"
                 },
-                {
-                    "name": "renames",
+                "renames": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [],
                     "return": "array"
                 },
-                {
-                    "name": "backfills",
+                "backfills": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [],
                     "return": "array"
                 },
-                {
-                    "name": "repin",
+                "repin": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [
                         {
@@ -1491,39 +1610,46 @@
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "?int"
                 },
-                {
-                    "name": "repins",
+                "repins": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [],
                     "return": "array"
                 },
-                {
-                    "name": "toArray",
+                "toArray": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [],
                     "return": "array"
                 },
-                {
-                    "name": "checksum",
+                "checksum": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [],
                     "return": "string"
                 }
-            ],
-            "properties": [],
-            "constants": []
+            },
+            "properties": {},
+            "constants": {}
         },
-        {
-            "name": "Kumwe\\BusinessSchema\\Domain\\SchemaInstallation",
+        "Kumwe\\BusinessSchema\\Domain\\SchemaInstallation": {
+            "stability": "stable",
+            "file": "src/Domain/SchemaInstallation.php",
+            "abstract": false,
+            "final": true,
+            "readonly": true,
+            "parent": null,
+            "interfaces": [],
+            "deprecated": null,
             "kind": "class",
-            "methods": [
-                {
-                    "name": "__construct",
+            "methods": {
+                "__construct": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [
                         {
@@ -1531,76 +1657,76 @@
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "siteIdentifier",
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "ownerIdentifier",
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "definitionVersion",
                             "type": "int",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "definitionChecksum",
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "schemaChecksum",
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "blueprint",
                             "type": "Kumwe\\BusinessSchema\\Domain\\PhysicalSchemaBlueprint",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "status",
                             "type": "Kumwe\\BusinessSchema\\Domain\\SchemaInstallationStatus",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "installedAt",
                             "type": "DateTimeImmutable",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "updatedAt",
                             "type": "DateTimeImmutable",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": ""
                 },
-                {
-                    "name": "fromArray",
+                "fromArray": {
+                    "visibility": "public",
                     "static": true,
                     "parameters": [
                         {
@@ -1608,13 +1734,13 @@
                             "type": "array",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "Kumwe\\BusinessSchema\\Domain\\SchemaInstallation"
                 },
-                {
-                    "name": "disable",
+                "disable": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [
                         {
@@ -1622,13 +1748,13 @@
                             "type": "DateTimeImmutable",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "Kumwe\\BusinessSchema\\Domain\\SchemaInstallation"
                 },
-                {
-                    "name": "reactivate",
+                "reactivate": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [
                         {
@@ -1636,13 +1762,13 @@
                             "type": "DateTimeImmutable",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "Kumwe\\BusinessSchema\\Domain\\SchemaInstallation"
                 },
-                {
-                    "name": "preserve",
+                "preserve": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [
                         {
@@ -1650,84 +1776,94 @@
                             "type": "DateTimeImmutable",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "Kumwe\\BusinessSchema\\Domain\\SchemaInstallation"
                 },
-                {
-                    "name": "toArray",
+                "toArray": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [],
                     "return": "array"
                 }
-            ],
-            "properties": [
-                {
-                    "name": "definitionId",
+            },
+            "properties": {
+                "definitionId": {
+                    "static": false,
                     "type": "string",
                     "readonly": true
                 },
-                {
-                    "name": "siteIdentifier",
+                "siteIdentifier": {
+                    "static": false,
                     "type": "string",
                     "readonly": true
                 },
-                {
-                    "name": "ownerIdentifier",
+                "ownerIdentifier": {
+                    "static": false,
                     "type": "string",
                     "readonly": true
                 },
-                {
-                    "name": "definitionVersion",
+                "definitionVersion": {
+                    "static": false,
                     "type": "int",
                     "readonly": true
                 },
-                {
-                    "name": "definitionChecksum",
+                "definitionChecksum": {
+                    "static": false,
                     "type": "string",
                     "readonly": true
                 },
-                {
-                    "name": "schemaChecksum",
+                "schemaChecksum": {
+                    "static": false,
                     "type": "string",
                     "readonly": true
                 },
-                {
-                    "name": "blueprint",
+                "blueprint": {
+                    "static": false,
                     "type": "Kumwe\\BusinessSchema\\Domain\\PhysicalSchemaBlueprint",
                     "readonly": true
                 },
-                {
-                    "name": "status",
+                "status": {
+                    "static": false,
                     "type": "Kumwe\\BusinessSchema\\Domain\\SchemaInstallationStatus",
                     "readonly": true
                 },
-                {
-                    "name": "installedAt",
+                "installedAt": {
+                    "static": false,
                     "type": "DateTimeImmutable",
                     "readonly": true
                 },
-                {
-                    "name": "updatedAt",
+                "updatedAt": {
+                    "static": false,
                     "type": "DateTimeImmutable",
                     "readonly": true
                 }
-            ],
-            "constants": []
+            },
+            "constants": {}
         },
-        {
-            "name": "Kumwe\\BusinessSchema\\Domain\\SchemaInstallationStatus",
+        "Kumwe\\BusinessSchema\\Domain\\SchemaInstallationStatus": {
+            "stability": "stable",
+            "file": "src/Domain/SchemaInstallationStatus.php",
+            "abstract": false,
+            "final": true,
+            "readonly": false,
+            "parent": null,
+            "interfaces": [
+                "UnitEnum",
+                "BackedEnum"
+            ],
+            "deprecated": null,
             "kind": "enum",
-            "methods": [
-                {
-                    "name": "cases",
+            "methods": {
+                "cases": {
+                    "visibility": "public",
                     "static": true,
                     "parameters": [],
                     "return": "array"
                 },
-                {
-                    "name": "from",
+                "from": {
+                    "visibility": "public",
                     "static": true,
                     "parameters": [
                         {
@@ -1735,13 +1871,13 @@
                             "type": "string|int",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "static"
                 },
-                {
-                    "name": "tryFrom",
+                "tryFrom": {
+                    "visibility": "public",
                     "static": true,
                     "parameters": [
                         {
@@ -1749,38 +1885,55 @@
                             "type": "string|int",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "?static"
                 }
-            ],
-            "properties": [
-                {
-                    "name": "name",
+            },
+            "properties": {
+                "name": {
+                    "static": false,
                     "type": "string",
                     "readonly": true
                 },
-                {
-                    "name": "value",
+                "value": {
+                    "static": false,
                     "type": "string",
                     "readonly": true
                 }
-            ],
-            "constants": [
-                "Installing",
-                "Active",
-                "Disabled",
-                "Preserved",
-                "Failed"
-            ]
+            },
+            "constants": {
+                "Installing": {
+                    "type": null
+                },
+                "Active": {
+                    "type": null
+                },
+                "Disabled": {
+                    "type": null
+                },
+                "Preserved": {
+                    "type": null
+                },
+                "Failed": {
+                    "type": null
+                }
+            }
         },
-        {
-            "name": "Kumwe\\BusinessSchema\\Domain\\SchemaOperation",
+        "Kumwe\\BusinessSchema\\Domain\\SchemaOperation": {
+            "stability": "stable",
+            "file": "src/Domain/SchemaOperation.php",
+            "abstract": false,
+            "final": true,
+            "readonly": true,
+            "parent": null,
+            "interfaces": [],
+            "deprecated": null,
             "kind": "class",
-            "methods": [
-                {
-                    "name": "__construct",
+            "methods": {
+                "__construct": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [
                         {
@@ -1788,69 +1941,69 @@
                             "type": "int",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "kind",
                             "type": "Kumwe\\BusinessSchema\\Domain\\SchemaOperationKind",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "risk",
                             "type": "Kumwe\\BusinessSchema\\Domain\\SchemaRisk",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "table",
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "subject",
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "before",
                             "type": "?array",
                             "optional": true,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "after",
                             "type": "?array",
                             "optional": true,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "requiresBackfill",
                             "type": "bool",
                             "optional": true,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "recoveryImplication",
                             "type": "string",
                             "optional": true,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": ""
                 },
-                {
-                    "name": "fromArray",
+                "fromArray": {
+                    "visibility": "public",
                     "static": true,
                     "parameters": [
                         {
@@ -1858,91 +2011,101 @@
                             "type": "array",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "Kumwe\\BusinessSchema\\Domain\\SchemaOperation"
                 },
-                {
-                    "name": "toArray",
+                "toArray": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [],
                     "return": "array"
                 },
-                {
-                    "name": "persistedArray",
+                "persistedArray": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [],
                     "return": "array"
                 },
-                {
-                    "name": "checksum",
+                "checksum": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [],
                     "return": "string"
                 }
-            ],
-            "properties": [
-                {
-                    "name": "before",
+            },
+            "properties": {
+                "before": {
+                    "static": false,
                     "type": "?array",
                     "readonly": true
                 },
-                {
-                    "name": "after",
+                "after": {
+                    "static": false,
                     "type": "?array",
                     "readonly": true
                 },
-                {
-                    "name": "ordinal",
+                "ordinal": {
+                    "static": false,
                     "type": "int",
                     "readonly": true
                 },
-                {
-                    "name": "kind",
+                "kind": {
+                    "static": false,
                     "type": "Kumwe\\BusinessSchema\\Domain\\SchemaOperationKind",
                     "readonly": true
                 },
-                {
-                    "name": "risk",
+                "risk": {
+                    "static": false,
                     "type": "Kumwe\\BusinessSchema\\Domain\\SchemaRisk",
                     "readonly": true
                 },
-                {
-                    "name": "table",
+                "table": {
+                    "static": false,
                     "type": "string",
                     "readonly": true
                 },
-                {
-                    "name": "subject",
+                "subject": {
+                    "static": false,
                     "type": "string",
                     "readonly": true
                 },
-                {
-                    "name": "requiresBackfill",
+                "requiresBackfill": {
+                    "static": false,
                     "type": "bool",
                     "readonly": true
                 },
-                {
-                    "name": "recoveryImplication",
+                "recoveryImplication": {
+                    "static": false,
                     "type": "string",
                     "readonly": true
                 }
-            ],
-            "constants": []
+            },
+            "constants": {}
         },
-        {
-            "name": "Kumwe\\BusinessSchema\\Domain\\SchemaOperationKind",
+        "Kumwe\\BusinessSchema\\Domain\\SchemaOperationKind": {
+            "stability": "stable",
+            "file": "src/Domain/SchemaOperationKind.php",
+            "abstract": false,
+            "final": true,
+            "readonly": false,
+            "parent": null,
+            "interfaces": [
+                "UnitEnum",
+                "BackedEnum"
+            ],
+            "deprecated": null,
             "kind": "enum",
-            "methods": [
-                {
-                    "name": "cases",
+            "methods": {
+                "cases": {
+                    "visibility": "public",
                     "static": true,
                     "parameters": [],
                     "return": "array"
                 },
-                {
-                    "name": "from",
+                "from": {
+                    "visibility": "public",
                     "static": true,
                     "parameters": [
                         {
@@ -1950,13 +2113,13 @@
                             "type": "string|int",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "static"
                 },
-                {
-                    "name": "tryFrom",
+                "tryFrom": {
+                    "visibility": "public",
                     "static": true,
                     "parameters": [
                         {
@@ -1964,50 +2127,91 @@
                             "type": "string|int",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "?static"
                 }
-            ],
-            "properties": [
-                {
-                    "name": "name",
+            },
+            "properties": {
+                "name": {
+                    "static": false,
                     "type": "string",
                     "readonly": true
                 },
-                {
-                    "name": "value",
+                "value": {
+                    "static": false,
                     "type": "string",
                     "readonly": true
                 }
-            ],
-            "constants": [
-                "CreateTable",
-                "RenameTable",
-                "DropTable",
-                "AddColumn",
-                "AlterColumn",
-                "RenameColumn",
-                "DropColumn",
-                "AddPrimaryKey",
-                "DropPrimaryKey",
-                "AddIndex",
-                "DropIndex",
-                "AddForeignKey",
-                "DropForeignKey",
-                "Backfill",
-                "Transform",
-                "RepinRecords",
-                "ValidateConstraint"
-            ]
+            },
+            "constants": {
+                "CreateTable": {
+                    "type": null
+                },
+                "RenameTable": {
+                    "type": null
+                },
+                "DropTable": {
+                    "type": null
+                },
+                "AddColumn": {
+                    "type": null
+                },
+                "AlterColumn": {
+                    "type": null
+                },
+                "RenameColumn": {
+                    "type": null
+                },
+                "DropColumn": {
+                    "type": null
+                },
+                "AddPrimaryKey": {
+                    "type": null
+                },
+                "DropPrimaryKey": {
+                    "type": null
+                },
+                "AddIndex": {
+                    "type": null
+                },
+                "DropIndex": {
+                    "type": null
+                },
+                "AddForeignKey": {
+                    "type": null
+                },
+                "DropForeignKey": {
+                    "type": null
+                },
+                "Backfill": {
+                    "type": null
+                },
+                "Transform": {
+                    "type": null
+                },
+                "RepinRecords": {
+                    "type": null
+                },
+                "ValidateConstraint": {
+                    "type": null
+                }
+            }
         },
-        {
-            "name": "Kumwe\\BusinessSchema\\Domain\\SchemaPlan",
+        "Kumwe\\BusinessSchema\\Domain\\SchemaPlan": {
+            "stability": "stable",
+            "file": "src/Domain/SchemaPlan.php",
+            "abstract": false,
+            "final": true,
+            "readonly": true,
+            "parent": null,
+            "interfaces": [],
+            "deprecated": null,
             "kind": "class",
-            "methods": [
-                {
-                    "name": "__construct",
+            "methods": {
+                "__construct": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [
                         {
@@ -2015,146 +2219,146 @@
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "definitionId",
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "siteIdentifier",
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "fromDefinitionVersion",
                             "type": "?int",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "toDefinitionVersion",
                             "type": "int",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "fromDefinitionChecksum",
                             "type": "?string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "toDefinitionChecksum",
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "fromSchemaChecksum",
                             "type": "?string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "targetSchemaChecksum",
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "operations",
                             "type": "array",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "risk",
                             "type": "Kumwe\\BusinessSchema\\Domain\\SchemaRisk",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "status",
                             "type": "Kumwe\\BusinessSchema\\Domain\\SchemaPlanStatus",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "revision",
                             "type": "int",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "createdBy",
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "createdAt",
                             "type": "DateTimeImmutable",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "approval",
                             "type": "?Kumwe\\BusinessSchema\\Domain\\SchemaPlanApproval",
                             "optional": true,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "recoveryEvidenceId",
                             "type": "?string",
                             "optional": true,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "executionFence",
                             "type": "?int",
                             "optional": true,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "outcome",
                             "type": "?array",
                             "optional": true,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "updatedAt",
                             "type": "?DateTimeImmutable",
                             "optional": true,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": ""
                 },
-                {
-                    "name": "fromArray",
+                "fromArray": {
+                    "visibility": "public",
                     "static": true,
                     "parameters": [
                         {
@@ -2162,19 +2366,19 @@
                             "type": "array",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "Kumwe\\BusinessSchema\\Domain\\SchemaPlan"
                 },
-                {
-                    "name": "operations",
+                "operations": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [],
                     "return": "array"
                 },
-                {
-                    "name": "approve",
+                "approve": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [
                         {
@@ -2182,41 +2386,41 @@
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "approvedAt",
                             "type": "DateTimeImmutable",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "expectedChecksum",
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "confirmationDigest",
                             "type": "?string",
                             "optional": true,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "recoveryEvidenceId",
                             "type": "?string",
                             "optional": true,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "Kumwe\\BusinessSchema\\Domain\\SchemaPlan"
                 },
-                {
-                    "name": "begin",
+                "begin": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [
                         {
@@ -2224,20 +2428,20 @@
                             "type": "int",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "at",
                             "type": "DateTimeImmutable",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "Kumwe\\BusinessSchema\\Domain\\SchemaPlan"
                 },
-                {
-                    "name": "resume",
+                "resume": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [
                         {
@@ -2245,20 +2449,20 @@
                             "type": "int",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "at",
                             "type": "DateTimeImmutable",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "Kumwe\\BusinessSchema\\Domain\\SchemaPlan"
                 },
-                {
-                    "name": "complete",
+                "complete": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [
                         {
@@ -2266,48 +2470,20 @@
                             "type": "array",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "at",
                             "type": "DateTimeImmutable",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "Kumwe\\BusinessSchema\\Domain\\SchemaPlan"
                 },
-                {
-                    "name": "fail",
-                    "static": false,
-                    "parameters": [
-                        {
-                            "name": "errorCode",
-                            "type": "string",
-                            "optional": false,
-                            "variadic": false,
-                            "reference": false
-                        },
-                        {
-                            "name": "outcome",
-                            "type": "array",
-                            "optional": false,
-                            "variadic": false,
-                            "reference": false
-                        },
-                        {
-                            "name": "at",
-                            "type": "DateTimeImmutable",
-                            "optional": false,
-                            "variadic": false,
-                            "reference": false
-                        }
-                    ],
-                    "return": "Kumwe\\BusinessSchema\\Domain\\SchemaPlan"
-                },
-                {
-                    "name": "recoveryRequired",
+                "fail": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [
                         {
@@ -2315,27 +2491,55 @@
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "outcome",
                             "type": "array",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "at",
                             "type": "DateTimeImmutable",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "Kumwe\\BusinessSchema\\Domain\\SchemaPlan"
                 },
-                {
-                    "name": "compensate",
+                "recoveryRequired": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "errorCode",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "outcome",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "at",
+                            "type": "DateTimeImmutable",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\BusinessSchema\\Domain\\SchemaPlan"
+                },
+                "compensate": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [
                         {
@@ -2343,142 +2547,149 @@
                             "type": "array",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "at",
                             "type": "DateTimeImmutable",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "Kumwe\\BusinessSchema\\Domain\\SchemaPlan"
                 },
-                {
-                    "name": "canonicalPlan",
+                "canonicalPlan": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [],
                     "return": "array"
                 },
-                {
-                    "name": "checksum",
+                "checksum": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [],
                     "return": "string"
                 },
-                {
-                    "name": "toArray",
+                "toArray": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [],
                     "return": "array"
                 }
-            ],
-            "properties": [
-                {
-                    "name": "outcome",
+            },
+            "properties": {
+                "outcome": {
+                    "static": false,
                     "type": "?array",
                     "readonly": true
                 },
-                {
-                    "name": "updatedAt",
+                "updatedAt": {
+                    "static": false,
                     "type": "DateTimeImmutable",
                     "readonly": true
                 },
-                {
-                    "name": "id",
+                "id": {
+                    "static": false,
                     "type": "string",
                     "readonly": true
                 },
-                {
-                    "name": "definitionId",
+                "definitionId": {
+                    "static": false,
                     "type": "string",
                     "readonly": true
                 },
-                {
-                    "name": "siteIdentifier",
+                "siteIdentifier": {
+                    "static": false,
                     "type": "string",
                     "readonly": true
                 },
-                {
-                    "name": "fromDefinitionVersion",
+                "fromDefinitionVersion": {
+                    "static": false,
                     "type": "?int",
                     "readonly": true
                 },
-                {
-                    "name": "toDefinitionVersion",
+                "toDefinitionVersion": {
+                    "static": false,
                     "type": "int",
                     "readonly": true
                 },
-                {
-                    "name": "fromDefinitionChecksum",
+                "fromDefinitionChecksum": {
+                    "static": false,
                     "type": "?string",
                     "readonly": true
                 },
-                {
-                    "name": "toDefinitionChecksum",
+                "toDefinitionChecksum": {
+                    "static": false,
                     "type": "string",
                     "readonly": true
                 },
-                {
-                    "name": "fromSchemaChecksum",
+                "fromSchemaChecksum": {
+                    "static": false,
                     "type": "?string",
                     "readonly": true
                 },
-                {
-                    "name": "targetSchemaChecksum",
+                "targetSchemaChecksum": {
+                    "static": false,
                     "type": "string",
                     "readonly": true
                 },
-                {
-                    "name": "risk",
+                "risk": {
+                    "static": false,
                     "type": "Kumwe\\BusinessSchema\\Domain\\SchemaRisk",
                     "readonly": true
                 },
-                {
-                    "name": "status",
+                "status": {
+                    "static": false,
                     "type": "Kumwe\\BusinessSchema\\Domain\\SchemaPlanStatus",
                     "readonly": true
                 },
-                {
-                    "name": "revision",
+                "revision": {
+                    "static": false,
                     "type": "int",
                     "readonly": true
                 },
-                {
-                    "name": "createdBy",
+                "createdBy": {
+                    "static": false,
                     "type": "string",
                     "readonly": true
                 },
-                {
-                    "name": "createdAt",
+                "createdAt": {
+                    "static": false,
                     "type": "DateTimeImmutable",
                     "readonly": true
                 },
-                {
-                    "name": "approval",
+                "approval": {
+                    "static": false,
                     "type": "?Kumwe\\BusinessSchema\\Domain\\SchemaPlanApproval",
                     "readonly": true
                 },
-                {
-                    "name": "recoveryEvidenceId",
+                "recoveryEvidenceId": {
+                    "static": false,
                     "type": "?string",
                     "readonly": true
                 },
-                {
-                    "name": "executionFence",
+                "executionFence": {
+                    "static": false,
                     "type": "?int",
                     "readonly": true
                 }
-            ],
-            "constants": []
+            },
+            "constants": {}
         },
-        {
-            "name": "Kumwe\\BusinessSchema\\Domain\\SchemaPlanApproval",
+        "Kumwe\\BusinessSchema\\Domain\\SchemaPlanApproval": {
+            "stability": "stable",
+            "file": "src/Domain/SchemaPlanApproval.php",
+            "abstract": false,
+            "final": true,
+            "readonly": true,
+            "parent": null,
+            "interfaces": [],
+            "deprecated": null,
             "kind": "class",
-            "methods": [
-                {
-                    "name": "__construct",
+            "methods": {
+                "__construct": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [
                         {
@@ -2486,34 +2697,34 @@
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "approvedAt",
                             "type": "DateTimeImmutable",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "approvedChecksum",
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "confirmationDigest",
                             "type": "?string",
                             "optional": true,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": ""
                 },
-                {
-                    "name": "fromArray",
+                "fromArray": {
+                    "visibility": "public",
                     "static": true,
                     "parameters": [
                         {
@@ -2521,60 +2732,70 @@
                             "type": "array",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "Kumwe\\BusinessSchema\\Domain\\SchemaPlanApproval"
                 },
-                {
-                    "name": "toArray",
+                "toArray": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [],
                     "return": "array"
                 }
-            ],
-            "properties": [
-                {
-                    "name": "actorIdentifier",
+            },
+            "properties": {
+                "actorIdentifier": {
+                    "static": false,
                     "type": "string",
                     "readonly": true
                 },
-                {
-                    "name": "approvedAt",
+                "approvedAt": {
+                    "static": false,
                     "type": "DateTimeImmutable",
                     "readonly": true
                 },
-                {
-                    "name": "approvedChecksum",
+                "approvedChecksum": {
+                    "static": false,
                     "type": "string",
                     "readonly": true
                 },
-                {
-                    "name": "confirmationDigest",
+                "confirmationDigest": {
+                    "static": false,
                     "type": "?string",
                     "readonly": true
                 }
-            ],
-            "constants": []
+            },
+            "constants": {}
         },
-        {
-            "name": "Kumwe\\BusinessSchema\\Domain\\SchemaPlanStatus",
+        "Kumwe\\BusinessSchema\\Domain\\SchemaPlanStatus": {
+            "stability": "stable",
+            "file": "src/Domain/SchemaPlanStatus.php",
+            "abstract": false,
+            "final": true,
+            "readonly": false,
+            "parent": null,
+            "interfaces": [
+                "UnitEnum",
+                "BackedEnum"
+            ],
+            "deprecated": null,
             "kind": "enum",
-            "methods": [
-                {
-                    "name": "terminal",
+            "methods": {
+                "terminal": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [],
                     "return": "bool"
                 },
-                {
-                    "name": "cases",
+                "cases": {
+                    "visibility": "public",
                     "static": true,
                     "parameters": [],
                     "return": "array"
                 },
-                {
-                    "name": "from",
+                "from": {
+                    "visibility": "public",
                     "static": true,
                     "parameters": [
                         {
@@ -2582,13 +2803,13 @@
                             "type": "string|int",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "static"
                 },
-                {
-                    "name": "tryFrom",
+                "tryFrom": {
+                    "visibility": "public",
                     "static": true,
                     "parameters": [
                         {
@@ -2596,41 +2817,64 @@
                             "type": "string|int",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "?static"
                 }
-            ],
-            "properties": [
-                {
-                    "name": "name",
+            },
+            "properties": {
+                "name": {
+                    "static": false,
                     "type": "string",
                     "readonly": true
                 },
-                {
-                    "name": "value",
+                "value": {
+                    "static": false,
                     "type": "string",
                     "readonly": true
                 }
-            ],
-            "constants": [
-                "PendingApproval",
-                "Approved",
-                "Executing",
-                "Completed",
-                "Failed",
-                "RecoveryRequired",
-                "Compensated",
-                "Cancelled"
-            ]
+            },
+            "constants": {
+                "PendingApproval": {
+                    "type": null
+                },
+                "Approved": {
+                    "type": null
+                },
+                "Executing": {
+                    "type": null
+                },
+                "Completed": {
+                    "type": null
+                },
+                "Failed": {
+                    "type": null
+                },
+                "RecoveryRequired": {
+                    "type": null
+                },
+                "Compensated": {
+                    "type": null
+                },
+                "Cancelled": {
+                    "type": null
+                }
+            }
         },
-        {
-            "name": "Kumwe\\BusinessSchema\\Domain\\SchemaPlanStep",
+        "Kumwe\\BusinessSchema\\Domain\\SchemaPlanStep": {
+            "stability": "stable",
+            "file": "src/Domain/SchemaPlanStep.php",
+            "abstract": false,
+            "final": true,
+            "readonly": true,
+            "parent": null,
+            "interfaces": [],
+            "deprecated": null,
             "kind": "class",
-            "methods": [
-                {
-                    "name": "__construct",
+            "methods": {
+                "__construct": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [
                         {
@@ -2638,118 +2882,118 @@
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "ordinal",
                             "type": "int",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "operationChecksum",
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "operationKind",
                             "type": "Kumwe\\BusinessSchema\\Domain\\SchemaOperationKind",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "risk",
                             "type": "Kumwe\\BusinessSchema\\Domain\\SchemaRisk",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "state",
                             "type": "Kumwe\\BusinessSchema\\Domain\\SchemaStepStatus",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "attempt",
                             "type": "int",
                             "optional": true,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "executionFence",
                             "type": "?int",
                             "optional": true,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "cursor",
                             "type": "?array",
                             "optional": true,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "beforeSchemaChecksum",
                             "type": "?string",
                             "optional": true,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "afterSchemaChecksum",
                             "type": "?string",
                             "optional": true,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "outcome",
                             "type": "?array",
                             "optional": true,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "errorCode",
                             "type": "?string",
                             "optional": true,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "startedAt",
                             "type": "?DateTimeImmutable",
                             "optional": true,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "completedAt",
                             "type": "?DateTimeImmutable",
                             "optional": true,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "updatedAt",
                             "type": "?DateTimeImmutable",
                             "optional": true,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": ""
                 },
-                {
-                    "name": "fromArray",
+                "fromArray": {
+                    "visibility": "public",
                     "static": true,
                     "parameters": [
                         {
@@ -2757,13 +3001,13 @@
                             "type": "array",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "Kumwe\\BusinessSchema\\Domain\\SchemaPlanStep"
                 },
-                {
-                    "name": "pending",
+                "pending": {
+                    "visibility": "public",
                     "static": true,
                     "parameters": [
                         {
@@ -2771,27 +3015,27 @@
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "operation",
                             "type": "Kumwe\\BusinessSchema\\Domain\\SchemaOperation",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "updatedAt",
                             "type": "?DateTimeImmutable",
                             "optional": true,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "Kumwe\\BusinessSchema\\Domain\\SchemaPlanStep"
                 },
-                {
-                    "name": "start",
+                "start": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [
                         {
@@ -2799,27 +3043,27 @@
                             "type": "int",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "beforeSchemaChecksum",
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "at",
                             "type": "DateTimeImmutable",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "Kumwe\\BusinessSchema\\Domain\\SchemaPlanStep"
                 },
-                {
-                    "name": "resume",
+                "resume": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [
                         {
@@ -2827,20 +3071,20 @@
                             "type": "int",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "at",
                             "type": "DateTimeImmutable",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "Kumwe\\BusinessSchema\\Domain\\SchemaPlanStep"
                 },
-                {
-                    "name": "checkpoint",
+                "checkpoint": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [
                         {
@@ -2848,20 +3092,20 @@
                             "type": "array",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "at",
                             "type": "DateTimeImmutable",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "Kumwe\\BusinessSchema\\Domain\\SchemaPlanStep"
                 },
-                {
-                    "name": "complete",
+                "complete": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [
                         {
@@ -2869,27 +3113,27 @@
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "outcome",
                             "type": "array",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "at",
                             "type": "DateTimeImmutable",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "Kumwe\\BusinessSchema\\Domain\\SchemaPlanStep"
                 },
-                {
-                    "name": "fail",
+                "fail": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [
                         {
@@ -2897,122 +3141,129 @@
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "outcome",
                             "type": "array",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "at",
                             "type": "DateTimeImmutable",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "Kumwe\\BusinessSchema\\Domain\\SchemaPlanStep"
                 },
-                {
-                    "name": "toArray",
+                "toArray": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [],
                     "return": "array"
                 }
-            ],
-            "properties": [
-                {
-                    "name": "cursor",
+            },
+            "properties": {
+                "cursor": {
+                    "static": false,
                     "type": "?array",
                     "readonly": true
                 },
-                {
-                    "name": "outcome",
+                "outcome": {
+                    "static": false,
                     "type": "?array",
                     "readonly": true
                 },
-                {
-                    "name": "planId",
+                "planId": {
+                    "static": false,
                     "type": "string",
                     "readonly": true
                 },
-                {
-                    "name": "ordinal",
+                "ordinal": {
+                    "static": false,
                     "type": "int",
                     "readonly": true
                 },
-                {
-                    "name": "operationChecksum",
+                "operationChecksum": {
+                    "static": false,
                     "type": "string",
                     "readonly": true
                 },
-                {
-                    "name": "operationKind",
+                "operationKind": {
+                    "static": false,
                     "type": "Kumwe\\BusinessSchema\\Domain\\SchemaOperationKind",
                     "readonly": true
                 },
-                {
-                    "name": "risk",
+                "risk": {
+                    "static": false,
                     "type": "Kumwe\\BusinessSchema\\Domain\\SchemaRisk",
                     "readonly": true
                 },
-                {
-                    "name": "state",
+                "state": {
+                    "static": false,
                     "type": "Kumwe\\BusinessSchema\\Domain\\SchemaStepStatus",
                     "readonly": true
                 },
-                {
-                    "name": "attempt",
+                "attempt": {
+                    "static": false,
                     "type": "int",
                     "readonly": true
                 },
-                {
-                    "name": "executionFence",
+                "executionFence": {
+                    "static": false,
                     "type": "?int",
                     "readonly": true
                 },
-                {
-                    "name": "beforeSchemaChecksum",
+                "beforeSchemaChecksum": {
+                    "static": false,
                     "type": "?string",
                     "readonly": true
                 },
-                {
-                    "name": "afterSchemaChecksum",
+                "afterSchemaChecksum": {
+                    "static": false,
                     "type": "?string",
                     "readonly": true
                 },
-                {
-                    "name": "errorCode",
+                "errorCode": {
+                    "static": false,
                     "type": "?string",
                     "readonly": true
                 },
-                {
-                    "name": "startedAt",
+                "startedAt": {
+                    "static": false,
                     "type": "?DateTimeImmutable",
                     "readonly": true
                 },
-                {
-                    "name": "completedAt",
+                "completedAt": {
+                    "static": false,
                     "type": "?DateTimeImmutable",
                     "readonly": true
                 },
-                {
-                    "name": "updatedAt",
+                "updatedAt": {
+                    "static": false,
                     "type": "?DateTimeImmutable",
                     "readonly": true
                 }
-            ],
-            "constants": []
+            },
+            "constants": {}
         },
-        {
-            "name": "Kumwe\\BusinessSchema\\Domain\\SchemaRecoveryEvidence",
+        "Kumwe\\BusinessSchema\\Domain\\SchemaRecoveryEvidence": {
+            "stability": "stable",
+            "file": "src/Domain/SchemaRecoveryEvidence.php",
+            "abstract": false,
+            "final": true,
+            "readonly": true,
+            "parent": null,
+            "interfaces": [],
+            "deprecated": null,
             "kind": "class",
-            "methods": [
-                {
-                    "name": "__construct",
+            "methods": {
+                "__construct": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [
                         {
@@ -3020,97 +3271,97 @@
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "siteIdentifier",
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "databaseDriver",
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "databaseServerVersion",
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "applicationRelease",
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "sourceSchemaChecksum",
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "backupManifestChecksum",
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "restoreTested",
                             "type": "bool",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "backupCreatedAt",
                             "type": "DateTimeImmutable",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "verifiedAt",
                             "type": "DateTimeImmutable",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "verifiedBy",
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "drillReference",
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "details",
                             "type": "array",
                             "optional": true,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": ""
                 },
-                {
-                    "name": "fromArray",
+                "fromArray": {
+                    "visibility": "public",
                     "static": true,
                     "parameters": [
                         {
@@ -3118,13 +3369,13 @@
                             "type": "array",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "Kumwe\\BusinessSchema\\Domain\\SchemaRecoveryEvidence"
                 },
-                {
-                    "name": "qualifies",
+                "qualifies": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [
                         {
@@ -3132,152 +3383,162 @@
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "driver",
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "serverVersion",
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "applicationRelease",
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "schemaChecksum",
                             "type": "string",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "notBefore",
                             "type": "DateTimeImmutable",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "bool"
                 },
-                {
-                    "name": "toArray",
+                "toArray": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [],
                     "return": "array"
                 },
-                {
-                    "name": "checksum",
+                "checksum": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [],
                     "return": "string"
                 }
-            ],
-            "properties": [
-                {
-                    "name": "details",
+            },
+            "properties": {
+                "details": {
+                    "static": false,
                     "type": "array",
                     "readonly": true
                 },
-                {
-                    "name": "id",
+                "id": {
+                    "static": false,
                     "type": "string",
                     "readonly": true
                 },
-                {
-                    "name": "siteIdentifier",
+                "siteIdentifier": {
+                    "static": false,
                     "type": "string",
                     "readonly": true
                 },
-                {
-                    "name": "databaseDriver",
+                "databaseDriver": {
+                    "static": false,
                     "type": "string",
                     "readonly": true
                 },
-                {
-                    "name": "databaseServerVersion",
+                "databaseServerVersion": {
+                    "static": false,
                     "type": "string",
                     "readonly": true
                 },
-                {
-                    "name": "applicationRelease",
+                "applicationRelease": {
+                    "static": false,
                     "type": "string",
                     "readonly": true
                 },
-                {
-                    "name": "sourceSchemaChecksum",
+                "sourceSchemaChecksum": {
+                    "static": false,
                     "type": "string",
                     "readonly": true
                 },
-                {
-                    "name": "backupManifestChecksum",
+                "backupManifestChecksum": {
+                    "static": false,
                     "type": "string",
                     "readonly": true
                 },
-                {
-                    "name": "restoreTested",
+                "restoreTested": {
+                    "static": false,
                     "type": "bool",
                     "readonly": true
                 },
-                {
-                    "name": "backupCreatedAt",
+                "backupCreatedAt": {
+                    "static": false,
                     "type": "DateTimeImmutable",
                     "readonly": true
                 },
-                {
-                    "name": "verifiedAt",
+                "verifiedAt": {
+                    "static": false,
                     "type": "DateTimeImmutable",
                     "readonly": true
                 },
-                {
-                    "name": "verifiedBy",
+                "verifiedBy": {
+                    "static": false,
                     "type": "string",
                     "readonly": true
                 },
-                {
-                    "name": "drillReference",
+                "drillReference": {
+                    "static": false,
                     "type": "string",
                     "readonly": true
                 }
-            ],
-            "constants": []
+            },
+            "constants": {}
         },
-        {
-            "name": "Kumwe\\BusinessSchema\\Domain\\SchemaRisk",
+        "Kumwe\\BusinessSchema\\Domain\\SchemaRisk": {
+            "stability": "stable",
+            "file": "src/Domain/SchemaRisk.php",
+            "abstract": false,
+            "final": true,
+            "readonly": false,
+            "parent": null,
+            "interfaces": [
+                "UnitEnum",
+                "BackedEnum"
+            ],
+            "deprecated": null,
             "kind": "enum",
-            "methods": [
-                {
-                    "name": "severity",
+            "methods": {
+                "severity": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [],
                     "return": "int"
                 },
-                {
-                    "name": "requiresHighImpactAuthorization",
+                "requiresHighImpactAuthorization": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [],
                     "return": "bool"
                 },
-                {
-                    "name": "requiresRecoveryEvidence",
+                "requiresRecoveryEvidence": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [],
                     "return": "bool"
                 },
-                {
-                    "name": "highest",
+                "highest": {
+                    "visibility": "public",
                     "static": true,
                     "parameters": [
                         {
@@ -3285,19 +3546,19 @@
                             "type": "iterable",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "Kumwe\\BusinessSchema\\Domain\\SchemaRisk"
                 },
-                {
-                    "name": "cases",
+                "cases": {
+                    "visibility": "public",
                     "static": true,
                     "parameters": [],
                     "return": "array"
                 },
-                {
-                    "name": "from",
+                "from": {
+                    "visibility": "public",
                     "static": true,
                     "parameters": [
                         {
@@ -3305,13 +3566,13 @@
                             "type": "string|int",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "static"
                 },
-                {
-                    "name": "tryFrom",
+                "tryFrom": {
+                    "visibility": "public",
                     "static": true,
                     "parameters": [
                         {
@@ -3319,50 +3580,70 @@
                             "type": "string|int",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "?static"
                 }
-            ],
-            "properties": [
-                {
-                    "name": "name",
+            },
+            "properties": {
+                "name": {
+                    "static": false,
                     "type": "string",
                     "readonly": true
                 },
-                {
-                    "name": "value",
+                "value": {
+                    "static": false,
                     "type": "string",
                     "readonly": true
                 }
-            ],
-            "constants": [
-                "OnlineSafeAdditive",
-                "BackfillRequired",
-                "RebuildOrLocking",
-                "BehaviorChanging",
-                "Destructive"
-            ]
+            },
+            "constants": {
+                "OnlineSafeAdditive": {
+                    "type": null
+                },
+                "BackfillRequired": {
+                    "type": null
+                },
+                "RebuildOrLocking": {
+                    "type": null
+                },
+                "BehaviorChanging": {
+                    "type": null
+                },
+                "Destructive": {
+                    "type": null
+                }
+            }
         },
-        {
-            "name": "Kumwe\\BusinessSchema\\Domain\\SchemaStepStatus",
+        "Kumwe\\BusinessSchema\\Domain\\SchemaStepStatus": {
+            "stability": "stable",
+            "file": "src/Domain/SchemaStepStatus.php",
+            "abstract": false,
+            "final": true,
+            "readonly": false,
+            "parent": null,
+            "interfaces": [
+                "UnitEnum",
+                "BackedEnum"
+            ],
+            "deprecated": null,
             "kind": "enum",
-            "methods": [
-                {
-                    "name": "terminal",
+            "methods": {
+                "terminal": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [],
                     "return": "bool"
                 },
-                {
-                    "name": "cases",
+                "cases": {
+                    "visibility": "public",
                     "static": true,
                     "parameters": [],
                     "return": "array"
                 },
-                {
-                    "name": "from",
+                "from": {
+                    "visibility": "public",
                     "static": true,
                     "parameters": [
                         {
@@ -3370,13 +3651,13 @@
                             "type": "string|int",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "static"
                 },
-                {
-                    "name": "tryFrom",
+                "tryFrom": {
+                    "visibility": "public",
                     "static": true,
                     "parameters": [
                         {
@@ -3384,39 +3665,58 @@
                             "type": "string|int",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "?static"
                 }
-            ],
-            "properties": [
-                {
-                    "name": "name",
+            },
+            "properties": {
+                "name": {
+                    "static": false,
                     "type": "string",
                     "readonly": true
                 },
-                {
-                    "name": "value",
+                "value": {
+                    "static": false,
                     "type": "string",
                     "readonly": true
                 }
-            ],
-            "constants": [
-                "Pending",
-                "Running",
-                "Completed",
-                "Failed",
-                "Compensated",
-                "Skipped"
-            ]
+            },
+            "constants": {
+                "Pending": {
+                    "type": null
+                },
+                "Running": {
+                    "type": null
+                },
+                "Completed": {
+                    "type": null
+                },
+                "Failed": {
+                    "type": null
+                },
+                "Compensated": {
+                    "type": null
+                },
+                "Skipped": {
+                    "type": null
+                }
+            }
         },
-        {
-            "name": "Kumwe\\BusinessSchema\\Planner\\SchemaChangePlanner",
+        "Kumwe\\BusinessSchema\\Planner\\SchemaChangePlanner": {
+            "stability": "stable",
+            "file": "src/Planner/SchemaChangePlanner.php",
+            "abstract": false,
+            "final": true,
+            "readonly": false,
+            "parent": null,
+            "interfaces": [],
+            "deprecated": null,
             "kind": "class",
-            "methods": [
-                {
-                    "name": "operations",
+            "methods": {
+                "operations": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [
                         {
@@ -3424,34 +3724,34 @@
                             "type": "?Kumwe\\BusinessSchema\\Domain\\PhysicalSchemaBlueprint",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "target",
                             "type": "Kumwe\\BusinessSchema\\Domain\\PhysicalSchemaBlueprint",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "definition",
                             "type": "Kumwe\\BusinessDefinition\\Domain\\EntityTypeDefinition",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "dependencyBlueprints",
                             "type": "array",
                             "optional": true,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "array"
                 },
-                {
-                    "name": "containsPinnedRowBreakingChange",
+                "containsPinnedRowBreakingChange": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [
                         {
@@ -3459,13 +3759,13 @@
                             "type": "array",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "bool"
                 },
-                {
-                    "name": "hasRecordRepin",
+                "hasRecordRepin": {
+                    "visibility": "public",
                     "static": false,
                     "parameters": [
                         {
@@ -3473,21 +3773,25 @@
                             "type": "array",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         },
                         {
                             "name": "targetVersion",
                             "type": "int",
                             "optional": false,
                             "variadic": false,
-                            "reference": false
+                            "by_reference": false
                         }
                     ],
                     "return": "bool"
                 }
-            ],
-            "properties": [],
-            "constants": []
+            },
+            "properties": {},
+            "constants": {}
         }
-    ]
+    },
+    "extension_points": [
+        "Kumwe\\BusinessSchema\\Contract\\DefinitionSchemaLookup"
+    ],
+    "digest_of": "src"
 }

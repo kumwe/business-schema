@@ -37,9 +37,9 @@ foreach ($files as $file) {
                  'type' => (string) $param->getType(),
                  'optional' => $param->isOptional(),
                  'variadic' => $param->isVariadic(),
-                 'reference' => $param->isPassedByReference()];
+                 'by_reference' => $param->isPassedByReference()];
         }
-        $members[] = ['name' => $method->getName(),
+        $members[$method->getName()] = ['visibility' => 'public',
              'static' => $method->isStatic(),
              'parameters' => $params,
              'return' => (string) $method->getReturnType()];
@@ -48,29 +48,41 @@ foreach ($files as $file) {
     }
     $properties = [];
     foreach ($class->getProperties(ReflectionProperty::IS_PUBLIC) as $property) {
-        $properties[] = ['name' => $property->getName(),
+        $properties[$property->getName()] = ['static' => $property->isStatic(),
              'type' => (string) $property->getType(),
              'readonly' => $property->isReadOnly()];
     }
     $constants = [];
     foreach ($class->getReflectionConstants() as $constant) {
         if ($constant->isPublic()) {
-            $constants[] = $constant->getName();
+            $constants[$constant->getName()] = ['type' => $constant->hasType() ? (string) $constant->getType() : null];
         }
     }
-    $symbols[] = ['name' => $name,
+    $symbols[$name] = ['stability' => 'stable',
+         'file' => 'src/' . $relative . '.php',
+         'abstract' => $class->isAbstract(),
+         'final' => $class->isFinal(),
+         'readonly' => $class->isReadOnly(),
+         'parent' => ($class->getParentClass() ?: null)?->getName(),
+         'interfaces' => $class->getInterfaceNames(),
+         'deprecated' => null,
          'kind' => $class->isEnum() ? 'enum' : ($class->isInterface() ? 'interface' : 'class'),
-         'methods' => $members,
-         'properties' => $properties,
-         'constants' => $constants];
+         'methods' => (object) $members,
+         'properties' => (object) $properties,
+         'constants' => (object) $constants];
 }
-usort($symbols, static fn ($a, $b) => strcmp($a['name'], $b['name']));
+ksort($symbols, SORT_STRING);
 preg_match('/^##\s+([0-9]+\.[0-9]+\.[0-9]+)\b/m', file_get_contents($root . '/CHANGELOG.md'), $release);
-$manifest = ['schema' => 'kumwe-public-api/v1',
+$manifest = ['schema' => 'kumwe-package-public-api/v1',
      'package' => $composer['name'],
-     'release' => '0.1.0',
+     'release' => $release[1] ?? null,
      'namespace' => $prefix,
-     'symbols' => $symbols];
+     'symbols' => (object) $symbols,
+     'extension_points' => array_keys(array_filter(
+         $symbols,
+         static fn (array $symbol): bool => $symbol['kind'] === 'interface',
+     )),
+     'digest_of' => 'src'];
 $encoded = json_encode($manifest, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR) . "\n";
 $file = $root . '/resources/public-api/v1.json';
 if (in_array('--write', $argv, true)) {
