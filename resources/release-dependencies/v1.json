@@ -5,7 +5,7 @@
   "dependencies": [
     {
       "package": "kumwe/business-definition",
-      "constraint": "dev-agent/candidate-sequence-dependency-v2",
+      "constraint": "dev-main",
       "independently_verified": false,
       "attestation": null
     },
