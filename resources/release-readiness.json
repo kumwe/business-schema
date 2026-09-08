@@ -3,7 +3,7 @@
   "reason": "Release 0.1.2 records a coherent exact published upstream tuple. Package CI and the no-dev archive consumer must pass before publication; independent verification remains a separate adoption gate.",
   "dependencies": {
     "kumwe/business-definition": {
-      "version": "0.1.1",
+      "version": "0.1.2",
       "attestation": null
     },
     "kumwe/sequence": {
