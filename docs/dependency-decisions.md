@@ -11,7 +11,7 @@ runtime dependency; copying its constant would permit schema storage and numberi
 edge grants no sequence allocation, persistence, reservation, transaction or numbering authority to Business Schema.
 The package still compiles portable blueprints and plans only.
 
-The published Business Definition 0.1.1 requires Sequence 0.2.1. The 0.1.2 Business Schema candidate advances
+The published Business Definition 0.1.2 requires Sequence 0.2.1. The 0.1.2 Business Schema candidate advances
 both exact pins together, so the compiler, schema planning and archive consumer suites exercise that coherent
 published tuple. Independent release verification remains a separate downstream adoption requirement.
 A moving latest constraint cannot satisfy conflicting exact transitive requirements.
