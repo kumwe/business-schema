@@ -5,13 +5,13 @@
   "dependencies": [
     {
       "package": "kumwe/business-definition",
-      "constraint": "0.1.0",
+      "constraint": "0.1.1",
       "independently_verified": false,
       "attestation": null
     },
     {
       "package": "kumwe/sequence",
-      "constraint": "0.2.0",
+      "constraint": "0.2.1",
       "independently_verified": false,
       "attestation": null
     }

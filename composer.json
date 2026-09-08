@@ -8,9 +8,9 @@
     "php": "^8.5",
     "php-64bit": "*",
     "ext-json": "*",
-    "kumwe/business-definition": "0.1.0",
+    "kumwe/business-definition": "0.1.1",
     "ramsey/uuid": "^4.9",
-    "kumwe/sequence": "0.2.0",
+    "kumwe/sequence": "0.2.1",
     "ext-mbstring": "*",
     "psr/container": "^2.0"
   },
@@ -38,6 +38,7 @@
     "manifests": "php tools/manifests.php",
     "check": [
       "composer validate --strict",
+      "@dependencies:check",
       "@lint",
       "@architecture",
       "@test",
@@ -62,7 +63,11 @@
       "bash tools/test-release-dependencies.sh",
       "bash tools/test-package-dependencies.sh"
     ],
-    "governance": "php tools/verify-governance.php"
+    "governance": "php tools/verify-governance.php",
+    "dependencies:check": [
+      "bash tools/check-dependency-readiness.sh",
+      "bash tools/test-dependency-readiness.sh"
+    ]
   },
   "config": {
     "sort-packages": true
