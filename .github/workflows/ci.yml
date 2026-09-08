@@ -50,6 +50,7 @@ jobs:
           bash tools/test-configure-release-repositories.sh
           bash tools/test-release-dependencies.sh
           bash tools/test-package-dependencies.sh
+          bash tools/test-dependency-readiness.sh
   gate:
     name: Package gate
     runs-on: ubuntu-latest
