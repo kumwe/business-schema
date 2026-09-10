@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.3
+
+- Expose the existing deterministic dependency-handle query so hosts can resolve publication graphs
+  and pinned dependency blueprints before planning, without copying package-owned reference parsing.
+- Correct three historical symbol names in the extraction handoff and refresh release manifests.
+- Cover relationship, entity-reference and ordered-line targets, stable ordering, duplicate removal,
+  irrelevant configuration and definitions without dependencies through the public planner API.
+
 ## 0.1.2
 
 - Align exact dependency pins and release-readiness records with a coherent published Composer graph.

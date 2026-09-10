@@ -2309,6 +2309,24 @@ Generated enum/runtime member.
      * @since   2.0.0
      */
 
+### dependencyHandles
+
+/**
+     * List the definition handles this definition points at, from its relationships and reference fields.
+     *
+     * Fields contribute a handle only when they are `core.entity_reference` or `core.ordered_lines` and
+     * name a string target. The result is deduplicated and sorted, so dependencies are always resolved in
+     * the same order however the definition happened to be written.
+     * Hosts resolve these handles under their own site and version authority before compiling the
+     * dependency blueprints supplied to operations(); this method performs no lookup or persistence.
+     *
+     * @param   EntityTypeDefinition  $definition  Definition version whose outgoing references are wanted.
+     *
+     * @return  list<string>  Referenced handles in ascending order, each once; empty when it references none.
+     *
+     * @since   2.0.0
+     */
+
 ## Kumwe\BusinessSchema\Container\PhysicalSchemaCompilerFactory
 
 /** Constructs the compiler only with explicit trusted host inputs. No registry or prefix is invented. */

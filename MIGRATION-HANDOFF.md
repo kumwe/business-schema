@@ -147,16 +147,16 @@ ownership:
   public_manifests:
     -
       path: "resources/public-api/v1.json"
-      sha256: "d5979bb72732468b17d96e782b0eefa68e8db2736c7b341bf6acd5178ec3c849"
+      sha256: "d3dd01caf6d4b6162c54f87797aadc38457754866f1abeb5bfb31d16c6b54178"
     -
       path: "resources/capabilities/v1.json"
-      sha256: "d2aa251dd2cb143061704a260bab2fcb13f9d1388a13237991307275d667f525"
+      sha256: "9df001a9b1b911e9fa012d2a6de75ae34f9ab8e1c647a59ddb9af529f4b60bd7"
     -
       path: "resources/service-map/v1.json"
-      sha256: "d4dcc5e002dbffad1d2ce998749856fae0384e449e69fe0f6672969126f17555"
+      sha256: "d7a0f0d59aa94f0f251c598c75a4b97072cbd213e1957e93d321200f268c607b"
     -
       path: "resources/test-ownership/v1.json"
-      sha256: "521a23ad134253ec00f84192ab66b09d767d9d3dee338943a2845201922d9bcf"
+      sha256: "98d475d96b24535ee998005ef5fb256cdcd74105b1b2fa5a0b21dd15bedcfffe"
   intentionally_excluded:
     - "App repositories, policy gates and lifecycle orchestration"
     - "production PHP native executor fallback"
@@ -168,7 +168,7 @@ framework_php:
   service_map: "resources/service-map/v1.json"
   extracted_symbols:
     -
-      old_fqcn: "Kumwe\\App\\BusinessSchema\\Domain\\to"
+      old_fqcn: "Kumwe\\App\\BusinessSchema\\Domain\\InvalidBusinessSchema"
       new_fqcn: "Kumwe\\BusinessSchema\\Domain\\InvalidBusinessSchema"
       source_path: "src/BusinessSchema/Domain/InvalidBusinessSchema.php"
       target_path: "src/Domain/InvalidBusinessSchema.php"
@@ -338,7 +338,7 @@ framework_php:
       serialization_contract: "See docs/public-api.md and package conformance corpus for exact serialization."
       compatibility: "Portable source closure; host authority stays with the consumer. See resources/extraction/v1.json for source ownership and extraction granularity."
     -
-      old_fqcn: "Kumwe\\App\\BusinessSchema\\Domain\\is"
+      old_fqcn: "Kumwe\\App\\BusinessSchema\\Domain\\SchemaDocument"
       new_fqcn: "Kumwe\\BusinessSchema\\Domain\\SchemaDocument"
       source_path: "src/BusinessSchema/Domain/SchemaDocument.php"
       target_path: "src/Domain/SchemaDocument.php"
@@ -671,7 +671,7 @@ framework_php:
       serialization_contract: "See docs/public-api.md and package conformance corpus for exact serialization."
       compatibility: "Portable source closure; host authority stays with the consumer. See resources/extraction/v1.json for source ownership and extraction granularity."
     -
-      old_fqcn: "Kumwe\\App\\BusinessSchema\\Domain\\of"
+      old_fqcn: "Kumwe\\App\\BusinessSchema\\Domain\\SchemaRisk"
       new_fqcn: "Kumwe\\BusinessSchema\\Domain\\SchemaRisk"
       source_path: "src/BusinessSchema/Domain/SchemaRisk.php"
       target_path: "src/Domain/SchemaRisk.php"
@@ -746,6 +746,7 @@ framework_php:
         - "operations"
         - "containsPinnedRowBreakingChange"
         - "hasRecordRepin"
+        - "dependencyHandles"
       public_properties: []
       public_constants: []
       exceptions:
@@ -851,6 +852,7 @@ native_cpp: null
 php_extension: null
 tests:
   moved_or_added:
+    - "tests/SchemaChangePlannerTest.php (testDependencyHandlesIncludeAllReferenceFormsInStableUniqueOrder, testDependencyHandlesIgnoreMissingAndNonStringTargets); provenance: resources/test-ownership/v1.json"
     - "tests/ContainerTest.php (testRealContainerResolvesSharedCompilerWithExplicitHostPorts, testMissingHostAuthorityBindingDoesNotReceiveAnImplicitDefault); provenance: resources/test-ownership/v1.json"
     - "tests/PhysicalNameCompilerTest.php (testNamesAreDeterministicBoundedAndDefinitionScoped, testRejectsNonCanonicalPrefixesThatCouldCollapseOrProduceInvalidNames, testDistinctCanonicalPrefixesCannotCompileTheSamePhysicalName); provenance: resources/test-ownership/v1.json"
     - "tests/PhysicalSchemaCompilerTest.php (testReferenceIdentityUsesGuidPrimaryKeyAndScopedAlternateUniqueIndex, testConstraintNamesCannotCollideAcrossDefinitions, testVirtualFormulaIsOmittedAndStoredFormulaUsesItsExactResultType, testStructuredRuntimeDefaultIsNotEmittedAsANonPortableJsonDatabaseDefault, testPortableTextLengthBoundaryIsPreservedWithoutSilentCapping, testForeignKeySupportIndexIsAlwaysExplicitInThePortableBlueprint, testAReversalCompilesToARestrictedSelfTargetColumn); provenance: resources/test-ownership/v1.json"
@@ -878,9 +880,9 @@ documentation:
   integration_or_consumer: "docs/integration.md"
   examples:
     - "examples/consumer.php"
-  changelog_record: "CHANGELOG.md / 0.1.2"
+  changelog_record: "CHANGELOG.md / 0.1.3"
 release_expectations:
-  version_policy: "SemVer maintenance release 0.1.2 after human merge. Direct Kumwe dependencies use coherent exact published stable versions. Independent final release verification precedes App adoption."
+  version_policy: "SemVer maintenance release 0.1.3 after reviewed merge. Direct Kumwe dependencies use coherent exact published stable versions. Independent final release verification precedes App adoption."
   expected_artifact_types:
     - "Composer source zip"
   required_checks:
@@ -1092,3 +1094,10 @@ remain an explicit absence of independent verification, not a completed adoption
 
 Maintainer merge, final release publication and independent artifact/dependency verification remain
 required before downstream adoption. No App implementation or integration changes are included.
+
+## Host dependency discovery update — 0.1.3
+
+The existing dependency-handle query is now public so App can resolve publication graphs and pinned
+dependency blueprints under its own site authority before calling the package planner. No parsing
+behavior moved back into App. The historical symbol mappings now name InvalidBusinessSchema,
+SchemaDocument and SchemaRisk exactly, matching their recorded source paths.

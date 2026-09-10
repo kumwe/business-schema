@@ -652,6 +652,8 @@ final class SchemaChangePlanner
      * Fields contribute a handle only when they are `core.entity_reference` or `core.ordered_lines` and
      * name a string target. The result is deduplicated and sorted, so dependencies are always resolved in
      * the same order however the definition happened to be written.
+     * Hosts resolve these handles under their own site and version authority before compiling the
+     * dependency blueprints supplied to operations(); this method performs no lookup or persistence.
      *
      * @param   EntityTypeDefinition  $definition  Definition version whose outgoing references are wanted.
      *
@@ -659,7 +661,7 @@ final class SchemaChangePlanner
      *
      * @since   2.0.0
      */
-    private function dependencyHandles(EntityTypeDefinition $definition): array
+    public function dependencyHandles(EntityTypeDefinition $definition): array
     {
         $handles = [];
         foreach ($definition->relationships() as $relationship) {
