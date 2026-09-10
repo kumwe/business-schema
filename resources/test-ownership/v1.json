@@ -72,6 +72,16 @@
             ]
         },
         {
+            "path": "tests/SchemaChangePlannerTest.php",
+            "methods": [
+                "testDependencyHandlesIncludeAllReferenceFormsInStableUniqueOrder",
+                "testDependencyHandlesIgnoreMissingAndNonStringTargets"
+            ],
+            "implementation_owner": "kumwe/business-schema",
+            "source_ownership": "new_package_tests",
+            "source_tests": []
+        },
+        {
             "path": "tests/SchemaEvolutionHintsTest.php",
             "methods": [
                 "testLiteralAndExpressionBackfillsRoundTripCanonically",
