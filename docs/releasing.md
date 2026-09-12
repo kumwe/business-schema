@@ -1,6 +1,6 @@
 # Releasing
 
-Version 0.1.0 is recorded in CHANGELOG.md and the public API manifest. Direct Kumwe
+The newest numbered CHANGELOG.md entry selects the release and must match the public API manifest. Direct Kumwe
 requirements name published stable versions. PRs and human rebase merges run the
 same Package gate, including package-owned behavior tests and a stable, no-dev
 archive consumer installation. A successful default-branch run publishes the recorded

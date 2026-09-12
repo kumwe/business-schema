@@ -81,17 +81,17 @@ foreach ($services['factories'] as $factory) {
     $require(isset($api['symbols'][$factory['factory']]), 'factory is not exported');
     $require(in_array($factory['lifetime'], ['shared', 'non-shared', 'request-supplied'], true), 'service lifetime');
 }
-$handoff = file_get_contents($root . '/MIGRATION-HANDOFF.md');
-$require(str_starts_with($handoff, "---\n"), 'handoff must start with YAML front matter');
-$parts = explode("\n---\n", $handoff, 2);
-$require(count($parts) === 2, 'handoff front matter closing fence');
-$require(str_contains($parts[0], 'schema: "kumwe-migration-handoff/v2"'), 'handoff schema');
-$require(str_contains($parts[0], 'composer_package: "' . $composer['name'] . '"'), 'handoff identity');
+$record = file_get_contents($root . '/docs/release-record.md');
+$require(str_starts_with($record, "---\n"), 'release record must start with YAML front matter');
+$parts = explode("\n---\n", $record, 2);
+$require(count($parts) === 2, 'release record front matter closing fence');
+$require(str_contains($parts[0], 'schema: "kumwe-package-release-record/v1"'), 'release record schema');
+$require(str_contains($parts[0], 'composer_package: "' . $composer['name'] . '"'), 'release record identity');
 foreach (
     [
-    'Migration/implementation summary', 'Public API and responsibility', 'Capability reuse/semantic input review',
-    'Consumer inventory', 'Test ownership', 'Next-task execution notes', 'Drift check',
-    'Validation recipe and observed local results',
+    'Package contract', 'Public API and responsibility', 'Dependencies and semantic inputs',
+    'Consumer contract', 'Test ownership', 'Consumer verification', 'Compatibility and drift',
+    'Validation',
     ] as $section
 ) {
     $require(preg_match('/^##\s+(?:[0-9]+\.\s+)?' . preg_quote($section, '/') . '\s*$/m', $parts[1]) === 1, $section);
@@ -99,11 +99,11 @@ foreach (
 preg_match_all('/path: "([^"]+)"\n\s+sha256: "([a-f0-9]{64})"/', $parts[0], $digests, PREG_SET_ORDER);
 $observed = [];
 foreach ($digests as $digest) {
-    $require(is_file($root . '/' . $digest[1]), 'handoff manifest path missing');
-    $require(hash_file('sha256', $root . '/' . $digest[1]) === $digest[2], 'handoff digest drift: ' . $digest[1]);
+    $require(is_file($root . '/' . $digest[1]), 'release record manifest path missing');
+    $require(hash_file('sha256', $root . '/' . $digest[1]) === $digest[2], 'release record digest drift: ' . $digest[1]);
     $observed[$digest[1]] = true;
 }
 foreach (['public-api', 'capabilities', 'service-map'] as $kind) {
-    $require(isset($observed['resources/' . $kind . '/v1.json']), 'handoff missing manifest digest');
+    $require(isset($observed['resources/' . $kind . '/v1.json']), 'release record missing manifest digest');
 }
-echo "Governance identities, API shape, semantic ownership, service declarations and handoff digests verified.\n";
+echo "Governance identities, API shape, semantic ownership, service declarations and release record digests verified.\n";
