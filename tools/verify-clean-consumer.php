@@ -27,7 +27,7 @@ foreach (range(0, $zip->numFiles - 1) as $index) {
         throw new RuntimeException('Development file leaked into package archive: ' . $name);
     }
 }
-$requiredFiles = ['composer.json', 'resources/public-api/v1.json', 'MIGRATION-HANDOFF.md', 'examples/consumer.php'];
+$requiredFiles = ['composer.json', 'resources/public-api/v1.json', 'docs/release-record.md', 'examples/consumer.php'];
 foreach ($requiredFiles as $required) {
     if ($zip->locateName($required) === false) {
         throw new RuntimeException('Missing archive contract: ' . $required);

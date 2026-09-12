@@ -1,9 +1,8 @@
 ---
-schema: "kumwe-migration-handoff/v2"
+schema: "kumwe-package-release-record/v1"
 artifact_kind: "framework_php"
 migration_id: "KUMWE-MIG-2026-030"
 change_set: "KUMWE-CS-2026-030"
-state: "draft_pr_open"
 source:
   app:
     repository: "https://github.com/kumwe/app"
@@ -116,13 +115,10 @@ source:
   examined_dependencies:
     - "kumwe/business-definition 0.1.2; independent release attestation not asserted"
     - "kumwe/sequence 0.2.1; independent release attestation not asserted"
-  active_related_pull_requests: []
 target:
   repository: "https://github.com/kumwe/business-schema"
   artifact_identity: "kumwe/business-schema"
   canonical_namespace_or_abi: "Kumwe\\BusinessSchema\\"
-  branch: "codex/extraction-readiness-20260907"
-  pull_request: "https://github.com/kumwe/business-schema/pull/3"
 ownership:
   responsibility: "Portable physical schema blueprints, deterministic change plans and recovery values."
   non_responsibilities:
@@ -882,7 +878,7 @@ documentation:
     - "examples/consumer.php"
   changelog_record: "CHANGELOG.md / 0.1.3"
 release_expectations:
-  version_policy: "SemVer maintenance release 0.1.3 after reviewed merge. Direct Kumwe dependencies use coherent exact published stable versions. Independent final release verification precedes App adoption."
+  version_policy: "SemVer; direct Kumwe dependencies use coherent exact published stable versions. Independent release verification precedes Core adoption."
   expected_artifact_types:
     - "Composer source zip"
   required_checks:
@@ -893,8 +889,7 @@ release_expectations:
     - "immutable release and source/artifact manifests independently attested"
   required_registry_or_installer: "Composer"
   required_external_attestation: true
-next_task:
-  phase_name: "Independent release verification, followed by separate App adoption"
+consumer_contract:
   permitted_only_when:
     - "Human merges package PR"
     - "Immutable upstream dependency releases and target release are independently verified"
@@ -977,127 +972,72 @@ next_task:
     - "composer check"
     - "composer clean-consumer"
     - "App affected integration train and platform matrix"
-concurrency:
-  likely_conflict_files:
-    - "App composer.json"
-    - "App composer.lock"
-    - "App capability and migration registries"
-  related_migrations:
-    - "KUMWE-MIG-2026-029"
-    - "KUMWE-MIG-2026-031"
-    - "KUMWE-MIG-2026-032"
-    - "KUMWE-MIG-2026-033"
-  ownership_conflicts: []
-  integration_train: null
-  resolution_rule: "semantic-preservation"
 governance:
-  roadmap_source_sha256: "a202155ef1a65f5ab293d4f8397ebf4ac430db7f1e877c776bbe7851e6fe18d8"
-  roadmap_refs: []
-  non_roadmap_refs:
-    - "NRM-2026-030"
   completion_claim: false
 decisions:
   - "Canonical namespace and approved value behavior retained."
   - "No host authority or persistence moves into the package."
   - "See CHARTER.md for explicit dependency amendments; no release approval is inferred."
 blockers:
-  - "The 0.1.2 readiness candidate requires maintainer review and merge. Version 0.1.1 has already been published."
   - "Independent verification of the final maintenance release and its complete dependency closure remains a separate task before App adoption."
 ---
 
-# Migration handoff
+# Business Schema release record
 
-## Migration/implementation summary
+This record binds public manifests, baseline source ownership, DI requirements and
+consumer test responsibilities. Baseline paths describe compatibility evidence;
+consumers reconcile them against current Core before changing implementations.
 
-The published 0.1.0 package owns the portable source listed in the machine inventory.
-The published 0.1.1 maintenance release completes immutable input snapshots, current release
-metadata and consumer-readable governance records. App adoption is a separate phase.
+## Package contract
+
+Portable physical schema blueprints, deterministic change plans and recovery values
+belong to Business Schema. Core owns database adapters, scope authority, policy,
+signing secrets, transactions, leases/fences, DDL, journals, persistence and delivery.
 
 ## Public API and responsibility
 
-The canonical namespace, exported signatures and service lifetimes are recorded in
-the three resources manifests. See CHARTER.md, docs/public-api.md and docs/architecture.md
-for invariants and the boundary between package semantics and host authority.
+See [public API](public-api.md), [architecture](architecture.md) and the canonical
+API, capability and service-map manifests. Compiler and planner services are shared
+and stateless. Approved plan checksums and recovery inputs remain detached from
+caller references after admission.
 
-## Capability reuse/semantic input review
+## Dependencies and semantic inputs
 
-The semantic inputs and exact dependency requirements above identify reused owners.
-No development branch or moving latest version is a release dependency. Published
-transitive exact pins constrain updates until the prerequisite maintenance release exists.
+Business Definition owns trusted definition semantics and Sequence owns number-format
+bounds. Both are exact runtime dependencies. [Dependency decisions](dependency-decisions.md)
+explain this boundary. The source ownership manifest and conformance corpus retain
+baseline provenance; they do not prove host database or native integration.
 
-## Consumer inventory
+## Consumer contract
 
-The framework_php.consumers inventory records App code, configuration and external
-consumers. Those paths remain read-only during Phase 1; the integration task must
-repeat the inventory against its chosen App commit before deleting legacy classes.
+Core supplies typed DefinitionSchemaLookup, FieldTypeDefinitionResolver and
+PhysicalNameCompiler bindings. Missing inputs fail construction. Use dependencyHandles()
+to discover outgoing dependencies, resolve versions under host authority, compile
+blueprints and then plan operations. See [integration](integration.md).
 
 ## Test ownership
 
-Library behavior and regression tests live under tests/ and are indexed in
-resources/test-ownership/v1.json. The machine test inventory preserves the source
-provenance and separates host acceptance work from portable library behavior.
+Package tests own portable behavior, immutability, boundary refusal and conformance.
+The [test ownership contract](test-ownership.md) and resource manifest retain exact
+source provenance and host acceptance responsibilities. Runtime database migration,
+recovery, authorization and fencing tests remain with the host.
 
-## Next-task execution notes
+## Consumer verification
 
-Review and merge this maintenance candidate, publish and independently verify its
-release, then use docs/integration.md with the machine execution inventory for App
-adoption. Native parity and host integration cannot be inferred from package unit tests.
+Independently verify exact package and dependency releases, source identities, archive
+and manifest digests. Run the host integration and database acceptance suites after
+composition. Pre-1.0 requirements remain exact; moving constraints cannot resolve an
+incompatible transitive version graph.
 
-## Drift check
+## Compatibility and drift
 
-The source baseline and source paths remain explicit in this record. Manifest
-digests are regenerated together with the public signatures and reviewed test inventory.
-Repeat the source/consumer inventory and dependency solve before integration.
+Reconcile baseline source and consumer inventories, including configuration, fixtures
+and dynamically composed names, before removing duplicate implementations. Public
+signatures, canonical plan bytes and source provenance are compatibility contracts.
 
-## Validation recipe and observed local results
+## Validation
 
-Run composer check and composer clean-consumer from a clean checkout. The local
-unit and static-analysis gates passed during the maintenance review; release automation
-and the clean consumer must pass for the final reviewed commit before publication.
-The App v2 governance parser was also used read-only to verify all three manifests
-and this handoff against the actual consumer contract.
-
-
-## Maintenance review 2026-09-07
-
-The portable source closure and package-owned conformance corpus remain in this library.
-New behavior and immutability regression tests are recorded in the test ownership manifest.
-Completed extraction instructions now describe shipped behavior; host composition, database
-acceptance and App deletion steps remain in the separate adoption handoff above.
-
-Exact dependency pins remain intentional. Business Definition and Record Values maintenance
-releases must be published and verified before their dependent libraries can advance together.
-A moving latest constraint cannot resolve incompatible exact pre-1.0 transitive requirements.
-
-## Dependency catalogue review
-
-See `docs/dependency-decisions.md` for the existing source-derived dependency omitted by the original catalogue.
-Reconcile that narrow ceiling amendment during maintainer review before declaring catalogue alignment or App adoption.
-
-Integration train description: Framework 4 Business Data
-
-
-
-
-
-The consumer inventory was recomputed against App 24ecf956423c18933e824b43cea1bfb9127a79a9
-by searching tracked PHP, JSON, YAML, XML, JavaScript and TypeScript for the historical
-fully qualified symbols and their escaped string forms. Configuration and fixtures
-are listed separately; the adoption review must also resolve dynamically composed names.
-
-## Dependency readiness update — 0.1.2
-
-The 0.1.1 release is published. This candidate uses `kumwe/business-definition 0.1.2`, `kumwe/sequence 0.2.1`.
-The Composer install and no-dev archive consumer resolve the complete transitive graph; the readiness
-regression gate prevents its direct dependency records from drifting again. Null attestation coordinates
-remain an explicit absence of independent verification, not a completed adoption claim.
-
-Maintainer merge, final release publication and independent artifact/dependency verification remain
-required before downstream adoption. No App implementation or integration changes are included.
-
-## Host dependency discovery update — 0.1.3
-
-The existing dependency-handle query is now public so App can resolve publication graphs and pinned
-dependency blueprints under its own site authority before calling the package planner. No parsing
-behavior moved back into App. The historical symbol mappings now name InvalidBusinessSchema,
-SchemaDocument and SchemaRisk exactly, matching their recorded source paths.
+Run `composer check` and `composer clean-consumer`. Required checks cover dependency
+identity, behavior/conformance, architecture, static analysis, API/governance, audit,
+release automation and no-dev authoritative archive consumption. Published releases
+and independent attestations retain their own exact source and artifact identities.
