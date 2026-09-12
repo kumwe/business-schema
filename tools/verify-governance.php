@@ -100,10 +100,10 @@ preg_match_all('/path: "([^"]+)"\n\s+sha256: "([a-f0-9]{64})"/', $parts[0], $dig
 $observed = [];
 foreach ($digests as $digest) {
     $require(is_file($root . '/' . $digest[1]), 'release record manifest path missing');
-    $require(hash_file('sha256', $root . '/' . $digest[1]) === $digest[2], 'release record digest drift: ' . $digest[1]);
+    $require(hash_file('sha256', $root . '/' . $digest[1]) === $digest[2], 'Record digest drift: ' . $digest[1]);
     $observed[$digest[1]] = true;
 }
 foreach (['public-api', 'capabilities', 'service-map'] as $kind) {
     $require(isset($observed['resources/' . $kind . '/v1.json']), 'release record missing manifest digest');
 }
-echo "Governance identities, API shape, semantic ownership, service declarations and release record digests verified.\n";
+echo "Governance identities, API shape, semantic ownership, service declarations and record digests verified.\n";
