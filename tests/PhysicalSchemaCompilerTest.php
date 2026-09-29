@@ -17,17 +17,48 @@ use ReflectionMethod;
 #[CoversClass(CanonicalDefinitionPhysicalSchemaCompiler::class)]
 final class PhysicalSchemaCompilerTest extends TestCase
 {
+    /**
+     * Default browsing and sortable fields keep the scope and identity in their portable indexes.
+     *
+     * @return  void
+     *
+     * @since   2.0.0
+     */
     public function testReferenceIdentityUsesGuidPrimaryKeyAndScopedAlternateUniqueIndex(): void
     {
-        $definition = EntityTypeDefinition::fromArray(self::document(
-            '018f4f24-98d8-7ad4-8f3f-38c909178b6b',
-            'site.default.asset',
-            'reference',
-        ));
-        $blueprint = $this->compiler()->compile($definition, 'default');
-        $table = $blueprint->table('record');
-
+        $document = self::document('018f4f24-98d8-7ad4-8f3f-38c909178b6b', 'site.default.asset', 'reference');
+        $document['fields'][1]['sortable'] = true;
+        $document['fields'][] = [
+            'handle' => 'rank', 'label' => 'Rank', 'type' => 'core.integer', 'sortable' => true,
+        ];
+        $document['fields'][] = [
+            'handle' => 'optional_code', 'label' => 'Optional code', 'type' => 'core.text',
+            'length' => 32, 'nullable' => true, 'unique' => true, 'sortable' => true,
+        ];
+        $table = $this->compiler()->compile(EntityTypeDefinition::fromArray($document), 'default')->table('record');
         self::assertNotNull($table);
+        $indexes = [];
+        foreach ($table->indexes() as $index) {
+            $indexes[$index->logicalName] = $index;
+        }
+        foreach (
+            [
+                'browse.updated_at' => 'updated_at',
+                'field.external_reference' => 'external_reference',
+                'sort.rank' => 'rank',
+                'sort.optional_code' => 'optional_code',
+            ] as $logical => $field
+        ) {
+            self::assertSame([
+                $table->column('site_identifier')?->physicalName,
+                $table->column($field)?->physicalName,
+                $table->column('record_id')?->physicalName,
+            ], $indexes[$logical]->columns);
+            self::assertFalse($indexes[$logical]->unique);
+        }
+        self::assertTrue($indexes['field.reference']->unique);
+        self::assertTrue($indexes['field.optional_code']->unique);
+        self::assertCount(2, $indexes['field.optional_code']->columns);
         self::assertSame('guid', $table->column('record_id')?->doctrineType);
         self::assertSame([$table->column('record_id')?->physicalName], $table->primaryKey);
         $identityIndex = array_values(array_filter(
