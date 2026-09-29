@@ -217,14 +217,34 @@ final readonly class CanonicalDefinitionPhysicalSchemaCompiler
                 ...$this->scopePhysicalColumns($columns, $definition),
                 ...$fieldPhysicalColumns,
             ];
+            $sortLength = $fieldColumns[0]->options['length'] ?? null;
+            $indexableSort = $field->sortable && count($fieldColumns) === 1
+                && !in_array($fieldColumns[0]->doctrineType, ['binary', 'blob', 'json', 'text'], true)
+                && (!is_int($sortLength) || $sortLength <= 191);
             if ($field->unique || $field->indexed) {
                 $this->assertIndexable($field, $fieldColumns);
                 $logical = 'field.' . $field->handle;
+                if ($indexableSort && !$field->unique) {
+                    $indexedColumns[] = $this->column($columns, 'record_id')->physicalName;
+                }
                 $indexes[] = new PhysicalIndexBlueprint(
                     $logical,
                     $this->names->index($physicalTable, $logical, $indexedColumns),
                     $indexedColumns,
                     $field->unique,
+                );
+            }
+            if (
+                $indexableSort
+                && ((!$field->indexed && !$field->unique) || ($field->unique && $fieldColumns[0]->nullable))
+            ) {
+                $logical = 'sort.' . $field->handle;
+                $sortColumns = [...$indexedColumns, $this->column($columns, 'record_id')->physicalName];
+                $indexes[] = new PhysicalIndexBlueprint(
+                    $logical,
+                    $this->names->index($physicalTable, $logical, $sortColumns),
+                    $sortColumns,
+                    false,
                 );
             }
             if ($field->type === 'core.entity_reference') {
@@ -292,30 +312,19 @@ final readonly class CanonicalDefinitionPhysicalSchemaCompiler
             );
         }
 
-        // Every emitted index is led by the scope columns, so a definition declaring at least one indexed
-        // field or materialized relationship already reaches its rows through the scope. A definition
-        // declaring neither used to compile a table with only its primary key, and every policy-filtered
-        // page over it was a full scan the moment the installation grew — which is what the declared
-        // hot-plan gate now refuses. The bare scope index is emitted only when nothing else leads with
-        // the scope, so already-indexed installations compile to the byte-identical blueprint they did.
-        $scopeColumns = $this->scopePhysicalColumns($columns, $definition);
-        if ($scopeColumns !== []) {
-            $scoped = false;
-            foreach ($indexes as $index) {
-                if ($this->leftPrefix($index->columns, $scopeColumns)) {
-                    $scoped = true;
-                    break;
-                }
-            }
-            if (!$scoped) {
-                $indexes[] = new PhysicalIndexBlueprint(
-                    'scope',
-                    $this->names->index($physicalTable, 'scope', $scopeColumns),
-                    $scopeColumns,
-                    false,
-                );
-            }
-        }
+        // The default browse orders by last update and identity. A scope-only index cannot serve that
+        // order; its replacement also covers scope lookups through the same left prefix.
+        $browseColumns = [
+            ...$this->scopePhysicalColumns($columns, $definition),
+            $this->column($columns, 'updated_at')->physicalName,
+            $this->column($columns, 'record_id')->physicalName,
+        ];
+        $indexes[] = new PhysicalIndexBlueprint(
+            'browse.updated_at',
+            $this->names->index($physicalTable, 'browse.updated_at', $browseColumns),
+            $browseColumns,
+            false,
+        );
         $this->sortColumns($columns);
         $identity = $this->column($columns, 'record_id');
         $this->ensureForeignKeyIndexes(

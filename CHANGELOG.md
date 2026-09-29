@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased
+
+- Add scoped indexes for default record browsing and indexable sortable fields, including record identity
+  for stable paging. Preserve unique constraints and cover nullable unique sort ties separately.
+- Existing record tables receive these indexes through the normal schema plan for their next published
+  definition version.
+
 ## 0.1.3
 
 - Expose the existing deterministic dependency-handle query so hosts can resolve publication graphs
