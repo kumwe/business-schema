@@ -13,7 +13,7 @@ under `Kumwe\BusinessSchema`.
 Requires 64-bit PHP 8.5 with JSON and mbstring. Pin an exact pre-1.0 release:
 
 ```sh
-composer require kumwe/business-schema:0.1.3
+composer require kumwe/business-schema:0.1.4
 ```
 
 Composer declares exact Business Definition and Sequence requirements. The version

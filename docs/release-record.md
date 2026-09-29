@@ -143,13 +143,13 @@ ownership:
   public_manifests:
     -
       path: "resources/public-api/v1.json"
-      sha256: "d3dd01caf6d4b6162c54f87797aadc38457754866f1abeb5bfb31d16c6b54178"
+      sha256: "1624a9601a32b2768b463cee124fc2cf21abd0e90ad95a43bd8de068849fc4b9"
     -
       path: "resources/capabilities/v1.json"
-      sha256: "9df001a9b1b911e9fa012d2a6de75ae34f9ab8e1c647a59ddb9af529f4b60bd7"
+      sha256: "0f8366ef60f2d422d8cec449e6cc53f143e707cd719efea3e51906bc50b71643"
     -
       path: "resources/service-map/v1.json"
-      sha256: "d7a0f0d59aa94f0f251c598c75a4b97072cbd213e1957e93d321200f268c607b"
+      sha256: "89573cb1a24918a958638316807c6d013fff078e954c7ee2281e0eb520c4cf0a"
     -
       path: "resources/test-ownership/v1.json"
       sha256: "98d475d96b24535ee998005ef5fb256cdcd74105b1b2fa5a0b21dd15bedcfffe"
@@ -876,7 +876,7 @@ documentation:
   integration_or_consumer: "docs/integration.md"
   examples:
     - "examples/consumer.php"
-  changelog_record: "CHANGELOG.md / 0.1.3"
+  changelog_record: "CHANGELOG.md / 0.1.4"
 release_expectations:
   version_policy: "SemVer; direct Kumwe dependencies use coherent exact published stable versions. Independent release verification precedes Core adoption."
   expected_artifact_types:

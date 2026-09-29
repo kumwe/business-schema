@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.1.4
 
 - Add scoped indexes for default record browsing and indexable sortable fields, including record identity
   for stable paging. Preserve unique constraints and cover nullable unique sort ties separately.
